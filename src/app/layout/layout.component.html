@@ -1,0 +1,39 @@
+<div class="main-container">
+  <mat-toolbar color="primary"
+    ><div>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon matTooltip="Menu">menu</mat-icon>
+      </button>
+    </div>
+
+    <span style="padding-left: 30%"></span>
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer opened #drawer class="exmple-sidenav" mode="side">
+      <button
+        mat-raised-button
+        color="accent"
+        class="sideNavButton"
+        style="margin-top: 10px; margin-bottom: 10px"
+      >
+        Accent
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        class="sideNavButton"
+        style="margin-top: 10px; margin-bottom: 10px"
+      >
+        Accent
+      </button>
+    </mat-drawer>
+
+    <router-outlet></router-outlet>
+  </mat-drawer-container>
+</div>
