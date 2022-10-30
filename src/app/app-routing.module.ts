@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 
-const routes: Routes = [
+const routes: Route[] = [
   {
     path: '',
     component: LayoutComponent,
@@ -13,6 +13,23 @@ const routes: Routes = [
           import('./modules/vehicle/vehicle.module').then(
             (x) => x.VehicleModule
           ),
+      },
+      {
+        path: 'maintenance',
+        loadChildren: () =>
+          import('./modules/maintenance/maintenance.module').then(
+            (x) => x.MaintenanceModule
+          ),
+      },
+      {
+        path: 'driver',
+        loadChildren: () =>
+          import('./modules/driver/driver.module').then((x) => x.DriverModule),
+      },
+      {
+        path: 'refuel',
+        loadChildren: () =>
+          import('./modules/refuel/refuel.module').then((x) => x.RefuelModule),
       },
     ],
   },
