@@ -1,23 +1,28 @@
-<div>
+<div [formGroup]="vForm">
   <div class="row">
     <mat-form-field class="example-full-width col" appearance="outline">
       <mat-label>Vehicle Name</mat-label>
-      <input matInput placeholder="Ex. Pizza" /> </mat-form-field
+      <input
+        matInput
+        placeholder="Ex. Pizza"
+        formControlName="vName"
+      /> </mat-form-field
     ><mat-form-field class="example-full-width col" appearance="outline">
       <mat-label>Vehicle Number</mat-label>
-      <input matInput placeholder="Ex. Pizza" />
+      <input matInput placeholder="Ex. Pizza" formControlName="vNumber" />
     </mat-form-field>
   </div>
-  <div class="row">
-    <mat-form-field class="example-full-width col" appearance="outline">
-      <mat-label>Vehicle Insurance Company </mat-label>
-      <input matInput placeholder="Ex. Pizza" /> </mat-form-field
-    ><mat-form-field class="example-full-width col" appearance="outline">
-      <mat-label>Insurance Start Date</mat-label>
-      <input matInput placeholder="Ex. Pizza" /> </mat-form-field
-    ><mat-form-field class="example-full-width col" appearance="outline">
-      <mat-label>Insurance End Date</mat-label>
-      <input matInput placeholder="Ex. Pizza" />
-    </mat-form-field>
-  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      color="accent"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      (click)="save()"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
 </div>

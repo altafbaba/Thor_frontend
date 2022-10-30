@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialCustomModule } from './shared/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -15,6 +16,8 @@ import { MaterialCustomModule } from './shared/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialCustomModule,
+    ReactiveFormsModule,
+    FormsModule,
     SharedModule,
   ],
   exports: [SharedModule, MaterialCustomModule],
