@@ -1,13 +1,10 @@
 <div [formGroup]="vForm">
-  <div class="row">
-    <mat-form-field class="example-full-width col" appearance="outline">
+  <h1>Vehicle Name</h1>
+  <div>
+    <mat-form-field appearance="outline" style="margin-right: 18px">
       <mat-label>Vehicle Name</mat-label>
-      <input
-        matInput
-        placeholder="Ex. Pizza"
-        formControlName="vName"
-      /> </mat-form-field
-    ><mat-form-field class="example-full-width col" appearance="outline">
+      <input matInput formControlName="vName" /> </mat-form-field
+    ><mat-form-field appearance="outline">
       <mat-label>Vehicle Number</mat-label>
       <input matInput placeholder="Ex. Pizza" formControlName="vNumber" />
     </mat-form-field>
