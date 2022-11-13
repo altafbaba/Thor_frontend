@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -8,15 +10,28 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class VehicleFormComponent implements OnInit {
   vForm: FormGroup = new FormGroup({
-    vName: new FormControl(),
-    vNumber: new FormControl(),
+    vName: new FormControl('', [Validators.required]),
+    vNumber: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(10),
+      Validators.minLength(10),
+    ]),
   });
 
-  constructor() {}
+  constructor(
+    private vehicalService: VehicleService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
   save() {
-    console.log(this.vForm.value);
+    this.vForm.markAllAsTouched();
+
+    if (this.vForm.invalid) return;
+
+    this.vehicalService
+      .createVehical(this.vForm.value)
+      .subscribe((_) => this.snackBar.open('done', 'VehicalCreated'));
   }
 }
