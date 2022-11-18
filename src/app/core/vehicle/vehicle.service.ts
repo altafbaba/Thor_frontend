@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, switchMap, take } from 'rxjs';
+import { map, Observable, switchMap, take, tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDTO } from '../dto/dto.type';
@@ -49,17 +49,13 @@ export class VehicleService {
       )
     );
   }
-}
 
-//   return this.schools$.pipe(
-//     take(1),
-//     switchMap((schs) =>
-//       this._http.post(this.url, school).pipe(
-//         map((newSchool: IDTO) => {
-//           this._schools.next([...schs, newSchool.data]);
-//           return newSchool.data;
-//         })
-//       )
-//     )
-//   );
-// }
+  getVehical() {
+    return this.http.get<IVehicle[]>(this.baseUrl).pipe(
+      tap((val: IVehicle[]) => {
+        this.vehicals.next(val);
+        console.log(this.vehicals);
+      })
+    );
+  }
+}
