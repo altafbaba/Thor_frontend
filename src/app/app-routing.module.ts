@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { x } from 'ng-heroicon';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Route[] = [
@@ -31,6 +32,10 @@ const routes: Route[] = [
         loadChildren: () =>
           import('./modules/refuel/refuel.module').then((x) => x.RefuelModule),
       },
+      {
+        path:'dashboard',
+        loadChildren:()=> import('./modules/dashboard/dashboard.module').then((x)=>x.DashboardModule)
+      }
     ],
   },
 ];

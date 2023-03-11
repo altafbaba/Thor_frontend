@@ -14,7 +14,7 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 })
 export class VehicleComponent implements OnInit {
   displayedColumns: string[] = ['id', 'vName', 'vNumber'];
-  dataSource: MatTableDataSource<IVehicle>;
+  dataSource: MatTableDataSource<IVehicle> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -40,15 +40,17 @@ export class VehicleComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    this.vechicalServices.getVehical().subscribe();
     this.dataSource.paginator = this.paginator;
 
     this.vechicalServices.vehicals$.subscribe((vec) => {
       this.dataSource.data = vec;
+      console.log(vec)
     });
   }
 

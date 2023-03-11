@@ -42,6 +42,19 @@ body {
 }
 body {
   margin: 0;
-  font-family: poppins, "Helvetica Neue", sans-serif;
-  font-size: large;
+  font-family: "poppins"!important;
+  // font-size: large;
+}
+mat-card {
+  border-radius: 2rem !important;
+  box-shadow: none !important;
+  border: 2px solid rgba(220, 220, 220, 0.541);
+}
+mat-card:hover {
+  border: 2px solid rgb(190, 82, 190);
+}
+* 
+.tablebor {
+  border: 1px solid rgb(226, 226, 226);
+  box-shadow: none !important;
 }

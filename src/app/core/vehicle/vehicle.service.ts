@@ -40,18 +40,20 @@ export class VehicleService {
     return this.vehicals$.pipe(
       take(1),
       switchMap((vech) =>
-        this.http.post(this.baseUrl, vehicle).pipe(
+        this.http.post(this.baseUrl+'/vehicles', vehicle)
+        .pipe(
           map((newVehical: IDTO) => {
             this.vehicals.next([...vech, newVehical.data]);
             return newVehical.data;
           })
-        )
+      )
+
       )
     );
   }
 
   getVehical() {
-    return this.http.get<IVehicle[]>(this.baseUrl).pipe(
+    return this.http.get<IVehicle[]>(this.baseUrl +"/vehicles").pipe(
       tap((val: IVehicle[]) => {
         this.vehicals.next(val);
         console.log(this.vehicals);
