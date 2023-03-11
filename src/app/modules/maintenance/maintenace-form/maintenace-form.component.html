@@ -1,1 +1,57 @@
-<p>maintenace-form works!</p>
+<div style="margin: 30px" class="fontpop">
+  <h4 style="font-weight: 500; margin-bottom: 30px" class="fontpop">
+    Maintenance Form
+  </h4>
+
+  <div class="example-full-width" cellspacing="0">
+    
+   
+    <mat-form-field appearance="outline">
+      <mat-label>Maintenance Type</mat-label>
+      <mat-select >
+        <mat-option value="option1">Service</mat-option>
+        <mat-option value="option3">Repair</mat-option>
+      </mat-select>
+    </mat-form-field>
+     <mat-form-field  appearance="outline">
+          <mat-label>Vehical Number</mat-label>
+          <input matInput formControlName="vehicalNumber" />
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+          <mat-label>Maintenance date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        
+      </div>
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Maintenance Part</mat-label>
+    <textarea matInput formControlName="Remarks"></textarea>
+  </mat-form-field>
+
+  <div class="example-full-width" cellspacing="0">
+    
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>State</mat-label>
+          <input matInput formControlName="state" />
+        </mat-form-field>
+     
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" />
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>PinCode</mat-label>
+          <input matInput #postalCode formControlName="pincode" />
+        </mat-form-field>
+     </div>
+  <div style="display: flex; justify-content: end">
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+</div>

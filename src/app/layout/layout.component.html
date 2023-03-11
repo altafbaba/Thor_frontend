@@ -1,18 +1,21 @@
 <div class="main-container">
-  <mat-toolbar style="background-color: #00abec"
-    ><div>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-        (click)="drawer.toggle()"
-      >
-        <mat-icon matTooltip="Menu">menu</mat-icon>
-      </button>
-    </div>
+  <mat-toolbar style="background-color: #00abec">
+    <button
+      style="align-self: center"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon matTooltip="Menu">menu</mat-icon>
+    </button>
+
+    <button mat-icon-button style="display: flex; justify-content: end">
+      <mat-icon>logout</mat-icon>
+    </button>
   </mat-toolbar>
 
-  <mat-drawer-container class="example-container">
+  <mat-drawer-container class="example-container" >
     <mat-drawer opened #drawer mode="side">
       <button
         mat-button
@@ -33,6 +36,7 @@
         class="sideNavButton"
         style="margin-top: 10px; margin-bottom: 10px"
       >
+        <mat-icon></mat-icon>
         Maintenance
       </button>
       <button
@@ -58,3 +62,5 @@
     <router-outlet></router-outlet>
   </mat-drawer-container>
 </div>
+
+
