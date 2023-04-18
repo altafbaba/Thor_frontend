@@ -1,5 +1,5 @@
 export interface IVehicle {
-  vehicalName: string;
-  vehicalNumber: string;
+  vName: string;
+  vNumber: string;
   // vehicalTank: number;
 }

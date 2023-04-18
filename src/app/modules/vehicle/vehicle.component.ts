@@ -46,6 +46,7 @@ export class VehicleComponent implements OnInit {
 
   ngOnInit(): void {
     this.vechicalServices.getVehical().subscribe();
+    
     this.dataSource.paginator = this.paginator;
 
     this.vechicalServices.vehicals$.subscribe((vec) => {
@@ -63,32 +64,12 @@ export class VehicleComponent implements OnInit {
     }
   }
 
-  /** Builds and returns a new User. */
-  // createNewUser(id: number): UserData {
-  //   const name =
-  //     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-  //     ' ' +
-  //     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-  //     '.';
-
-  //   return {
-  //     id: id.toString(),
-  //     name: name,
-  //     progress: Math.round(Math.random() * 100).toString(),
-  //     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  //   };
-  // }
+  
 }
 
-// export interface UserData {
-//   id: string;
-//   name: string;
-//   progress: string;
-//   fruit: string;
-// }
 
-/** Constants used to fill up our data base. */
-// const FRUITS: string[] = [
+
+
 //   'blueberry',
 //   'lychee',
 //   'kiwi',
