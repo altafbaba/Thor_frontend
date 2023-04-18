@@ -35,6 +35,16 @@ export class VehicleService {
     return this.vehical.asObservable();
   }
 
+  //getVehicalById
+  getVehicalById(id: string): Observable<IVehicle> {
+    return this.http.get<IVehicle>(`${this.baseUrl}/vehicla/${id}`).pipe(
+      tap((veh) => {
+        this.vehical.next(veh);
+      })
+    );
+  }
+
+  // createVehical
   createVehical(vehicle: IVehicle): Observable<IVehicle> {
     console.log(vehicle);
     return this.vehicals$.pipe(
@@ -42,7 +52,7 @@ export class VehicleService {
       switchMap((vech) =>
         this.http.post(this.baseUrl + '/vehicles', vehicle).pipe(
           map((newVehical: any) => {
-           // console.log(newVehical);
+            // console.log(newVehical);
             this.vehicals.next([...vech, newVehical]);
             return newVehical;
           })
@@ -50,13 +60,38 @@ export class VehicleService {
       )
     );
   }
-
+  //get Vehical
   getVehical() {
     return this.http.get<IVehicle[]>(this.baseUrl + '/vehicles').pipe(
       tap((val: IVehicle[]) => {
         this.vehicals.next(val);
-        console.log('in services');
       })
     );
   }
+
+  
+//update Vehical
+  updateVehical(_id: string, vehical: string): Observable<IVehicle> {
+    return this.vehicals$.pipe(
+      take(1),
+      switchMap((vehs) =>
+        this.http.put<IVehicle>(`${this.baseUrl}/vehical/${_id}`, vehical).pipe(
+          map((updateveh) =>
+          {
+            const index = vehs.findIndex((veh)=> veh._id === _id);
+
+            vehs[index] = updateveh;
+            this.vehicals.next(vehs);
+            this.vehical.next(updateveh);
+            return updateveh;
+          })
+        )
+      )
+    );
+  }
+
+  clrPrevData(){
+    this.vehical.next(null)
+  }
+
 }
