@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { createVehicleResolver, editVehicleResolver } from 'src/app/core/vehicle/vehicle.resolver';
 
 const VRoutes: Routes = [
   {
@@ -13,8 +14,14 @@ const VRoutes: Routes = [
   },
   {
     path: 'form',
+    resolve:[createVehicleResolver],
     component: VehicleFormComponent,
   },
+  {
+    path:':id',
+    resolve:[editVehicleResolver],
+    component:VehicleComponent
+  }
 ];
 
 @NgModule({

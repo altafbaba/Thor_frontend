@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-between; margin: 20px">
-  <h1 style="align-self: center">Vehical Details</h1>
+  <h1 style="align-self: center">Vehicles Details</h1>
   <div style="display: flex; justify-content: end; margin-bottom: 20px">
     <button
       mat-flat-button
@@ -33,24 +33,31 @@
 
       <!-- Vehical Name Column -->
       <ng-container matColumnDef="vName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehical Name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle Name</th>
         <td mat-cell *matCellDef="let row">{{ row.vName }}</td>
       </ng-container>
 
       <!-- Vehical Number Column -->
       <ng-container matColumnDef="vNumber">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          Vehical Number
+          Vehicle Number
         </th>
         <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
+      </ng-container>
+      <ng-container matColumnDef="loadCapacity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Load Capacity
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.loadCapacity }}</td>
       </ng-container>
 
       <ng-container matColumnDef="edit">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
         <td mat-cell *matCellDef="let row">
-          <div style="cursor: pointer" (click)="openDetails()">
-            <mat-icon   >edit</mat-icon >
+          <div style="cursor: pointer" [routerLink]="[row._id]">
+            <mat-icon>edit</mat-icon >
           </div>
+          
           
         </td>
       </ng-container>

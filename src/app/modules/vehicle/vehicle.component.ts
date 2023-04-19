@@ -13,7 +13,7 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
   styleUrls: ['./vehicle.component.scss'],
 })
 export class VehicleComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'vName', 'vNumber','edit'];
+  displayedColumns: string[] = ['id', 'vName', 'vNumber','loadCapacity','edit'];
   dataSource: MatTableDataSource<IVehicle> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -13,6 +13,7 @@ export class VehicleFormComponent implements OnInit {
   vForm: FormGroup = new FormGroup({
     vName: new FormControl('', [Validators.required]),
     vNumber: new FormControl('', [Validators.required]),
+    loadCapacity:new FormControl('', [Validators.required]),
   });
 
   constructor(

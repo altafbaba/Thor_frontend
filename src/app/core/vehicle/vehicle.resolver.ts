@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 import { VehicleService } from './vehicle.service';
 
 @Injectable({
@@ -27,5 +27,34 @@ export class createVehicleResolver implements Resolve<any> {
 
     this.vehicleServices.clrPrevData()
     return of(true)
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class editVehicleResolver implements Resolve<any> {
+  constructor(private vehicleServices:VehicleService, private _router: Router){}
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+
+    
+    return this.vehicleServices.getVehicalById(route.paramMap.get('id')).pipe(
+      catchError(
+        //   ID not found
+        (error) => {
+          // Log the error
+          console.error(error);
+
+          // Get the parent url
+          const parentUrl = state.url.split('/').slice(0, -1).join('/');
+
+          // Navigate to there
+          this._router.navigateByUrl(parentUrl);
+
+          // Throw an error
+          return throwError(error);
+        }
+      )
+    )
   }
 }

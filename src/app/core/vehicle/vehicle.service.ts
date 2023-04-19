@@ -36,8 +36,8 @@ export class VehicleService {
   }
 
   //getVehicalById
-  getVehicalById(id: string): Observable<IVehicle> {
-    return this.http.get<IVehicle>(`${this.baseUrl}/vehicla/${id}`).pipe(
+  getVehicalById(_id: string): Observable<IVehicle> {
+    return this.http.get<IVehicle>(`${this.baseUrl}/vehicla/${_id}`).pipe(
       tap((veh) => {
         this.vehical.next(veh);
       })
@@ -71,7 +71,7 @@ export class VehicleService {
 
   
 //update Vehical
-  updateVehical(_id: string, vehical: string): Observable<IVehicle> {
+  updateVehical(_id: string, vehical: IVehicle): Observable<IVehicle> {
     return this.vehicals$.pipe(
       take(1),
       switchMap((vehs) =>
@@ -81,8 +81,11 @@ export class VehicleService {
             const index = vehs.findIndex((veh)=> veh._id === _id);
 
             vehs[index] = updateveh;
+
             this.vehicals.next(vehs);
+            console.log(vehs)
             this.vehical.next(updateveh);
+            console.log(updateveh)
             return updateveh;
           })
         )
