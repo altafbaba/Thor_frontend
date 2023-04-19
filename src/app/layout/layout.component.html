@@ -16,7 +16,13 @@
   </mat-toolbar>
 
   <mat-drawer-container class="example-container" >
-    <mat-drawer opened #drawer mode="side">
+
+    <mat-drawer opened #drawer mode="side"  >
+      
+<div class="mat-btn">
+
+
+     
       <button
       mat-button
       routerLink="dashboard"
@@ -69,8 +75,9 @@
       >
         Refuel
       </button>
+    </div>
     </mat-drawer>
-
+  
     <router-outlet></router-outlet>
   </mat-drawer-container>
 </div>

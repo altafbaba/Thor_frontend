@@ -20,7 +20,7 @@ const VRoutes: Routes = [
   {
     path:':id',
     resolve:[editVehicleResolver],
-    component:VehicleComponent
+    component:VehicleFormComponent,
   }
 ];
 

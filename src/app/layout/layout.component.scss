@@ -19,7 +19,20 @@ height: 100%;
 // .example-spacer {
 //   flex: 1 1 auto;
 // }
+mat-drawer{
+  width:240px;
+
+  
+
+}
+.mat-btn{
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+
 .sideNavButton {
   text-align: start;
-  width: 100%;
+  
 }

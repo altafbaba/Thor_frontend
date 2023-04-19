@@ -13,7 +13,7 @@ import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
   styleUrls: ['./vehicle.component.scss'],
 })
 export class VehicleComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'vName', 'vNumber','loadCapacity','edit'];
+  displayedColumns: string[] = ['id', 'vName', 'vNumber','loadCapacity','edit','delete',];
   dataSource: MatTableDataSource<IVehicle> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -40,8 +40,8 @@ export class VehicleComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {

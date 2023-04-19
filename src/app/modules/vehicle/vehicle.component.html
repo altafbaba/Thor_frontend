@@ -45,20 +45,45 @@
         <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
       </ng-container>
       <ng-container matColumnDef="loadCapacity">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          Load Capacity
-        </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Load Capacity</th>
         <td mat-cell *matCellDef="let row">{{ row.loadCapacity }}</td>
       </ng-container>
 
       <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
-        <td mat-cell *matCellDef="let row">
-          <div style="cursor: pointer" [routerLink]="[row._id]">
-            <mat-icon>edit</mat-icon >
-          </div>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          style="cursor: pointer ; color: rgb(74, 241, 23);"
+         
+          [routerLink]="'/vehicle/' + row._id"
+        >
+          <mat-icon >edit</mat-icon>
           
+        </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="edit1">
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item >
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+          <button mat-menu-item>
+            <mat-icon>delete_forever</mat-icon>
+            Delete
+          </button>
+        </mat-menu>
+      </ng-container> -->
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          style="cursor: pointer ; color: red;"
           
+        >
+          <mat-icon>delete</mat-icon>
         </td>
       </ng-container>
 
