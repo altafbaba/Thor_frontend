@@ -83,9 +83,9 @@ export class VehicleService {
             vehs[index] = updateveh;
 
             this.vehicals.next(vehs);
-            console.log(vehs)
+           
             this.vehical.next(updateveh);
-            console.log(updateveh)
+        
             return updateveh;
           })
         )

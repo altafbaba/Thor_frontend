@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
 
 @Component({
   selector: 'app-maintenace-form',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maintenace-form.component.scss'],
 })
 export class MaintenaceFormComponent implements OnInit {
-  constructor() {}
+vehicles = []
 
-  ngOnInit(): void {}
+  constructor(private VehiclesServices:VehicleService) {}
+
+  ngOnInit(): void {
+this.VehiclesServices.vehicals$.subscribe((veh)=>{
+  this.vehicles = veh
+  console.log(veh)
+})
+
+
+  }
   save() {}
 }

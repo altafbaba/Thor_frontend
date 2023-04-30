@@ -51,7 +51,7 @@ export class VehicleComponent implements OnInit {
 
     this.vechicalServices.vehicals$.subscribe((vec) => {
       this.dataSource.data = vec;
-      console.log(vec)
+      
     });
   }
 

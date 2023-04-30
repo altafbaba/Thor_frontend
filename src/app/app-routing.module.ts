@@ -4,6 +4,7 @@ import { x } from 'ng-heroicon';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Route[] = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: '',
     component: LayoutComponent,
@@ -33,9 +34,12 @@ const routes: Route[] = [
           import('./modules/refuel/refuel.module').then((x) => x.RefuelModule),
       },
       {
-        path:'dashboard',
-        loadChildren:()=> import('./modules/dashboard/dashboard.module').then((x)=>x.DashboardModule)
-      }
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./modules/dashboard/dashboard.module').then(
+            (x) => x.DashboardModule
+          ),
+      },
     ],
   },
 ];

@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: space-between; margin: 20px">
+<div style="display: flex; justify-content: space-between; margin: 20px" >
   <h1 style="align-self: center">Vehicles Details</h1>
   <div style="display: flex; justify-content: end; margin-bottom: 20px">
     <button
@@ -12,19 +12,22 @@
   </div>
 </div>
 
-<div style="margin: 20px">
-  <mat-form-field appearance="outline">
+<div style="margin: 20px"  >
+  <mat-form-field appearance="outline" >
     <mat-label>Filter</mat-label>
     <input
       matInput
       (keyup)="applyFilter($event)"
-      placeholder="Ex. Mia"
+      placeholder="Filter"
       #input
     />
   </mat-form-field>
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+  <div class="mat-elevation-z8" >
+    <table mat-table [dataSource]="dataSource" matSort  >
+     
+
+     
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
@@ -83,7 +86,7 @@
           style="cursor: pointer ; color: red;"
           
         >
-          <mat-icon>delete</mat-icon>
+          <mat-icon>delete_forever</mat-icon>
         </td>
       </ng-container>
 
@@ -96,11 +99,20 @@
           No data matching the filter "{{ input.value }}"
         </td>
       </tr>
+    
     </table>
-
+  
     <mat-paginator
       [pageSizeOptions]="[5, 10, 25, 100]"
       aria-label="Select page of users"
     ></mat-paginator>
   </div>
+</div> 
+
+<ng-template #noVehicles>
+<div>
+  <h3>
+    No Vehicals
+  </h3>
 </div>
+</ng-template>
