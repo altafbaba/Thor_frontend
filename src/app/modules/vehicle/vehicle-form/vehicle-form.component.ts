@@ -37,10 +37,9 @@ export class VehicleFormComponent implements OnInit {
   }
 
   save() {
-    //updateVehicles
     this.vForm.markAllAsTouched();
-    if (this.vForm.invalid) return;
-
+    if (this.vForm.value.invalid) return;
+//updateVehicles
     if (this.Vehicle) {
       this.vehicleService
         .updateVehical(this.Vehicle._id, this.vForm.value)

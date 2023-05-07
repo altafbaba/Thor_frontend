@@ -22,14 +22,14 @@ export class VehicleService {
   constructor(private http: HttpClient) {}
 
   /**
-   * getter for customers
+   * getter for vehicals
    */
   get vehicals$(): Observable<IVehicle[]> {
     return this.vehicals.asObservable();
   }
 
   /**
-   * getter for customer
+   * getter for vehical
    */
   get vehical$(): Observable<IVehicle> {
     return this.vehical.asObservable();

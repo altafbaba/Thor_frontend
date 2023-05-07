@@ -4,6 +4,7 @@ import { MaintenanceComponent } from './maintenance.component';
 import { MaintenaceFormComponent } from './maintenace-form/maintenace-form.component';
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const mRoutes: Route[] = [
   {
@@ -18,6 +19,7 @@ const mRoutes: Route[] = [
 
 @NgModule({
   declarations: [MaintenanceComponent, MaintenaceFormComponent],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(mRoutes)],
+  imports: [CommonModule, SharedModule,ReactiveFormsModule,FormsModule
+    , RouterModule.forChild(mRoutes)],
 })
 export class MaintenanceModule {}

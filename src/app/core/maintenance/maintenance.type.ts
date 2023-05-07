@@ -1,6 +1,9 @@
 export interface IMaintenance {
-  vehicalName: string;
-  maintenanceType: string;
-  serviceDate: string;
-  Remarks: string;
+  id?:string
+  vNumber: string;
+  mType: string;
+  mDate: string;
+  garageName: string;
+  mPart:string;
+  amount:number;
 }
