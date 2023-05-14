@@ -28,11 +28,7 @@ const routes: Route[] = [
         loadChildren: () =>
           import('./modules/driver/driver.module').then((x) => x.DriverModule),
       },
-      {
-        path: 'refuel',
-        loadChildren: () =>
-          import('./modules/refuel/refuel.module').then((x) => x.RefuelModule),
-      },
+      
       {
         path: 'dashboard',
         loadChildren: () =>

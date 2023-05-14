@@ -1,1 +1,41 @@
-<p>driver-from works!</p>
+<div style="margin: 30px" class="fontpop" [formGroup]="dForm">
+  <h2 style="font-weight: 500; margin-bottom: 30px" class="fontpop">
+    Driver Form
+  </h2>
+
+  <div class="example-full-width" cellspacing="0">
+    <mat-form-field appearance="outline" style="margin-right: 33px;">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="dFirstName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="margin-right: 33px;" >
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="dLastName" />
+    </mat-form-field>
+    <mat-form-field  appearance="outline">
+      <mat-label>Mobile</mat-label>
+      <input matInput formControlName="dMobile" />
+    </mat-form-field>
+  </div>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="dAddress" />
+  </mat-form-field>
+
+  <div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>AdharCard No</mat-label>
+      <input matInput formControlName="dAdharCard" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>License No</mat-label>
+      <input matInput formControlName="dLicense" />
+    </mat-form-field>
+  </div>
+
+  <div style="display: flex; justify-content: end">
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  </div>
+</div>

@@ -26,13 +26,13 @@ export class VehicleFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //for edit auto fill
     this.vehicleService.vehical$.subscribe((veh) => {
       if (veh) {
         this.Vehicle = veh;
         this.vForm.patchValue(veh);
-        //console.log(veh)
-        
       }
+      console.log(this.vForm.value)
     });
   }
 

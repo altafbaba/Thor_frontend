@@ -78,7 +78,7 @@ this.maintenanceServices.maintenance$.subscribe((man)=>{
         },
       });
     }
-    console.log(this.mForm.value);
+    
   }
   
 }
