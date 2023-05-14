@@ -12,25 +12,35 @@ import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
   styleUrls: ['./maintenance.component.scss'],
 })
 export class MaintenanceComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'mType','garageName', 'vNumber', 'vDate','edit'];
+  displayedColumns: string[] = [
+    'id',
+    'mType',
+    'garageName',
+    'vNumber',
+    'vDate',
+    'edit',
+    'delete',
+  ];
   dataSource: MatTableDataSource<IMaintenance> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog,private maintenanceServices:MaintenanceService) {}
+  constructor(
+    public dialog: MatDialog,
+    private maintenanceServices: MaintenanceService
+  ) {}
 
   ngOnInit(): void {
-//get Maintenance
-this.maintenanceServices.getmaintenance().subscribe()
+    //get Maintenance
+    this.maintenanceServices.getmaintenance().subscribe();
+this.maintenanceServices.maintenances$.subscribe((man) => {
+      this.dataSource.data = man;
+      
 
-this.dataSource.paginator = this.paginator
-
-this.maintenanceServices.maintenances$.subscribe((man)=>{
-  this.dataSource.data= man
-  console.log(man)
-})
-
+    // paginator
+      this.dataSource.paginator = this.paginator;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

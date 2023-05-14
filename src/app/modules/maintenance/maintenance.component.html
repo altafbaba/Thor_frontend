@@ -46,8 +46,23 @@
         <td mat-cell *matCellDef="let row">{{ row.mDate | date  }}  </td>
       </ng-container>
       <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Service Date</th>
-        <td mat-cell *matCellDef="let row">{{ row.mDate | date  }}  </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let row"
+        style="cursor: pointer ; color: rgb(74, 241, 23);"
+        [routerLink]="'/maintenace/' + row.id"
+        >
+        <mat-icon >edit</mat-icon>  </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td
+          mat-cell
+          *matCellDef="let row"
+          style="cursor: pointer ; color: red;"
+          
+        >
+          <mat-icon>delete_forever</mat-icon>
+        </td>
       </ng-container>
 
       <!-- Fruit Column -->

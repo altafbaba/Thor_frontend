@@ -5,6 +5,7 @@ import { MaintenaceFormComponent } from './maintenace-form/maintenace-form.compo
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { createMaintenanceResolver, editMaintenanceResolver } from 'src/app/core/maintenance/maintenance.resolver';
 
 const mRoutes: Route[] = [
   {
@@ -13,8 +14,14 @@ const mRoutes: Route[] = [
   },
   {
     path: 'mForm',
+    resolve:[createMaintenanceResolver],
     component: MaintenaceFormComponent,
   },
+  {
+    path:":id",
+    resolve:[editMaintenanceResolver],
+    component:MaintenaceFormComponent
+  }
 ];
 
 @NgModule({

@@ -63,11 +63,7 @@ export class VehicleComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  openDetails(){
-    console.log(
-     
-    )
-  }
+ 
 
   
 }

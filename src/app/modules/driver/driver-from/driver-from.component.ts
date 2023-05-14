@@ -31,21 +31,18 @@ export class DriverFromComponent implements OnInit {
 
   ngOnInit(): void {
     //for edit auto fill
-    this.driverService.driver$.subscribe((dri)=>{
-      if(dri){
+    this.driverService.driver$.subscribe((dri) => {
+      if (dri) {
         this.driver = dri;
-        this.dForm.patchValue(dri)
-
+        this.dForm.patchValue(dri);
       }
-      console.log(this.dForm.value)
-    })
-
-
+     
+    });
   }
 
   save() {
     this.dForm.markAllAsTouched();
-    if (this.dForm.invalid) return;
+    if (this.dForm.value.invalid) return;
 
     //driver update
     if (this.driver) {
@@ -56,9 +53,7 @@ export class DriverFromComponent implements OnInit {
             this.snackBar.open(err.message, 'close')._dismissAfter(3000);
           },
           next: (res) => {
-            this.snackBar
-              .open('driver Update', 'close')
-              ._dismissAfter(3000);
+            this.snackBar.open('driver Update', 'close')._dismissAfter(3000);
             this.router.navigateByUrl('/driver');
           },
         });
@@ -70,13 +65,10 @@ export class DriverFromComponent implements OnInit {
           this.snackBar.open(err.message, 'close')._dismissAfter(3000);
         },
         next: (res) => {
-          this.snackBar
-            .open('Driver Created', 'close')
-            ._dismissAfter(3000);
-            this.router.navigateByUrl('/driver');
+          this.snackBar.open('Driver Created', 'close')._dismissAfter(3000);
+          this.router.navigateByUrl('/driver');
         },
-
-      })
+      });
     }
   }
 }

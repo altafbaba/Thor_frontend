@@ -1,0 +1,61 @@
+<div [formGroup]="fForm"  >
+  <h1 style="margin-left: 18px; margin-bottom: 20px;">Fuel Form</h1>
+  <div>
+    <mat-form-field appearance="outline" style="margin-right: 18px ; margin-left: 18px;">
+      <mat-label>Fuel Type</mat-label>
+      <input
+        matInput
+        placeholder="Fuel Type"
+        matInput
+        formControlName="fType"
+      /> </mat-form-field
+    ><mat-form-field appearance="outline">
+      <mat-label>Driver Name</mat-label>
+      <input matInput placeholder="driverName" formControlName="driverName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="margin-left: 18px">
+      <mat-label>Pump Name</mat-label>
+      <input
+        matInput
+        placeholder="Pump Name"
+        formControlName="petrolPumpName"
+      />
+    </mat-form-field>
+    </div>
+    <div>
+    <mat-form-field appearance="outline" style="margin-left: 18px">
+      <mat-label>Area</mat-label>
+      <input
+        matInput
+        placeholder="area"
+        formControlName="area"
+      /> </mat-form-field
+    >
+    <mat-form-field appearance="outline" style="margin-left: 18px">
+        <mat-label>Quantity</mat-label>
+        <input matInput placeholder="Quantity" formControlName="quantity" />
+      </mat-form-field>
+    <mat-form-field appearance="outline" style="margin-left: 18px">
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        placeholder="Amount"
+        formControlName="amount"
+      /> </mat-form-field
+    >
+    
+  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      color="accent"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      (click)="save()"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>

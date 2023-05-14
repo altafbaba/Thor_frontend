@@ -11,7 +11,7 @@ import { IVehicle } from 'src/app/core/vehicle/vehicle.type';
   styleUrls: ['./vehicle-form.component.scss'],
 })
 export class VehicleFormComponent implements OnInit {
-  Vehicle: IVehicle = null
+  vehicle: IVehicle = null
 
   vForm: FormGroup = new FormGroup({
     vName: new FormControl('', [Validators.required]),
@@ -29,10 +29,10 @@ export class VehicleFormComponent implements OnInit {
     //for edit auto fill
     this.vehicleService.vehical$.subscribe((veh) => {
       if (veh) {
-        this.Vehicle = veh;
+        this.vehicle = veh;
         this.vForm.patchValue(veh);
       }
-      console.log(this.vForm.value)
+      
     });
   }
 
@@ -40,9 +40,9 @@ export class VehicleFormComponent implements OnInit {
     this.vForm.markAllAsTouched();
     if (this.vForm.value.invalid) return;
 //updateVehicles
-    if (this.Vehicle) {
+    if (this.vehicle) {
       this.vehicleService
-        .updateVehical(this.Vehicle._id, this.vForm.value)
+        .updateVehical(this.vehicle._id, this.vForm.value)
         .subscribe({
           error: (err) => {
             this.snackBar.open(err.message, 'close')._dismissAfter(3000);

@@ -36,6 +36,12 @@ const routes: Route[] = [
             (x) => x.DashboardModule
           ),
       },
+      {
+        path:'fuel',
+        loadChildren:()=>
+        import('./modules/fuel/fuel.module').then((x)=>x.FuelModule)
+
+      }
     ],
   },
 ];
