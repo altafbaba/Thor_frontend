@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-between; margin: 20px" >
-    <h1 style="align-self: center">Vehicles Details</h1>
+    <h1 style="align-self: center">Fuel Details</h1>
     <div style="display: flex; justify-content: end; margin-bottom: 20px">
       <button
         mat-flat-button
@@ -7,7 +7,7 @@
         style="background-color: #00abec"
         (click)="openDialog()"
       >
-        Add Vehicle
+        Add Fuel
       </button>
     </div>
   </div>
@@ -32,24 +32,28 @@
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
           <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
-        </ng-container>
+        </ng-container>   
   
         <!-- Vehical Name Column -->
-        <ng-container matColumnDef="vName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle Name</th>
-          <td mat-cell *matCellDef="let row">{{ row.vName }}</td>
+        <ng-container matColumnDef="fType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</th>
+          <td mat-cell *matCellDef="let row">{{ row.fType }}</td>
         </ng-container>
   
         <!-- Vehical Number Column -->
-        <ng-container matColumnDef="vNumber">
+        <ng-container matColumnDef="dName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            Vehicle Number
+            Driver Name
           </th>
-          <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
+          <td mat-cell *matCellDef="let row">{{row.dName}}</td>
         </ng-container>
-        <ng-container matColumnDef="loadCapacity">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Load Capacity</th>
-          <td mat-cell *matCellDef="let row">{{ row.loadCapacity }}</td>
+        <ng-container matColumnDef="petrolPumpName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Petrol PumpName</th>
+          <td mat-cell *matCellDef="let row">{{ row.petrolPumpName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+          <td mat-cell *matCellDef="let row">{{ row.quantity }}</td>
         </ng-container>
   
         <ng-container matColumnDef="edit">
