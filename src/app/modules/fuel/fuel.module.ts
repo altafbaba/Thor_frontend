@@ -5,6 +5,7 @@ import { Route, RouterModule } from '@angular/router';
 import { FuelFormComponent } from './fuel-form/fuel-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { createFuelResolver, editFuelResolver } from 'src/app/core/fuel/fuel.resolver';
 
 const fRoute : Route[]=[
   {
@@ -13,6 +14,12 @@ const fRoute : Route[]=[
   },
   {
     path:'fForm',
+    resolve:[createFuelResolver],
+    component:FuelFormComponent
+  },
+  {
+    path:':id',
+    resolve:[editFuelResolver],
     component:FuelFormComponent
   }
 ]

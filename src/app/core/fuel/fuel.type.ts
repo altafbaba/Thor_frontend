@@ -1,5 +1,5 @@
 export interface IFuel {
-  id?: string;
+  _id?: string;
   fType: String;
   driverName: String;
   petrolPumpName: String;

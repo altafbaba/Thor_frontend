@@ -14,7 +14,7 @@ import { FuelFormComponent } from './fuel-form/fuel-form.component';
 })
 export class FuelComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fType', 'dName','petrolPumpName','quantity','edit','delete',];
+  displayedColumns: string[] = ['id', 'fType', 'driverName','petrolPumpName','quantity','edit','delete',];
   dataSource: MatTableDataSource<IFuel> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,11 +26,11 @@ export class FuelComponent implements OnInit {
   ngOnInit(): void {
 //get Fuel
 
-    // this.fuelServices.getFuel().subscribe();
+    this.fuelServices.getFuel().subscribe();
 
-    // this.fuelServices.fuels$.subscribe((ful)=>{
-    //   this.dataSource.data = ful
-    // })
+    this.fuelServices.fuels$.subscribe((ful)=>{
+      this.dataSource.data = ful
+    })
 
 
     //paginator

@@ -35,6 +35,8 @@ export class FuelFormComponent implements OnInit {
         this.fuel = ful;
         this.fForm.patchValue(ful);
       }
+      
+       
     });
   }
 
@@ -44,7 +46,7 @@ export class FuelFormComponent implements OnInit {
 
     //update fuel
     if (this.fuel) {
-      this.fuelServices.updateFuel(this.fuel.id, this.fForm.value).subscribe({
+      this.fuelServices.updateFuel(this.fuel._id, this.fForm.value).subscribe({
         error: (err) => {
           this.snackBar.open(err.message, 'close')._dismissAfter(3000);
         },

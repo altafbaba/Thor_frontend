@@ -72,7 +72,7 @@ export class DriverService {
       switchMap((dri) =>
         this.http.put<IDriver>(`${this.baseUrl}/driver/${id}`, driver).pipe(
           map((updatedri) => {
-            const index = dri.findIndex((driv) => driv.id === id);
+            const index = dri.findIndex((driv) => driv._id === id);
             dri[index] = updatedri;
             this.drivers.next(dri);
             this.driver.next(updatedri);

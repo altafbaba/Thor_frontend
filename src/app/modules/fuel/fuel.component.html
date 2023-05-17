@@ -41,11 +41,11 @@
         </ng-container>
   
         <!-- Vehical Number Column -->
-        <ng-container matColumnDef="dName">
+        <ng-container matColumnDef="driverName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Driver Name
           </th>
-          <td mat-cell *matCellDef="let row">{{row.dName}}</td>
+          <td mat-cell *matCellDef="let row">{{row.driverName}}</td>
         </ng-container>
         <ng-container matColumnDef="petrolPumpName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Petrol PumpName</th>
@@ -63,7 +63,7 @@
             *matCellDef="let row"
             style="cursor: pointer ; color: rgb(74, 241, 23);"
            
-            [routerLink]="'/vehicle/' + row._id"
+            [routerLink]=" row._id"
           >
             <mat-icon >edit</mat-icon>
             

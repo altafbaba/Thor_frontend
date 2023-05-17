@@ -40,8 +40,8 @@ export class FuelService {
   }
 
   //get by id
-  getById(id: string): Observable<IFuel> {
-    return this.http.get<IFuel>(`${this.baseUrl}/fuel${id}`).pipe(
+  getFuelById(id: string): Observable<IFuel> {
+    return this.http.get<IFuel>(`${this.baseUrl}/fuel/${id}`).pipe(
       tap((ful) => {
         this.fuel.next(ful);
       })
@@ -71,7 +71,7 @@ return this.fuels$.pipe(
   switchMap((ful)=>
   this.http.put<IFuel>(`${this.baseUrl}/fuel/${id}`,fuel).pipe(
     map((updateFuel)=>{
-      const index = ful.findIndex((fuls)=> fuls.id === id);
+      const index = ful.findIndex((fuls)=> fuls._id === id);
       ful[index] = updateFuel;
       this.fuels.next(ful);
       this.fuel.next(updateFuel);
