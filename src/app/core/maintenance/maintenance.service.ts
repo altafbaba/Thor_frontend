@@ -80,7 +80,7 @@ export class MaintenanceService {
           .put<IMaintenance>(`${this.baseUrl}/maintenance/${id}`, maintenance)
           .pipe(
             map((updateman) => {
-              const index = man.findIndex((mans) => mans.id === id);
+              const index = man.findIndex((mans) => mans._id === id);
               man[index] = updateman;
               this.maintenances.next(man);
               this.maintenance.next(updateman);

@@ -6,4 +6,5 @@ export interface IFuel {
   area: String;
   quantity: String;
   amount: String;
+  date:string;
 }

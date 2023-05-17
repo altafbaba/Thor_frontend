@@ -20,6 +20,8 @@ export class FuelFormComponent implements OnInit {
     area: new FormControl('', [Validators.required]),
     quantity: new FormControl('', [Validators.required]),
     amount: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+
   });
 
   constructor(

@@ -16,7 +16,7 @@ export class MaintenaceFormComponent implements OnInit {
   vehicles = [];
   mForm: FormGroup = new FormGroup({
     vNumber: new FormControl('', [Validators.required]),
-    mType: new FormControl('', [Validators.required]),
+    maintenanceType: new FormControl('', [Validators.required]),
     mDate: new FormControl('', [Validators.required]),
     garageName: new FormControl('', [Validators.required]),
     mPart: new FormControl('', [Validators.required]),
@@ -53,7 +53,7 @@ this.maintenanceServices.maintenance$.subscribe((man)=>{
     //update maintenance
     if (this.maintenance) {
       this.maintenanceServices
-        .updateMaintenance(this.maintenance.id, this.mForm.value)
+        .updateMaintenance(this.maintenance._id, this.mForm.value)
         .subscribe({
           error: (err) => {
             this.snackBar.open(err.message, 'close')._dismissAfter(3000);

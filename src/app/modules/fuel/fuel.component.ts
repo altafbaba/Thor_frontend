@@ -14,7 +14,7 @@ import { FuelFormComponent } from './fuel-form/fuel-form.component';
 })
 export class FuelComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fType', 'driverName','petrolPumpName','quantity','edit','delete',];
+  displayedColumns: string[] = ['id', 'fType','date', 'driverName','petrolPumpName','quantity','edit','delete',];
   dataSource: MatTableDataSource<IFuel> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

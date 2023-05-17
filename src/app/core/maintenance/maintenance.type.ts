@@ -1,9 +1,9 @@
 export interface IMaintenance {
-  id?:string
+  _id?:string
   vNumber: string;
-  mType: string;
+  mPart: string;
   mDate: string;
   garageName: string;
-  mPart:string;
+  maintenanceType:string
   amount:number;
 }

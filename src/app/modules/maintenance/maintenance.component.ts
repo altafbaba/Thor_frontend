@@ -14,7 +14,7 @@ import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
 export class MaintenanceComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'mType',
+    'maintenanceType',
     'garageName',
     'vNumber',
     'vDate',
