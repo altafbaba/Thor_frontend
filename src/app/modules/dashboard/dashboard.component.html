@@ -1,11 +1,16 @@
 <div
-  class="container mt-4 mb-2"
+  class="container mt-2 mb-2"
   style="display: flex; justify-content: space-between"
 >
-  <h4 style="align-self: center">Dashboard</h4>
+  <h2 style="align-self: center">Dashboard</h2>
 </div>
-<div class="row"
-style="margin: 13px"
+<div 
+class="row mt-4 ml-4"
+
+ngClass="{
+  color red = 
+}
+"
 >
     <app-dashboard-card
     class="col"
@@ -15,6 +20,19 @@ style="margin: 13px"
     color="#44CA87"
     > </app-dashboard-card>
     <app-dashboard-card
+    class="col"
+    title="Driver "
+    [count]="20"
+    icon="settings_input_antenna"
+    color="#44CA87"
+    > </app-dashboard-card>
+    <app-dashboard-card
+    class="col"
+    title="Driver "
+    [count]="20"
+    icon="settings_input_antenna"
+    color="#44CA87"
+    > </app-dashboard-card><app-dashboard-card
     class="col"
     title="Driver "
     [count]="20"

@@ -15,71 +15,98 @@
     </button>
   </mat-toolbar>
 
-  <mat-drawer-container class="example-container" >
-
-    <mat-drawer opened #drawer mode="side"  >
-      
-<div class="mat-btn">
-
-
-     
-      <button
-      mat-button
-      routerLink="dashboard"
-      color="primary"
-      class="sideNavButton"
-      style="margin-top: 10px; margin-bottom: 10px"
-    >
-      <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon
-      >
-      Dashborad
-    </button>
-      <button
-        mat-button
-        routerLink="vehicle"
-        color="primary"
-        class="sideNavButton"
-        style="margin-top: 10px; margin-bottom: 10px"
-      >
-        <mat-icon style="color: gray; padding-right: 25%"
-          >local_shipping</mat-icon
+  <mat-drawer-container class="example-container">
+    <mat-drawer opened #drawer mode="side">
+      <div class="mat-btn">
+        <button
+          mat-button
+          routerLink="dashboard"
+          color="primary"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
         >
-        Vehicle
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        routerLink="maintenance"
-        class="sideNavButton"
-        style="margin-top: 10px; margin-bottom: 10px"
-      >
-        <mat-icon></mat-icon>
-        Maintenance
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        routerLink="driver"
-        class="sideNavButton"
-        style="margin-top: 10px; margin-bottom: 10px"
-      ><mat-icon></mat-icon>
-        Driver
-      </button>
-      <button
-        mat-raised-button
-        color="accent"
-        routerLink="fuel"
-        class="sideNavButton"
-        style="margin-top: 10px; margin-bottom: 10px"
-      ><mat-icon></mat-icon>
-        Fuel
-      </button>
-    </div>
+          <mat-icon style="color: gray; padding-right: 25%"
+            >local_shipping</mat-icon
+          >
+          Dashborad
+        </button>
+        <button
+          mat-button
+          routerLink="vehicle"
+          color="primary"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+        >
+          <mat-icon style="color: gray; padding-right: 25%"
+            >local_shipping</mat-icon
+          >
+          Vehicle
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="maintenance"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+        >
+          <mat-icon></mat-icon>
+          Maintenance
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="driver"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+        >
+          <mat-icon></mat-icon>
+          Driver
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="fuel"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+        >
+          <mat-icon></mat-icon>
+          Fuel
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="user"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+        >
+          <mat-icon></mat-icon>
+          User
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="fuel"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+          disabled="true"
+        >
+          <mat-icon></mat-icon>
+          Insurance
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="fuel"
+          class="sideNavButton"
+          style="margin-top: 10px; margin-bottom: 10px"
+          disabled="true"
+        >
+          <mat-icon></mat-icon>
+          Reports
+        </button>
+      </div>
     </mat-drawer>
-  
+
     <router-outlet></router-outlet>
   </mat-drawer-container>
 </div>
-
-

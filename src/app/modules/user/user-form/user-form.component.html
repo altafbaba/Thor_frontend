@@ -1,0 +1,33 @@
+<div [formGroup]="uForm">
+    <h1>Vehicle Name</h1>
+    <div>
+      <mat-form-field appearance="outline" style="margin-right: 18px">
+        <mat-label>User Name</mat-label>
+        <input matInput placeholder="User Name" matInput formControlName="uName" /> </mat-form-field
+      ><mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" formControlName="password" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" formControlName="uRole">
+        <mat-label>User Role</mat-label >
+        <mat-select  matNativeControl required>
+          <option value="admin">Admin</option>
+          <option value="normal">Normal<option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button
+        mat-button
+        color="accent"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        (click)="save()"
+      >
+        Save
+      </button>
+    </mat-dialog-actions>
+  </div>
+  

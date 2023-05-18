@@ -15,7 +15,23 @@
     </mat-form-field>
      <mat-form-field  appearance="outline" >
           <mat-label>Vehical Number</mat-label>
-          <input matInput formControlName="vNumber"  />
+          <input matInput formControlName="vNumber"
+          matInput
+       />
+          <!-- [matAutocomplete]="auto" -->
+<!-- <mat-autocomplete
+autoActiveFirstOption
+        #auto="matAutocomplete"
+        [displayWith]="displayFn">
+        <mat-option
+        *ngFor="let vehicle of filteredOptions | async"
+        [value]="vehicle"
+        >{{vehicle.vNumber}}
+
+        </mat-option>
+
+</mat-autocomplete> -->
+
         </mat-form-field>
       
         <mat-form-field appearance="outline">

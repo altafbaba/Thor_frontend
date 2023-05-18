@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
 import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service';
 import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
 import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
@@ -12,6 +13,7 @@ import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
   styleUrls: ['./maintenace-form.component.scss'],
 })
 export class MaintenaceFormComponent implements OnInit {
+  filteredOptions: Observable<any[]> | undefined;
   maintenance: IMaintenance = null;
   vehicles = [];
   mForm: FormGroup = new FormGroup({
@@ -81,6 +83,10 @@ this.maintenanceServices.maintenance$.subscribe((man)=>{
       });
     }
     
+  }
+
+  displayFn(value: any) {
+    return value.name;
   }
   
 }

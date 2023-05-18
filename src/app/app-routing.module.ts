@@ -41,6 +41,10 @@ const routes: Route[] = [
         loadChildren:()=>
         import('./modules/fuel/fuel.module').then((x)=>x.FuelModule)
 
+      },
+      {path:'user',
+      loadChildren:()=> import ('./modules/user/user.module').then((x)=> x.UserModule)
+
       }
     ],
   },
