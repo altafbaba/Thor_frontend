@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from 'src/app/core/user/user.service';
 import { IUser } from 'src/app/core/user/user.type';
 import { UserFormComponent } from './user-form/user-form.component';
 
@@ -26,9 +27,14 @@ export class UserComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog,) { }
+  constructor(public dialog: MatDialog,private userServices:UserService) { }
 
   ngOnInit(): void {
+    //get user
+    this.userServices.getUser().subscribe();
+    this.userServices.users$.subscribe((usr)=>{
+      this.dataSource.data = usr
+    })
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

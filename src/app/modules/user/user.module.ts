@@ -5,6 +5,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { createUserResolver, editUserResolver } from 'src/app/core/user/user.resolver';
 
 const uRoutes:Route[]=[
   
@@ -14,6 +15,12 @@ const uRoutes:Route[]=[
 },
 {
   path:'uForm',
+  resolve:[createUserResolver],
+  component:UserFormComponent
+},
+{
+  path:':id',
+  resolve:[editUserResolver],
   component:UserFormComponent
 }
 ]

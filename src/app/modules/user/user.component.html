@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-between; margin: 20px">
-    <h1 style="align-self: center">Maintenace Details</h1>
+    <h1 style="align-self: center">User Details</h1>
     <div style="display: flex; justify-content: end; margin-bottom: 20px">
       <button mat-flat-button color="white" style="background-color: #00abec" (click)="openDialog()" >
         Add User
@@ -24,7 +24,7 @@
         <!-- Progress Column -->
         <ng-container matColumnDef="uName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header >User Name</th>
-          <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.uName }}</td>
         </ng-container>
   
         <!-- Name Column -->
@@ -32,13 +32,13 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Password
           </th>
-          <td mat-cell *matCellDef="let row">{{ row.maintenanceType }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.password }}</td>
         </ng-container>
         <ng-container matColumnDef="uRole">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             User Role
           </th>
-          <td mat-cell *matCellDef="let row">{{ row.garageName }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.uRole }}</td>
         </ng-container>
   
        
