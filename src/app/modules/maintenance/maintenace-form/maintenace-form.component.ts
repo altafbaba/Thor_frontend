@@ -16,6 +16,12 @@ export class MaintenaceFormComponent implements OnInit {
   filteredOptions: Observable<any[]> | undefined;
   maintenance: IMaintenance = null;
   vehicles = [];
+  maintenancesData: IMaintenance[] = [
+    {value: 'services-0', viewValue: 'Service'},
+    {value: 'repair-0', viewValue: 'Repair'},
+    
+  ];
+
   mForm: FormGroup = new FormGroup({
     vNumber: new FormControl('', [Validators.required]),
     maintenanceType: new FormControl('', [Validators.required]),

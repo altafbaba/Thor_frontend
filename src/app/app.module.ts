@@ -10,8 +10,9 @@ import { MaterialCustomModule } from './shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
-  declarations: [AppComponent, LayoutComponent],
+  declarations: [AppComponent, LayoutComponent,],
   imports: [
     BrowserModule,
     AppRoutingModule,

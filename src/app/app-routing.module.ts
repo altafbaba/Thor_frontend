@@ -45,6 +45,10 @@ const routes: Route[] = [
       {path:'user',
       loadChildren:()=> import ('./modules/user/user.module').then((x)=> x.UserModule)
 
+      },
+      {
+        path:'auth',
+        loadChildren:()=> import ('./modules/auth/auth.module').then((x)=> x.AuthModule)
       }
     ],
   },

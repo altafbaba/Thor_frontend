@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service';
 import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
+import { MaintenanceCardComponent } from './maintenance-card/maintenance-card.component';
 
 @Component({
   selector: 'app-maintenance',
@@ -54,5 +55,10 @@ this.maintenanceServices.maintenances$.subscribe((man) => {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openDetails(row:any){
+
+    this.dialog.open(MaintenanceCardComponent,{data:row._id})
   }
 }

@@ -3,23 +3,20 @@
     Maintenance Form
   </h4>
 
-  <div class="example-full-width" cellspacing="0" >
-    
-   
+  <div class="example-full-width" cellspacing="0">
     <mat-form-field appearance="outline" formControlName="maintenanceType">
-      <mat-label>Maintenance Type</mat-label >
-      <mat-select >
-        <mat-option value="Service">Service</mat-option>
-        <mat-option value="Repair">Repair</mat-option>
+      <mat-label>Maintenance Type</mat-label>
+      <mat-select (ngModel)]="selectedValue" name="man">
+        <mat-option *ngFor="let man of maintenancesData" [value]="man.value">
+          {{man.viewValue}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
-     <mat-form-field  appearance="outline" >
-          <mat-label>Vehical Number</mat-label>
-          <input matInput formControlName="vNumber"
-          matInput
-       />
-          <!-- [matAutocomplete]="auto" -->
-<!-- <mat-autocomplete
+    <mat-form-field appearance="outline">
+      <mat-label>Vehical Number</mat-label>
+      <input matInput formControlName="vNumber" matInput />
+      <!-- [matAutocomplete]="auto" -->
+      <!-- <mat-autocomplete
 autoActiveFirstOption
         #auto="matAutocomplete"
         [displayWith]="displayFn">
@@ -31,19 +28,16 @@ autoActiveFirstOption
         </mat-option>
 
 </mat-autocomplete> -->
+    </mat-form-field>
+ 
+     <mat-form-field appearance="outline">
+      <mat-label>Maintenance date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="mDate"/>
 
-        </mat-form-field>
-      
-        <mat-form-field appearance="outline">
-          <mat-label>Maintenance date</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="mDate">
-          
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        
-        
-      </div>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> 
+  </div>
 
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Maintenance Part</mat-label>
@@ -51,19 +45,16 @@ autoActiveFirstOption
   </mat-form-field>
 
   <div class="example-full-width" cellspacing="0">
-    
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label>Garage Name</mat-label>
-          <input matInput formControlName="garageName" />
-        </mat-form-field>
-     
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label>amount</mat-label>
-          <input matInput formControlName="amount" />
-        </mat-form-field>
-      
-       
-     </div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Garage Name</mat-label>
+      <input matInput formControlName="garageName" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>amount</mat-label>
+      <input matInput formControlName="amount" />
+    </mat-form-field>
+  </div>
   <div style="display: flex; justify-content: end">
     <button mat-raised-button color="primary" (click)="save()">Save</button>
   </div>

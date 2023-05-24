@@ -6,6 +6,7 @@ import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createMaintenanceResolver, editMaintenanceResolver } from 'src/app/core/maintenance/maintenance.resolver';
+import { MaintenanceCardComponent } from './maintenance-card/maintenance-card.component';
 
 const mRoutes: Route[] = [
   {
@@ -17,6 +18,10 @@ const mRoutes: Route[] = [
     resolve:[createMaintenanceResolver],
     component: MaintenaceFormComponent,
   },
+  {path:'mCard',
+  component:MaintenanceCardComponent
+
+  },
   {
     path:":id",
     resolve:[editMaintenanceResolver],
@@ -25,7 +30,7 @@ const mRoutes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [MaintenanceComponent, MaintenaceFormComponent],
+  declarations: [MaintenanceComponent, MaintenaceFormComponent, MaintenanceCardComponent],
   imports: [CommonModule, SharedModule,ReactiveFormsModule,FormsModule
     , RouterModule.forChild(mRoutes)],
 })
