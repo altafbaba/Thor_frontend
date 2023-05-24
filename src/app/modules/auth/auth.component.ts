@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,14 +16,15 @@ export class AuthComponent implements OnInit {
 }
   )
 
-  constructor() { }
+  constructor(private authServices:AuthService) { }
 
   ngOnInit(): void {
 
   }
 
   save(){
-    console.log(this.aForm.value);
+   this.authServices.signin(this.aForm.value)
+    
     
   }
 
