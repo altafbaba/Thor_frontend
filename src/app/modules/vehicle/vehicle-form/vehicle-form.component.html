@@ -1,27 +1,28 @@
 <div [formGroup]="vForm">
-  <h1>Vehicle Name</h1>
-  <div>
-    <mat-form-field appearance="outline" style="margin-right: 18px">
+  <h1 style="font-family: Poppins;">Vehicle Name</h1>
+  <div >
+    <mat-form-field appearance="outline" style="margin-right: 18px;font-family: Poppins;">
       <mat-label>Vehicle Name</mat-label>
       <input matInput placeholder="Vehicle Name" matInput formControlName="vName" /> </mat-form-field
-    ><mat-form-field appearance="outline">
+    ><mat-form-field appearance="outline" style="font-family: Poppins;">
       <mat-label>Vehicle Number</mat-label>
       <input matInput placeholder="Vehicle Number" formControlName="vNumber" />
     </mat-form-field>
-    <mat-form-field appearance="outline" style="margin-left: 18px">
+    <mat-form-field appearance="outline" style="margin-left: 18px;font-family: Poppins;">
       <mat-label>Load capacity</mat-label>
       <input matInput placeholder="Load capacity" formControlName="loadCapacity" />
     </mat-form-field>
   </div>
 
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close style="font-family: Poppins;">Cancel</button>
     <button
       mat-button
       color="accent"
       [mat-dialog-close]="true"
       cdkFocusInitial
       (click)="save()"
+      style="font-family: Poppins;"
     >
       Save
     </button>

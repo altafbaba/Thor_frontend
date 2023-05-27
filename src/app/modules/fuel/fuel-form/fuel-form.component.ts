@@ -44,7 +44,7 @@ export class FuelFormComponent implements OnInit {
 
   save() {
     this.fForm.markAllAsTouched();
-    if (this.fForm.value.invalid) return;
+    if (this.fForm.invalid) return;
 
     //update fuel
     if (this.fuel) {
@@ -62,7 +62,7 @@ export class FuelFormComponent implements OnInit {
     else{
       this.fuelServices.createFuel(this.fForm.value).subscribe({
         error: (err) => {
-          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+          this.snackBar.open(err.message, 'close')._dismissAfter(5000);
         },
         next: (res) => {
           this.snackBar.open('fuel Created', 'close')._dismissAfter(3000);

@@ -1,22 +1,29 @@
 <div style="margin: 30px" class="fontpop" [formGroup]="dForm">
-  <h2 style="font-weight: 500; margin-bottom: 30px" class="fontpop">
+  <h2 style="font-weight: 500; margin-bottom: 30px" class="fontP">
     Driver Form
   </h2>
 
-  <div class="example-full-width" cellspacing="0">
-    <mat-form-field appearance="outline" style="margin-right: 33px;">
+  <div >
+    <mat-form-field  style="width: 45%; margin-right: 10%;" appearance="outline"  class="fontP">
       <mat-label>First Name</mat-label>
       <input matInput formControlName="dFirstName" />
     </mat-form-field>
-    <mat-form-field appearance="outline" style="margin-right: 33px;" >
+    <mat-form-field style="width: 45%;" appearance="outline" class="fontP" >
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="dLastName" />
     </mat-form-field>
-    <mat-form-field  appearance="outline">
-      <mat-label>Mobile</mat-label>
-      <input matInput formControlName="dMobile" />
-    </mat-form-field>
+    
   </div>
+<div>
+
+
+  
+<div>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Mobile No</mat-label>
+    <input matInput formControlName="dMobile" />
+  </mat-form-field>
+</div>
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Address</mat-label>
     <input matInput formControlName="dAddress" />
@@ -35,7 +42,11 @@
     </mat-form-field>
   </div>
 
-  <div style="display: flex; justify-content: end">
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <div style="display: flex; justify-content: end" >
+    <button mat-button  class="fontP" 
+    style="color:aquamarine; font-family: poppins; background-color: #673AB7;"
+    (click)="save()">
+      <mat-icon style="color:aquamarine;">done_all</mat-icon>
+      Save</button>
   </div>
 </div>

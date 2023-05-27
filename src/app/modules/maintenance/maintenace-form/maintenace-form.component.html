@@ -1,18 +1,27 @@
-<div style="margin: 30px" class="fontpop" [formGroup]="mForm">
-  <h4 style="font-weight: 500; margin-bottom: 30px" class="fontpop">
+<div style="margin: 30px ; font-family: poppins;"  [formGroup]="mForm">
+  <h4 style="font-weight: 500; margin-bottom: 30px;font-family: poppins;" >
     Maintenance Form
   </h4>
 
   <div class="example-full-width" cellspacing="0">
-    <mat-form-field appearance="outline" formControlName="maintenanceType">
+    <!-- <mat-form-field appearance="outline" formControlName="maintenanceType">
       <mat-label>Maintenance Type</mat-label>
       <mat-select (ngModel)]="selectedValue" name="man">
         <mat-option *ngFor="let man of maintenancesData" [value]="man.value">
           {{man.viewValue}}
         </mat-option>
       </mat-select>
+    </mat-form-field> -->
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Maintenance Type</mat-label>
+      <input matInput formControlName="maintenanceType" />
     </mat-form-field>
-    <mat-form-field appearance="outline">
+
+
+
+
+    <mat-form-field appearance="outline" style="font-family: poppins;">
       <mat-label>Vehical Number</mat-label>
       <input matInput formControlName="vNumber" matInput />
       <!-- [matAutocomplete]="auto" -->
@@ -30,7 +39,7 @@ autoActiveFirstOption
 </mat-autocomplete> -->
     </mat-form-field>
  
-     <mat-form-field appearance="outline">
+     <mat-form-field appearance="outline" style="font-family: poppins;">
       <mat-label>Maintenance date</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="mDate"/>
 
@@ -55,7 +64,7 @@ autoActiveFirstOption
       <input matInput formControlName="amount" />
     </mat-form-field>
   </div>
-  <div style="display: flex; justify-content: end">
-    <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <div style="display: flex; justify-content: end;font-family: poppins;">
+    <button mat-raised-button color="primary" (click)="save()" style="font-family: poppins;">Save</button>
   </div>
 </div>

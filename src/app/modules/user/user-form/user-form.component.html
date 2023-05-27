@@ -1,14 +1,14 @@
 <div [formGroup]="uForm">
-    <h1>Vehicle Name</h1>
+    <h1 class="fontP">Vehicle Name</h1>
     <div>
-      <mat-form-field appearance="outline" style="margin-right: 18px">
+      <mat-form-field appearance="outline" style="margin-right: 18px" class="fontP">
         <mat-label>User Name</mat-label>
         <input matInput placeholder="User Name" matInput formControlName="uName" /> </mat-form-field
-      ><mat-form-field appearance="outline">
+      ><mat-form-field appearance="outline" style="margin-right: 18px" class="fontP">
         <mat-label>Password</mat-label>
         <input matInput placeholder="Password" formControlName="password" />
       </mat-form-field>
-      <mat-form-field appearance="outline" formControlName="uRole">
+      <mat-form-field appearance="outline" formControlName="uRole" class="fontP">
         <mat-label>User Role</mat-label >
         <select  matNativeControl required>
           <option value="admin">Admin</option>
@@ -18,13 +18,14 @@
     </div>
   
     <mat-dialog-actions align="end">
-      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button mat-dialog-close class="fontP">Cancel</button>
       <button
         mat-button
         color="accent"
         [mat-dialog-close]="true"
         cdkFocusInitial
         (click)="save()"
+        class="fontP"
       >
         Save
       </button>

@@ -42,7 +42,7 @@ export class DriverFromComponent implements OnInit {
 
   save() {
     this.dForm.markAllAsTouched();
-    if (this.dForm.value.invalid) return;
+    if (this.dForm.invalid) return;
 
     //driver update
     if (this.driver) {

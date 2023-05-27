@@ -56,7 +56,7 @@ this.maintenanceServices.maintenance$.subscribe((man)=>{
   }
   save() {
     this.mForm.markAllAsTouched();
-   if (this.mForm.value.invalid) return;
+   if (this.mForm.invalid) return;
 
     //update maintenance
     if (this.maintenance) {
