@@ -37,7 +37,7 @@ export class UserFormComponent implements OnInit {
 
   save() {
     this.uForm.markAllAsTouched();
-    if (this.uForm.value.invalid) return;
+    if (this.uForm.invalid) return;
 
     //update user
     if (this.user) {

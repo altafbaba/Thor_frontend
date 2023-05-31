@@ -40,6 +40,7 @@ export class MaintenaceFormComponent implements OnInit {
 
   ngOnInit(): void {
     //get vehicles
+    this.VehiclesServices.getVehical().subscribe()
     this.VehiclesServices.vehicals$.subscribe((veh) => {
       this.vehicles = veh;
       

@@ -46,14 +46,17 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Service Date</th>
         <td mat-cell *matCellDef="let row">{{ row.mDate | date :"dd/MMM/YYYY"  }}  </td>
       </ng-container>
-      <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-        <td mat-cell *matCellDef="let row"
-        style="cursor: pointer ; color: rgb(74, 241, 23);"
-        [routerLink]= "row._id"
-        >
-        <mat-icon >edit</mat-icon>  </td>
-      </ng-container>
+      
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+          <td mat-cell *matCellDef="let row"
+          style="cursor: pointer ; color: rgb(74, 241, 23);"
+          [routerLink]= "row._id"
+          >
+          <mat-icon >edit</mat-icon>  </td>
+        </ng-container>
+     
+      
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
         <td

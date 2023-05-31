@@ -15,12 +15,12 @@ export class DriverFromComponent implements OnInit {
   driver: IDriver = null;
 
   dForm: FormGroup = new FormGroup({
-    dFirstName: new FormControl('', [Validators.required]),
-    dLastName: new FormControl('', [Validators.required]),
-    dAddress: new FormControl('', [Validators.required]),
-    dMobile: new FormControl('', [Validators.required]),
-    dAdharCard: new FormControl('', [Validators.required]),
-    dLicense: new FormControl('', [Validators.required]),
+    dFirstName: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
+    dLastName: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
+    dAddress: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
+    dMobile: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+    dAdharCard: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
+    dLicense: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(30)]),
   });
 
   constructor(

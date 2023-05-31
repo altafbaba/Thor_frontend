@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { x } from 'ng-heroicon';
+import { AuthGuard } from './core/auth/auth.guard';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Route[] = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path:'login',
+    loadChildren:()=> import ('./modules/auth/auth.module').then((x)=> x.AuthModule)
+  },
+  
+  
   {
     path: '',
+    canActivate:[AuthGuard],
     component: LayoutComponent,
     children: [
       {
@@ -46,10 +54,7 @@ const routes: Route[] = [
       loadChildren:()=> import ('./modules/user/user.module').then((x)=> x.UserModule)
 
       },
-      {
-        path:'login',
-        loadChildren:()=> import ('./modules/auth/auth.module').then((x)=> x.AuthModule)
-      }
+     
     ],
   },
 ];

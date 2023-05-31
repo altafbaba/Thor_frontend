@@ -14,9 +14,9 @@ export class VehicleFormComponent implements OnInit {
   vehicle: IVehicle = null
 
   vForm: FormGroup = new FormGroup({
-    vName: new FormControl('', [Validators.required]),
-    vNumber: new FormControl('', [Validators.required]),
-    loadCapacity: new FormControl('', [Validators.required]),
+    vName: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(20)]),
+    vNumber: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(20)]),
+    loadCapacity: new FormControl('', [Validators.required,Validators.maxLength(12)]),
   });
 
   constructor(
@@ -44,11 +44,11 @@ export class VehicleFormComponent implements OnInit {
       this.vehicleService
         .updateVehical(this.vehicle._id, this.vForm.value)
         .subscribe({
-          error: (err) => {
-            this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-          },
+          // error: (err) => {
+          //   this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+          // },
           next: (res) => {
-            this.snackBar.open('Vehicle Updated', 'close')._dismissAfter(3000);
+            this.openSnackBar('Success', 'close');
             this.router.navigateByUrl('/vehicle');
           },
         });
@@ -57,15 +57,30 @@ export class VehicleFormComponent implements OnInit {
     //createVehicles
     else {
       this.vehicleService.createVehical(this.vForm.value).subscribe({
-        error: (err) => {
-          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-        },
+        // error: (err) => {
+        //   this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+        // },
         next: (res) => {
-          this.snackBar.open('Vehicle Created', 'close')._dismissAfter(3000);
+          this.openSnackBar('Success', 'close');
           
           this.router.navigateByUrl('/vehicle');
         },
       });
     }
+  }
+
+
+  openSnackBar(type: 'Error' | 'Info' | 'Success', msg: string) {
+    this.snackBar.open(msg, 'Close', {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      panelClass:
+        type == 'Error'
+          ? 'text-red-500'
+          : type == 'Info'
+          ? 'text-blue-500'
+          : 'text-green-500',
+    });
   }
 }

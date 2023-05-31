@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -16,15 +17,20 @@ export class AuthComponent implements OnInit {
 }
   )
 
-  constructor(private authServices:AuthService) { }
+  constructor(private authServices:AuthService, private router:Router) { }
 
   ngOnInit(): void {
 
   }
 
   save(){
-   this.authServices.signin(this.aForm.value)
-    
+    console.log(this.aForm.value)
+   this.authServices.signin(this.aForm.value).subscribe(()=>{
+    this.router.navigateByUrl('/dashboard')
+   }
+   
+   );
+
     
   }
 

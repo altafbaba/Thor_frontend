@@ -1,7 +1,7 @@
 <div style="margin: 30px ; font-family: poppins;"  [formGroup]="mForm">
-  <h4 style="font-weight: 500; margin-bottom: 30px;font-family: poppins;" >
+  <h1 style="font-weight: 500; margin-bottom: 30px;font-family: poppins;" >
     Maintenance Form
-  </h4>
+  </h1>
 
   <div class="example-full-width" cellspacing="0">
     <!-- <mat-form-field appearance="outline" formControlName="maintenanceType">
@@ -13,17 +13,24 @@
       </mat-select>
     </mat-form-field> -->
 
-    <mat-form-field class="example-full-width" appearance="outline">
+    <!-- <mat-form-field  appearance="outline" class="fontP" style="width: 28%; margin-right: 8%;">
       <mat-label>Maintenance Type</mat-label>
       <input matInput formControlName="maintenanceType" />
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline"  class="fontP" style="width: 28%; margin-right: 8%">
+      <mat-label  class="fontP">Maintenance Type</mat-label >
+      <mat-select matNativeControl   formControlName="maintenanceType" class="fontP">
+        <mat-option value="services"  class="fontP">Services</mat-option>
+        <mat-option value="repair"  class="fontP">Repair</mat-option>
+      </mat-select>
     </mat-form-field>
 
 
 
-
-    <mat-form-field appearance="outline" style="font-family: poppins;">
+    <!-- <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
       <mat-label>Vehical Number</mat-label>
-      <input matInput formControlName="vNumber" matInput />
+      <input matInput formControlName="vNumber" matInput /> -->
       <!-- [matAutocomplete]="auto" -->
       <!-- <mat-autocomplete
 autoActiveFirstOption
@@ -33,13 +40,22 @@ autoActiveFirstOption
         *ngFor="let vehicle of filteredOptions | async"
         [value]="vehicle"
         >{{vehicle.vNumber}}
-
         </mat-option>
-
 </mat-autocomplete> -->
+    <!-- </mat-form-field> -->
+
+    <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
+      <mat-label class="fontP">Vehical Number</mat-label>
+      <mat-select class="fontP">
+        <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber" class="fontP" >
+          {{vehicle.vNumber}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
+
+   
  
-     <mat-form-field appearance="outline" style="font-family: poppins;">
+     <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;">
       <mat-label>Maintenance date</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="mDate"/>
 

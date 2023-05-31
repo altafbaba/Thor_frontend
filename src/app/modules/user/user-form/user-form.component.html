@@ -8,13 +8,23 @@
         <mat-label>Password</mat-label>
         <input matInput placeholder="Password" formControlName="password" />
       </mat-form-field>
-      <mat-form-field appearance="outline" formControlName="uRole" class="fontP">
+      <!-- <mat-form-field appearance="outline"  class="fontP">
         <mat-label>User Role</mat-label >
-        <select  matNativeControl required>
-          <option value="admin">Admin</option>
-          <option value="normal">Normal<option>
-        </select>
+        <mat-select  matNativeControl   formControlName="uRole">
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="normal">Normal<mat-option>
+          </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="outline"  class="fontP">
+        <mat-label  class="fontP">User Role</mat-label>
+        <mat-select matNativeControl   formControlName="uRole" class="fontP">
+          <mat-option value="admin"  class="fontP">Admin </mat-option>
+          <mat-option value="normal"  class="fontP">Normal</mat-option>
+        </mat-select>
       </mat-form-field>
+      
+
     </div>
   
     <mat-dialog-actions align="end">
