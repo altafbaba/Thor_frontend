@@ -10,6 +10,7 @@ import { createVehicleResolver, editVehicleResolver } from 'src/app/core/vehicle
 const VRoutes: Routes = [
   {
     path: '',
+    resolve:[createVehicleResolver],
     component: VehicleComponent,
   },
   {

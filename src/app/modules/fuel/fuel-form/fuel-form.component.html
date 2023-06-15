@@ -1,20 +1,57 @@
-<div [formGroup]="fForm"  >
-  <h1 style="margin-left: 18px; margin-bottom: 20px;" class="fontP">Fuel Form</h1>
+<div [formGroup]="fForm">
+  <h1 style="margin-left: 18px; margin-bottom: 20px" class="fontP">
+    Fuel Form
+  </h1>
   <div>
-    <mat-form-field appearance="outline" style="margin-right: 18px ; margin-left: 18px;" class="fontP">
-      <mat-label>Fuel Type</mat-label>
-      <input
-        matInput
-        placeholder="Fuel Type"
-        matInput
-        formControlName="fType"
-       
-      /> </mat-form-field
-    ><mat-form-field appearance="outline" class="fontP">
-      <mat-label>Driver Name</mat-label>
-      <input matInput placeholder="driverName"  formControlName="driverName" />
+    <mat-form-field
+      appearance="outline"
+      style="margin-right: 18px; margin-left: 18px"
+      class="fontP"
+    >
+      <mat-label class="fontP">Fuel Type</mat-label>
+
+      <mat-select matNativeControl formControlName="fType" class="fontP">
+        <mat-option value="CNG" class="fontP"> CNG</mat-option>
+        <mat-option value="Petrol" class="fontP"> Petrol</mat-option>
+        <mat-option value="Diesel" class="fontP">Diesel</mat-option>
+      </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="outline" style="margin-left: 18px" class="fontP">
+
+    <!-- <mat-form-field appearance="outline" class="fontP">
+      <mat-label>Vehicle Name</mat-label>
+      <input matInput placeholder="Vehicle Name" formControlName="vName" />
+    </mat-form-field> -->
+
+    <mat-form-field appearance="outline" class="fontP">
+      <mat-label>Driver Name</mat-label>
+     <mat-select class="fontP" formControlName="dName">
+      <mat-option *ngFor="let driver of drivers" [value]="driver.dFirstName">
+        {{driver.dFirstName}}
+      </mat-option>
+
+
+     </mat-select>
+
+
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="fontP">
+      <mat-label>vehicle Name</mat-label>
+     <mat-select class="fontP" formControlName="vName">
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber">
+        {{vehicle.vNumber}}
+      </mat-option>
+
+
+     </mat-select>
+
+
+    </mat-form-field>
+
+    <mat-form-field
+      appearance="outline"
+      style="margin-left: 18px"
+      class="fontP"
+    >
       <mat-label>Pump Name</mat-label>
       <input
         matInput
@@ -22,36 +59,42 @@
         formControlName="petrolPumpName"
       />
     </mat-form-field>
+
+    
+    
+  </div>
+  <div>
     <mat-form-field appearance="outline" class="fontP">
-      <mat-label>Maintenance date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
-      
+      <mat-label>Fuel date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    </div>
-    <div>
-    <mat-form-field appearance="outline" style="margin-left: 18px" class="fontP">
+    <mat-form-field
+      appearance="outline"
+      style="margin-left: 18px"
+      class="fontP"
+    >
       <mat-label>Area</mat-label>
-      <input
-        matInput
-        placeholder="area"
-        formControlName="area"
-      /> </mat-form-field
+      <input matInput placeholder="area" formControlName="area" />
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      style="margin-left: 18px"
+      class="fontP"
     >
-    <mat-form-field appearance="outline" style="margin-left: 18px" class="fontP">
-        <mat-label>Quantity</mat-label>
-        <input matInput placeholder="Quantity" formControlName="quantity" />
-      </mat-form-field>
-    <mat-form-field appearance="outline" style="margin-left: 18px" class="fontP">
+      <mat-label>Quantity</mat-label>
+      <input matInput placeholder="Quantity" formControlName="quantity" />
+    </mat-form-field>
+    <mat-form-field
+      appearance="outline"
+      style="margin-left: 18px"
+      class="fontP"
+    >
       <mat-label>Amount</mat-label>
-      <input
-        matInput
-        placeholder="Amount"
-        formControlName="amount"
-      /> </mat-form-field
-    >
-    
+      <input matInput placeholder="Amount" formControlName="amount" />
+    </mat-form-field>
   </div>
 
   <mat-dialog-actions align="end">

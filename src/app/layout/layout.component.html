@@ -25,8 +25,10 @@
   </mat-toolbar>
 </div>
 
-  <mat-drawer-container class="example-container">
-    <mat-drawer opened #drawer mode="side">
+  <mat-drawer-container class="example-container"
+  style="background-color: rgb(240, 240, 240)"
+  >
+    <mat-drawer opened #drawer mode="side" style=" background-color: rgb(240, 240, 240);">
       <div class="mat-btn">
         <button
           mat-button
@@ -46,8 +48,7 @@
           style="margin-top: 8px; "
         >
           <mat-icon style="color: gray; padding-right: 25%"
-            >local_shipping</mat-icon
-          >
+            >local_shipping</mat-icon>
           Vehicle
         </button>
         <button
@@ -57,7 +58,8 @@
           class="sideNavButton"
           style="margin-top: 8px; "
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+            >local_shipping</mat-icon>
           Maintenance
         </button>
         <button
@@ -67,7 +69,8 @@
           class="sideNavButton"
           style="margin-top: 8px; "
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+        >local_shipping</mat-icon>
           Driver
         </button>
         <button
@@ -77,7 +80,8 @@
           class="sideNavButton"
           style="margin-top: 8px; "
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+        >local_shipping</mat-icon>
           Fuel
         </button>
         <button
@@ -86,8 +90,10 @@
           routerLink="user"
           class="sideNavButton"
           style="margin-top: 8px; "
+          disabled="true"
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+        >local_shipping</mat-icon>
           User
         </button>
         <button
@@ -98,7 +104,8 @@
           style="margin-top: 8px; "
           disabled="true"
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+        >local_shipping</mat-icon>
           Insurance
         </button>
         <button
@@ -109,7 +116,8 @@
           style="margin-top: 8px; "
           disabled="true"
         >
-          <mat-icon></mat-icon>
+        <mat-icon style="color: gray; padding-right: 25%"
+        >local_shipping</mat-icon>
           Reports
         </button>
       </div>

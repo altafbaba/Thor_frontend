@@ -46,7 +46,7 @@ autoActiveFirstOption
 
     <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
       <mat-label class="fontP">Vehical Number</mat-label>
-      <mat-select class="fontP">
+      <mat-select class="fontP" formControlName="vNumber">
         <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber" class="fontP" >
           {{vehicle.vNumber}}
         </mat-option>

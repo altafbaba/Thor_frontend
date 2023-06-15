@@ -1,64 +1,73 @@
-<div>
-  <h1>Details</h1>
-</div>
+<div style="padding: 10px" >
+  <div>
+    <h1>Details</h1>
+  </div>
+
+  <div style="margin-bottom: 10px">
+    <mat-card>
+      <h2>Vehicle Number</h2>
+      <span>{{fullMaintemamceData.vNumber}}</span>
+    </mat-card>
+    
+    
+  </div>
+
+  <div style="display: flex;">
+    <!-- <mat-card style="height: 180px; width: 400px; margin-right: 10px;">
+      <h4> Maintenance type</h4>
+
+      {{ fullMaintemamceData.maintenanceType}}
+      <h4>Maintenance Part</h4>
+      {{ fullMaintemamceData.mPart }}
+      <h4>Maintenance Date</h4>
+      {{ fullMaintemamceData.mDate | date }}
+    </mat-card> -->
+<table>
 
 
-<th>Vehicle Number</th>
-  <td>abcd123</td>
-<!-- <table>
-  <th>Vehicle Number</th>
-  <td>abcd123</td>
-  <table>
     <tr>
-      <td>Maintenance type</td>
-      <td style="border-right: 1px solid transparent !important">
-        {{ data?.maintenanceType }}
-      </td>
-    </tr>
+      <td >Maintenance type</td>
+      <td>{{ fullMaintemamceData.maintenanceType}}</td>
 
+    </tr>
     <tr>
       <td>Maintenance Part</td>
-      <td style="border-right: 1px solid transparent !important">
-        {{ data?.mPart }}
-      </td>
+      <td> {{ fullMaintemamceData.mPart }}</td>
     </tr>
+    <td>Maintenance Date</td>
+    <td>{{ fullMaintemamceData.mDate | date }}</td>
   </table>
   <table>
+
+
     <tr>
-        <td>Maintenance type</td>
-        <td style="border-right: 1px solid transparent !important">
-          {{ data?.maintenanceType }}
-        </td>
-      </tr>
+      <td >Maintenance type</td>
+      <td>{{ fullMaintemamceData.maintenanceType}}</td>
+
+    </tr>
+    <tr>
+      <td>Maintenance Part</td>
+      <td> {{ fullMaintemamceData.mPart }}</td>
+    </tr>
+    <td>Maintenance Date</td>
+    <td>{{ fullMaintemamceData.mDate | date }}</td>
   </table>
-</table> -->
-<div>
+  <table>
 
 
-<mat-card>
-   <span> Maintenance type</span>
-   
-    {{"services"}}
-    <span>Maintenance Part</span>
-    {{"tyre"}}
-    <span>date</span>
-    {{"12/apr/2023"}}
-</mat-card>
-<mat-card>
-    <span> Maintenance type</span>
+    <tr>
+      <td >Maintenance type</td>
+      <td>{{ fullMaintemamceData.maintenanceType}}</td>
+
+    </tr>
+    <tr>
+      <td>Maintenance Part</td>
+      <td> {{ fullMaintemamceData.mPart }}</td>
+    </tr>
+    <td>Maintenance Date</td>
+    <td>{{ fullMaintemamceData.mDate | date }}</td>
+  </table>
     
-     {{"services"}}
- </mat-card><mat-card>
-    <span> Maintenance type</span>
     
-     {{"services"}}
- </mat-card><mat-card>
-    <span> Maintenance type</span>
-    
-     {{"services"}}
- </mat-card><mat-card>
-    <span> Maintenance type</span>
-    
-     {{"services"}}
- </mat-card>
+  </div>
 </div>

@@ -10,6 +10,7 @@ import { createFuelResolver, editFuelResolver } from 'src/app/core/fuel/fuel.res
 const fRoute : Route[]=[
   {
     path:"",
+    resolve:[createFuelResolver],
     component:FuelComponent
   },
   {

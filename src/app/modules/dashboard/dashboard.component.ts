@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     this.dashboardSerives.getDashboard().subscribe((val:any)=>{
       this.data = val
     })
-    console.log(this.data)
+    
   }
 
 }

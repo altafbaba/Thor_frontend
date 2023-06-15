@@ -88,7 +88,14 @@ this.maintenanceServices.maintenance$.subscribe((man)=>{
             this.router.navigateByUrl('/maintenance');
         },
       });
+      console.log(this.mForm.value);
+      
     }
+    
+  }
+
+  save1(){
+    console.log(this.mForm.value);
     
   }
 

@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DriverService } from 'src/app/core/driver/driver.service';
 import { FuelService } from 'src/app/core/fuel/fuel.service';
 import { IFuel } from 'src/app/core/fuel/fuel.type';
+import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
+import { IVehicle } from 'src/app/core/vehicle/vehicle.type';
 
 @Component({
   selector: 'app-fuel-form',
@@ -12,22 +15,27 @@ import { IFuel } from 'src/app/core/fuel/fuel.type';
 })
 export class FuelFormComponent implements OnInit {
   fuel: IFuel = null;
+  drivers = [];
+  vehicles= [];
 
   fForm: FormGroup = new FormGroup({
     fType: new FormControl('', [Validators.required]),
-    driverName: new FormControl('', [Validators.required]),
+    dName: new FormControl('', [Validators.required]),
     petrolPumpName: new FormControl('', [Validators.required]),
     area: new FormControl('', [Validators.required]),
     quantity: new FormControl('', [Validators.required]),
     amount: new FormControl('', [Validators.required]),
     date: new FormControl('', [Validators.required]),
-
+    vName: new FormControl('', [Validators.required]),
+    
   });
 
   constructor(
     private snackBar: MatSnackBar,
     private router: Router,
-    private fuelServices: FuelService
+    private fuelServices: FuelService,
+    private DriverSerives: DriverService,
+    private VehicleSerives:VehicleService
   ) {}
 
   ngOnInit(): void {
@@ -37,9 +45,21 @@ export class FuelFormComponent implements OnInit {
         this.fuel = ful;
         this.fForm.patchValue(ful);
       }
-      
-       
     });
+
+//get Driver
+this.DriverSerives.getDriver().subscribe((dri)=>{
+  this.drivers = dri
+  console.log(this.drivers);
+})
+
+//get Vehicle
+this.VehicleSerives.getVehical().subscribe((veh)=>{
+  this.vehicles = veh
+  console.log(this.vehicles);
+  
+})
+
   }
 
   save() {
@@ -59,19 +79,18 @@ export class FuelFormComponent implements OnInit {
       });
     }
     //create Fuel
-    else{
+    else {
       this.fuelServices.createFuel(this.fForm.value).subscribe({
         error: (err) => {
           this.snackBar.open(err.message, 'close')._dismissAfter(5000);
         },
         next: (res) => {
           this.snackBar.open('fuel Created', 'close')._dismissAfter(3000);
-          
+
           this.router.navigateByUrl('/fuel');
         },
-
-      })
-
+      });
     }
+    console.log(this.fForm.value)
   }
 }

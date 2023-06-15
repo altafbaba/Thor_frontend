@@ -24,7 +24,7 @@
     />
   </mat-form-field>
 
-  <div class="mat-elevation-z8" >
+  <div class="tablebor" >
     <table mat-table [dataSource]="dataSource" matSort  >
      
 
@@ -59,10 +59,11 @@
           mat-cell
           *matCellDef="let row"
           style="cursor: pointer ; color: rgb(74, 241, 23);"
+          
          
           [routerLink]="'/vehicle/' + row._id"
         >
-          <mat-icon >edit</mat-icon>
+          <mat-icon  >edit</mat-icon>
           
         </td>
       </ng-container>

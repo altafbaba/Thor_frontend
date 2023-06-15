@@ -1,42 +1,58 @@
 <div
-  class="container mt-2 mb-2"
+  class="container mt-4 mb-2"
   style="display: flex; justify-content: space-between"
 >
-  <h2 style="align-self: center">Dashboard</h2>
+  <h1 style="align-self: center;font-family: poppins;">Dashboard</h1>
 </div>
-<div 
-class="row mt-4 ml-4"
-
-ngClass="{
+<div
+  class="row"
+  style="margin: 13px;"
+  ngClass="{
   color red = 
 }
 "
 >
-    <app-dashboard-card
+  <app-dashboard-card
+    class="col"
+    title="Vehicles "
+    [count]="data?.vehicles"
+    icon="settings_input_antenna"
+    color="#44CA87"
+  >
+  </app-dashboard-card>
+  <app-dashboard-card
     class="col"
     title="Drivers"
     [count]="data?.drivers"
     icon="settings_input_antenna"
     color="#44CA87"
-    > </app-dashboard-card>
-    <app-dashboard-card
+  >
+  </app-dashboard-card>
+
+  <app-dashboard-card
     class="col"
-    title="Driver "
-    [count]="20"
+    title="Fuel"
+    [count]="data?.fuels"
     icon="settings_input_antenna"
     color="#44CA87"
-    > </app-dashboard-card>
-    <app-dashboard-card
+  >
+  </app-dashboard-card
+  >
+  <app-dashboard-card
     class="col"
-    title="Driver "
-    [count]="20"
+    title="Maintenance"
+    [count]="data?.maintenaces"
     icon="settings_input_antenna"
     color="#44CA87"
-    > </app-dashboard-card><app-dashboard-card
-    class="col"
-    title="Driver "
-    [count]="20"
-    icon="settings_input_antenna"
-    color="#44CA87"
-    > </app-dashboard-card>
+  >
+  </app-dashboard-card
+  ><app-dashboard-card
+  class="col"
+  title="Insurance"
+  [count]="00"
+  icon="settings_input_antenna"
+  color="#44CA87"
+>
+</app-dashboard-card
+>
 </div>
