@@ -54,6 +54,10 @@ const routes: Route[] = [
       loadChildren:()=> import ('./modules/user/user.module').then((x)=> x.UserModule)
 
       },
+      {
+        path:'insurance',
+        loadChildren:()=> import ('./modules/insurance/insurance.module').then((x)=>x.InsuranceModule)
+      }
      
     ],
   },

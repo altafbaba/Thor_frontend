@@ -1,0 +1,79 @@
+<div style="margin: 30px; font-family: poppins" [formGroup]="iForm">
+  <h1 style="font-weight: 500; margin-bottom: 30px; font-family: poppins">
+    Insurance Form
+  </h1>
+
+  <div class="example-full-width" cellspacing="0">
+    <div class="example-full-width" cellspacing="0">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Insurance Name</mat-label>
+        <input matInput formControlName="iName" />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        style="font-family: poppins; width: 28%; margin-right: 8%"
+      >
+        <mat-label class="fontP">Vehical Number</mat-label>
+        <mat-select class="fontP" formControlName="vNumber">
+          <mat-option
+            *ngFor="let vehicle of vehicles"
+            [value]="vehicle.vNumber"
+            class="fontP"
+          >
+            {{ vehicle.vNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="example-full-width" cellspacing="0">
+      <mat-form-field
+        appearance="outline"
+        style="font-family: poppins; width: 28%"
+      >
+        <mat-label>Insurance Start date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          formControlName="iStartDate"
+        />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        style="font-family: poppins; width: 28%"
+      >
+        <mat-label>Insurance End date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="iEndDate" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Insurance Amount</mat-label>
+        <input matInput formControlName="iAmount" />
+      </mat-form-field>
+    </div>
+    <div style="display: flex; justify-content: end; font-family: poppins">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="save()"
+        style="font-family: poppins"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
