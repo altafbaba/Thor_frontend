@@ -38,15 +38,17 @@ export class VehicleFormComponent implements OnInit {
 
   save() {
     this.vForm.markAllAsTouched();
-    if (this.vForm.value.invalid) return;
+   if(this.vForm.invalid) return
+
+
 //updateVehicles
     if (this.vehicle) {
       this.vehicleService
         .updateVehical(this.vehicle._id, this.vForm.value)
         .subscribe({
-          // error: (err) => {
-          //   this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-          // },
+          error: (err) => {
+            this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+          },
           next: (res) => {
             this.openSnackBar('Success', 'close');
             this.router.navigateByUrl('/vehicle');
@@ -57,9 +59,9 @@ export class VehicleFormComponent implements OnInit {
     //createVehicles
     else {
       this.vehicleService.createVehical(this.vForm.value).subscribe({
-        // error: (err) => {
-        //   this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-        // },
+        error: (err) => {
+          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+        },
         next: (res) => {
           this.openSnackBar('Success', 'close');
           

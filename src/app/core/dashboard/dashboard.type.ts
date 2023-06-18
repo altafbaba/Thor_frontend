@@ -1,6 +1,7 @@
 export interface IDashboard{
-    drivers : number
-    vehicles:number
-    fuels:number
-    maintenaces:number
+    drivers : number,
+    vehicles:number,
+    fuels:number,
+    maintenaces:number,
+    insurances:number,
 }
