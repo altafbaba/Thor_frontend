@@ -16,9 +16,11 @@ export class MaintenanceComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'maintenanceType',
-    'garageName',
     'vNumber',
+  'mPart',
+'garageName',
     'vDate',
+    'details',
     'edit',
     'delete',
   ];

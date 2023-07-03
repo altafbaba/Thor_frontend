@@ -39,12 +39,12 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Insurance Start Date
           </th>
-          <td mat-cell *matCellDef="let row">{{ row.iStartDate | date :"dd/MMM/YYYY" }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.startDate | date :"dd/MMM/YYYY" }}</td>
         </ng-container>
   
         <ng-container matColumnDef="iEndDate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Insurance End Date</th>
-          <td mat-cell *matCellDef="let row">{{ row.iEndDate | date :"dd/MMM/YYYY"  }}  </td>
+          <td mat-cell *matCellDef="let row">{{ row.endDate | date :"dd/MMM/YYYY"  }}  </td>
         </ng-container>
 
         <ng-container matColumnDef="iAmount">

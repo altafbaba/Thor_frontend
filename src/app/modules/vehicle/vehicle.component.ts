@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
 import { IVehicle } from 'src/app/core/vehicle/vehicle.type';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
@@ -19,6 +20,9 @@ export class VehicleComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+
+  vehicals$: Observable<IVehicle[]>;
+
   constructor(
     public dialog: MatDialog,
     private vechicalServices: VehicleService
@@ -32,7 +36,7 @@ export class VehicleComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(VehicleFormComponent);
+    const dialogRef = this.dialog.open(VehicleFormComponent,{});
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -53,6 +57,9 @@ export class VehicleComponent implements OnInit {
       this.dataSource.data = vec;
       
     });
+
+    console.log(this.vehicals$);
+    
   }
 
   applyFilter(event: Event) {

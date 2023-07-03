@@ -17,8 +17,8 @@ export class InsuranceFormComponent implements OnInit {
 
   iForm: FormGroup = new FormGroup({
     iName: new FormControl('', [Validators.required]),
-    iStartDate: new FormControl('', [Validators.required]),
-    iEndDate: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required]),
+    endDate: new FormControl('', [Validators.required]),
     iAmount: new FormControl('', [Validators.required]),
     vNumber: new FormControl('', [Validators.required]),
   });

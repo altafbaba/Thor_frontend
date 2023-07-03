@@ -16,7 +16,7 @@ const dRoute: Route[] = [
 
   {
     path: 'dForm',
-   // resolve:[createDriverResolver],
+   resolve:[createDriverResolver],
     component: DriverFromComponent,
   },
   {

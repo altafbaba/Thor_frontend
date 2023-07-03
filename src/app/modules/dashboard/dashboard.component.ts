@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { DashboardService } from 'src/app/core/dashboard/dashboard.service';
 import { IDashboard } from 'src/app/core/dashboard/dashboard.type';
+import { InsuranceService } from 'src/app/core/insurance/insurance.service';
+import { IInsurance } from 'src/app/core/insurance/insurance.type';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,13 +16,60 @@ export class DashboardComponent implements OnInit {
 
   data : IDashboard
 
-  constructor(private dashboardSerives:DashboardService) { }
+  displayedColumns: string[] = [
+    'id',
+    'iName',
+    'vNumber',
+    'iStartDate',
+    'iEndDate',
+    'iAmount',
+  ];
+
+  
+
+  dataSource: MatTableDataSource<IInsurance> = new MatTableDataSource([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+
+  constructor(private dashboardSerives:DashboardService,private insuranceServices:InsuranceService) { }
 
   ngOnInit(): void {
     this.dashboardSerives.getDashboard().subscribe((val:any)=>{
       this.data = val
+      console.log(val);
+      
     })
     
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+    //get Insurance
+    this.insuranceServices.getInsurance().subscribe();
+    this.insuranceServices.insurances$.subscribe((ince)=>{
+      this.dataSource.data= ince
+
+      
+      
+    })
+
+  }
+
+  displayFn(value: any) {
+    return value.name;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }

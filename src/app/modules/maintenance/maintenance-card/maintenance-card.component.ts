@@ -18,11 +18,12 @@ export class MaintenanceCardComponent implements OnInit {
     this.MaintenanceServices.getmaintenancebyid(this.data).subscribe((res)=>{
       this.fullMaintemamceData = res
       console.log(this.data,this.fullMaintemamceData);
+
+      
     })
     
-    
-    
-    
-  }
+   }
+
+  
 
 }
