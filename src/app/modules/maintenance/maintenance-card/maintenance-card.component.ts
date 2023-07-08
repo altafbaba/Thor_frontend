@@ -11,13 +11,18 @@ import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
 export class MaintenanceCardComponent implements OnInit {
 
  fullMaintemamceData:IMaintenance
+ MaintemamceData=[]
 
   constructor(private MaintenanceServices:MaintenanceService, @Inject(MAT_DIALOG_DATA) public data: string) { }
 
   ngOnInit(): void {
+
+
     this.MaintenanceServices.getmaintenancebyid(this.data).subscribe((res)=>{
       this.fullMaintemamceData = res
       console.log(this.data,this.fullMaintemamceData);
+
+      this.MaintemamceData.push(res)
 
       
     })

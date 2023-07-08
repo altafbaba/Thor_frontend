@@ -16,11 +16,12 @@ export class InsuranceFormComponent implements OnInit {
   vehicles = [];
 
   iForm: FormGroup = new FormGroup({
-    iName: new FormControl('', [Validators.required]),
-    startDate: new FormControl('', [Validators.required]),
-    endDate: new FormControl('', [Validators.required]),
-    iAmount: new FormControl('', [Validators.required]),
-    vNumber: new FormControl('', [Validators.required]),
+    iName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    iNumber: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    startDate: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    endDate: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    iAmount: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    vNumber: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
   });
 
   constructor(

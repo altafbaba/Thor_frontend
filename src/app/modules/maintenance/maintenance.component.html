@@ -56,7 +56,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
         <td mat-cell *matCellDef="let row"
         style="cursor: pointer ; color: rgb(74, 241, 23);"
-        [routerLink]= "row._id"
+        (click)="openDetails(row)"
        
     
         >
@@ -91,7 +91,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row 
      
-      (click)="openDetails(row)"
+    
       *matRowDef="let row; columns: displayedColumns"
       
       

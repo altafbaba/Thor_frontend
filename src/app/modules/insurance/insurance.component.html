@@ -27,6 +27,11 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header >Insurance Name</th>
           <td mat-cell *matCellDef="let row">{{ row.iName }}</td>
         </ng-container>
+
+        <ng-container matColumnDef="iNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header >Insurance Number</th>
+          <td mat-cell *matCellDef="let row">{{ row.iNumber }}</td>
+        </ng-container>
   
         <!-- Name Column -->
         <ng-container matColumnDef="vNumber">

@@ -16,6 +16,7 @@ export class InsuranceComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'iName',
+    'iNumber',
     'vNumber',
     'iStartDate',
     'iEndDate',

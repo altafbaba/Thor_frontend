@@ -19,14 +19,14 @@ export class FuelFormComponent implements OnInit {
   vehicles= [];
 
   fForm: FormGroup = new FormGroup({
-    fType: new FormControl('', [Validators.required]),
-    dName: new FormControl('', [Validators.required]),
-    petrolPumpName: new FormControl('', [Validators.required]),
-    area: new FormControl('', [Validators.required]),
-    quantity: new FormControl('', [Validators.required]),
-    amount: new FormControl('', [Validators.required]),
-    date: new FormControl('', [Validators.required]),
-    vName: new FormControl('', [Validators.required]),
+    fType: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    dName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    petrolPumpName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    area: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    quantity: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    amount: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    date: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    vName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
     
   });
 

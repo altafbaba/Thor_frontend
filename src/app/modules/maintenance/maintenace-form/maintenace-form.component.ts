@@ -23,12 +23,12 @@ export class MaintenaceFormComponent implements OnInit {
   ];
 
   mForm: FormGroup = new FormGroup({
-    vNumber: new FormControl('', [Validators.required]),
-    maintenanceType: new FormControl('', [Validators.required]),
-    mDate: new FormControl('', [Validators.required]),
-    garageName: new FormControl('', [Validators.required]),
-    mPart: new FormControl('', [Validators.required]),
-    amount: new FormControl('', [Validators.required]),
+    vNumber: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    maintenanceType: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    mDate: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    garageName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    mPart: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
+    amount: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
   });
 
   constructor(
