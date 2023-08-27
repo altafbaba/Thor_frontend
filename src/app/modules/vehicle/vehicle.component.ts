@@ -20,7 +20,7 @@ export class VehicleComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
+  vehicle:IVehicle
   vehicals$: Observable<IVehicle[]>;
 
   constructor(
@@ -36,7 +36,7 @@ export class VehicleComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(VehicleFormComponent,{});
+    const dialogRef = this.dialog.open(VehicleFormComponent,{data:this.vehicals$});
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -58,7 +58,7 @@ export class VehicleComponent implements OnInit {
       
     });
 
-    console.log(this.vehicals$);
+    
     
   }
 
