@@ -42,6 +42,16 @@ export class MaintenanceService {
     );
   }
 
+  //get last 3 maintenance 
+
+  getDetailsmaintenance() {
+    return this.http.get<IMaintenance[]>(this.baseUrl + '/maintenance/details').pipe(
+      tap((man: IMaintenance[]) => {
+        this.maintenances.next(man);
+      })
+    );
+  }
+
   //get by id
   getmaintenancebyid(id: string): Observable<IMaintenance> {
     return this.http
