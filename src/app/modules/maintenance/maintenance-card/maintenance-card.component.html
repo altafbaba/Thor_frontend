@@ -1,11 +1,17 @@
-<div style="padding: 10px">
+<div style="padding: 10px " >
   <div>
     <h1>Details</h1>
   </div>
 
-  <div style="margin-bottom: 10px">
-    <mat-card>
-      <h2>Vehicle Number</h2>
+  <div style="margin-bottom: 10px" *ngFor="let manData of MaintenanceData">
+    
+    <mat-card >
+      <h2>Vehicle Number </h2>
     </mat-card>
+ <h1> vNumber{{manData.vNumber}}</h1>
+ <h1> garageName{{manData.garageName}}</h1>
+ <h1> mPart{{manData.mPart}}</h1>
+ <h1> maintenanceType{{manData.maintenanceType}}</h1>
+
   </div>
 </div>

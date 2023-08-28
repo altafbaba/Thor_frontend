@@ -17,8 +17,8 @@ export class MaintenanceComponent implements OnInit {
     'id',
     'maintenanceType',
     'vNumber',
-  'mPart',
-'garageName',
+    'mPart',
+    'garageName',
     'vDate',
     'details',
     'edit',
@@ -35,13 +35,12 @@ export class MaintenanceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //get Maintenance
+    //get all Maintenance
     this.maintenanceServices.getmaintenance().subscribe();
-this.maintenanceServices.maintenances$.subscribe((man) => {
+    this.maintenanceServices.maintenances$.subscribe((man) => {
       this.dataSource.data = man;
-      
 
-    // paginator
+      // paginator
       this.dataSource.paginator = this.paginator;
     });
   }
@@ -59,8 +58,7 @@ this.maintenanceServices.maintenances$.subscribe((man) => {
     }
   }
 
-  openDetails(row:any){
-
-    this.dialog.open(MaintenanceCardComponent,{data:row._id})
+  openDetails(row: any) {
+    this.dialog.open(MaintenanceCardComponent, { data: row._id });
   }
 }

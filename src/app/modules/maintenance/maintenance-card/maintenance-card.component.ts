@@ -9,8 +9,8 @@ import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
   styleUrls: ['./maintenance-card.component.scss'],
 })
 export class MaintenanceCardComponent implements OnInit {
-  fullMaintemamceData: IMaintenance;
-  MaintemamceData = [];
+  fullMaintenanceData: IMaintenance;
+  MaintenanceData = [];
 
   constructor(
     private MaintenanceServices: MaintenanceService,
@@ -19,10 +19,9 @@ export class MaintenanceCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.MaintenanceServices.getDetailsmaintenance().subscribe((res) => {
-      this.MaintemamceData = res;
-      console.log(this.MaintemamceData);
-
-    
+      this.MaintenanceData = res;
+      console.log(this.MaintenanceData);
     });
   }
+ 
 }
