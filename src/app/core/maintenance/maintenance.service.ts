@@ -44,8 +44,8 @@ export class MaintenanceService {
 
   //get last 3 maintenance 
 
-  getDetailsmaintenance() {
-    return this.http.get<IMaintenance[]>(this.baseUrl + '/maintenance/details').pipe(
+  getDetailsmaintenance(vNumber:string) {
+    return this.http.get<IMaintenance[]>(`${this.baseUrl}/maintenance/details/${vNumber}`).pipe(
       tap((man: IMaintenance[]) => {
         this.maintenances.next(man);
       })

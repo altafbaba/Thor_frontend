@@ -59,6 +59,6 @@ export class MaintenanceComponent implements OnInit {
   }
 
   openDetails(row: any) {
-    this.dialog.open(MaintenanceCardComponent, { data: row._id });
+    this.dialog.open(MaintenanceCardComponent, { data: row });
   }
 }

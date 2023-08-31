@@ -14,11 +14,13 @@ export class MaintenanceCardComponent implements OnInit {
 
   constructor(
     private MaintenanceServices: MaintenanceService,
-    @Inject(MAT_DIALOG_DATA) public data: string
+    @Inject(MAT_DIALOG_DATA) public data: IMaintenance
   ) {}
 
   ngOnInit(): void {
-    this.MaintenanceServices.getDetailsmaintenance().subscribe((res) => {
+    console.log(this.data);
+    
+    this.MaintenanceServices.getDetailsmaintenance(this.data.vNumber).subscribe((res) => {
       this.MaintenanceData = res;
       console.log(this.MaintenanceData);
     });
