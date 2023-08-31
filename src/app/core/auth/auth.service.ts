@@ -21,7 +21,7 @@ export class AuthService {
   }
 //access token store in localStorage
   storeAccessToken(accessToken:string){
-    localStorage.setItem('loginToken',accessToken)
+    localStorage.setItem('babatoken',accessToken)
 
   }
 
