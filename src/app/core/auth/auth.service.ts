@@ -27,12 +27,12 @@ export class AuthService {
 
   // get accessToken
   getAccessToken(){
-  return  localStorage.getItem('loginToken')
+  return  localStorage.getItem('babatoken')
   }
 
    //remove AccessToken
    deleteAccessToken(){
-    localStorage.removeItem('loginToken')
+    localStorage.removeItem('babatoken')
    }
 
    //logout
