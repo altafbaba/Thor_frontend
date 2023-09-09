@@ -2,22 +2,24 @@
   <h1 style="font-weight: 500; margin-bottom: 30px; font-family: poppins">
     Insurance Form
   </h1>
+</div>
 
-  <div class="example-full-width" cellspacing="0">
-    <div class="example-full-width" cellspacing="0">
-      <mat-form-field class="example-full-width" appearance="outline">
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col" >
+      <mat-form-field  appearance="outline">
         <mat-label>Insurance Name</mat-label>
         <input matInput formControlName="iName" />
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="outline">
+      <mat-form-field class="col" appearance="outline">
         <mat-label>Insurance Number</mat-label>
         <input matInput formControlName="iNumber" />
       </mat-form-field>
 
       <mat-form-field
         appearance="outline"
-        style="font-family: poppins; width: 28%; margin-right: 8%"
+        
       >
         <mat-label class="fontP">Vehical Number</mat-label>
         <mat-select class="fontP" formControlName="vNumber">
@@ -31,18 +33,16 @@
         </mat-select>
       </mat-form-field>
     </div>
+    </div>
+</div>
 
-    <div class="example-full-width" cellspacing="0">
+    <!-- <div class="col" cellspacing="0">
       <mat-form-field
         appearance="outline"
         style="font-family: poppins; width: 28%"
       >
         <mat-label>Insurance Start date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="picker1"
-          formControlName="startDate"
-        />
+        <input matInput [matDatepicker]="picker1" formControlName="startDate" />
 
         <mat-datepicker-toggle
           matSuffix
@@ -69,8 +69,9 @@
         <mat-label>Insurance Amount</mat-label>
         <input matInput formControlName="iAmount" />
       </mat-form-field>
-    </div>
-    <div style="display: flex; justify-content: end; font-family: poppins">
+    </div> -->
+
+    <!-- <div style="display: flex; justify-content: end; font-family: poppins">
       <button
         mat-raised-button
         color="primary"
@@ -79,6 +80,6 @@
       >
         Save
       </button>
-    </div>
-  </div>
-</div>
+    </div> -->
+ 
+
