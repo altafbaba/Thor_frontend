@@ -57,6 +57,11 @@ const routes: Route[] = [
       {
         path:'insurance',
         loadChildren:()=> import ('./modules/insurance/insurance.module').then((x)=>x.InsuranceModule)
+      },
+      {
+        path:'reports',
+        loadChildren:()=> import ('./modules/reports/reports.module').then((x)=>x.ReportsModule)
+
       }
      
     ],
