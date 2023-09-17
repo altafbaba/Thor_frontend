@@ -1,1 +1,35 @@
-<p>reports works!</p>
+<button (click)="exportToExcel()">Export to Excel</button>
+
+
+<!-- <div>
+    <div formControlName="RForm">
+        <mat-form-field class="example-full-width ">
+            <mat-label>Search..</mat-label>
+            <input
+              matInput
+              formControlName="search"
+              placeholder="Ex. ABC Company"
+              value=""
+              type="text"
+           
+            />
+          </mat-form-field>
+    
+    </div>
+    <table  
+    mat-table
+    [dataSource]="filteredSource"
+    >
+    <ng-container matColumnDef="vName">
+        <th mat-header-cell *matHeaderCellDef>vName</th>
+        <td mat-cell *matCellDef="let element">{{ element.vName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vNumber">
+        <th mat-header-cell *matHeaderCellDef>vNumber</th>
+        <td mat-cell *matCellDef="let element">{{ element.vNumber }}</td>
+      </ng-container>
+    </table>
+
+    <button (click)="export" > export </button>
+</div> -->
