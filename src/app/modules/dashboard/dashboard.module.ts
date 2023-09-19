@@ -22,7 +22,7 @@ const dRoute :Route[]=[
     DashboardCardComponent
   ],
   imports: [
-    CommonModule,RouterModule.forChild(dRoute),SharedModule
+    CommonModule,SharedModule,RouterModule.forChild(dRoute),SharedModule
   ]
 })
 export class DashboardModule { }

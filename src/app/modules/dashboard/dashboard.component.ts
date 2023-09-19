@@ -10,11 +10,10 @@ import { IInsurance } from 'src/app/core/insurance/insurance.type';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-  data : IDashboard
+  data: IDashboard;
 
   displayedColumns: string[] = [
     'id',
@@ -25,23 +24,21 @@ export class DashboardComponent implements OnInit {
     'iAmount',
   ];
 
-  
-
   dataSource: MatTableDataSource<IInsurance> = new MatTableDataSource([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
-  constructor(private dashboardSerives:DashboardService,private insuranceServices:InsuranceService) { }
+  constructor(
+    private dashboardSerives: DashboardService,
+    private insuranceServices: InsuranceService
+  ) {}
 
   ngOnInit(): void {
-    this.dashboardSerives.getDashboard().subscribe((val:any)=>{
-      this.data = val
+    this.dashboardSerives.getDashboard().subscribe((val: any) => {
+      this.data = val;
       console.log(val);
-      
-    })
-    
+    });
   }
 
   ngAfterViewInit() {
@@ -50,13 +47,9 @@ export class DashboardComponent implements OnInit {
 
     //get Insurance
     this.insuranceServices.getInsurance().subscribe();
-    this.insuranceServices.insurances$.subscribe((ince)=>{
-      this.dataSource.data= ince
-
-      
-      
-    })
-
+    this.insuranceServices.insurances$.subscribe((ince) => {
+      this.dataSource.data = ince;
+    });
   }
 
   displayFn(value: any) {
@@ -71,5 +64,4 @@ export class DashboardComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }
