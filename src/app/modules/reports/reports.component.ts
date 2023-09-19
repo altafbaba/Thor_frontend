@@ -1,57 +1,65 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { FuelService } from 'src/app/core/fuel/fuel.service';
+import { InsuranceService } from 'src/app/core/insurance/insurance.service';
 import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service';
 import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss']
+  styleUrls: ['./reports.component.scss'],
 })
 export class ReportsComponent {
+  Maintenance = [];
+  Fuel = [];
+  Insurance = [];
 
-  constructor(private MaintenanceServices:MaintenanceService){}
-Manin = []
+  constructor(
+    private maintenanceServices: MaintenanceService,
+    private fuelServices: FuelService,
+    private insuranceServices: InsuranceService
+  ) {}
 
-  displayedColumns: string[] = [
-    'vName',
-    'vNumber',]
-  dataSource = new MatTableDataSource<Task>([]);
-  filteredSource = new MatTableDataSource<Task>([]);
-  _searchFiltered = new MatTableDataSource<Task>([]);
+  ngOnInit() {
+    //get Maintenance
+    this.maintenanceServices.getmaintenance().subscribe();
+    this.maintenanceServices.maintenances$.subscribe((man) => {
+      this.Maintenance = man;
+    });
 
-  RForm = new FormGroup({
-    search : new FormControl(""),
-  })
+    //get fuel
+    this.fuelServices.getFuel().subscribe();
+    this.fuelServices.fuels$.subscribe((ful) => {
+      this.Fuel = ful;
+    });
 
-
-  ngOnInit(){
-    this.MaintenanceServices.getmaintenance().subscribe();
-    this.MaintenanceServices.maintenances$.subscribe((man)=>{
-      this.Manin = man
-
-      console.log(man)
-    })
+    //get Insurance
+    this.insuranceServices.getInsurance().subscribe();
+    this.insuranceServices.insurances$.subscribe((ins) => {
+      this.Insurance = ins;
+    });
   }
-export(){}
 
-
-
-  data1 = [
-    { name: 'John', age: 30, city: 'New York' },
-    { name: 'Alice', age: 25, city: 'Los Angeles' },
-    { name: 'Bob', age: 35, city: 'Chicago' },
-  ];
-
-  exportToExcel(): void {
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.Manin);
-    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  exportToExcelMaintenance() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(
+      this.Maintenance
+    );
+    const workbook: XLSX.WorkBook = {
+      Sheets: { data: worksheet },
+      SheetNames: ['data'],
+    };
+    const excelBuffer: any = XLSX.write(workbook, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
     this.saveAsExcelFile(excelBuffer, 'data');
   }
-  private saveAsExcelFile(buffer: any, fileName: string): void {
-    const data: Blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
     const a: HTMLAnchorElement = document.createElement('a');
     const url: string = window.URL.createObjectURL(data);
     a.href = url;
@@ -62,4 +70,29 @@ export(){}
     window.URL.revokeObjectURL(url);
   }
 
+  exportToExcelFuel() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.Fuel);
+    const workbook: XLSX.WorkBook = {
+      Sheets: { data: worksheet },
+      SheetNames: ['data'],
+    };
+    const excelBuffer: any = XLSX.write(workbook, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
+    this.saveAsExcelFile(excelBuffer, 'data');
+  }
+
+  exportToExcelInsurance() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.Insurance);
+    const workbook: XLSX.WorkBook = {
+      Sheets: { data: worksheet },
+      SheetNames: ['data'],
+    };
+    const excelBuffer: any = XLSX.write(workbook, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
+    this.saveAsExcelFile(excelBuffer, 'data');
+  }
 }
