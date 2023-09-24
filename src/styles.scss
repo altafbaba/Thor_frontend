@@ -48,27 +48,27 @@ $Thor_frontend-theme: mat.define-light-theme(
 html,
 body {
   height: 100%;
-  font-family: "poppins"!important;
+  font-family: "poppins" !important;
 }
-body {
-  margin: 0;
-  font-family: "poppins"!important;
-  // font-size: large;
-}
+// body {
+//   margin: 0;
+//   font-family: "poppins" !important;
+//   // font-size: large;
+// }
 mat-card {
   border-radius: 2rem !important;
   box-shadow: none !important;
   border: 2px solid rgba(220, 220, 220, 0.541);
 }
-mat-card:hover {
-  border: 2px solid rgb(190, 82, 190);
-}
+// mat-card:hover {
+//   border: 2px solid rgb(190, 82, 190);
+// }
 
  .tablebor {
   border: 1px solid rgb(226, 226, 226);
   box-shadow: none !important;
   
 }
-* {
-  font-family: Poppins;
-}
+// *{
+//   font-family: Poppins !important;
+// }
