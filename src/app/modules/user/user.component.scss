@@ -5,14 +5,23 @@ table {
   .mat-form-field {
     font-size: 14px;
     font-family: poppins !important;
-    width: 100%;
+    width: 200px;
   }
   .fontP{
     font-family: Poppins;
   }
   td,
   th {
-    width: 25%;
+   // width: 25%;
     font-family: poppins !important;
   }
   
+
+  .btn{
+    color:#B54941;
+    font-family: poppins;
+    background-color: #F8BFBB
+}
+.mtIcon{
+    color:#B54941
+}

@@ -16,7 +16,6 @@ export class UserFormComponent implements OnInit {
   uForm: FormGroup = new FormGroup({
     uName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    uRole: new FormControl('', [Validators.required]),
   });
 
   constructor(
