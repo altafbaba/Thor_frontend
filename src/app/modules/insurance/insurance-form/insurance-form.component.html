@@ -1,62 +1,42 @@
-<div class="ml-3" [formGroup]="iForm">
-  <h1 class="mt-3" style="font-weight: 500;  font-family: poppins">
-    Insurance Form
-  </h1>
-
-<div>
+<div [formGroup]="iForm" class="m-4">
 
 
-<div class="container text-center">
-  <div class="row">
-    <mat-form-field appearance="outline" class="col">
-      <mat-label>Insurance Name</mat-label>
-      <input matInput formControlName="iName" />
-    </mat-form-field>
+<div style="display: flex; justify-content: space-between; margin: 10px; ">
+  <h1 style="align-self: center ; font-family: poppins;" >Insurance Form</h1>
+  <div style="display: flex; justify-content: end; ">
+    <div>
+      <button mat-raised-button  class="btn m-2"  routerLink="../" >
+        <mat-icon class="mtIcon">add_circle</mat-icon>
+        Back
+      </button>
+   
+      <button mat-raised-button  class="btn"  (click)="save()" >
+        <mat-icon class="mtIcon">add_circle</mat-icon>
+        Save
+      </button>
+    </div>
+   
+   
 
-    <mat-form-field class="col" appearance="outline">
-      <mat-label>Insurance Number</mat-label>
-      <input matInput formControlName="iNumber" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="col">
-      <mat-label >Vehical Number</mat-label>
-      <mat-select formControlName="vNumber">
-        <mat-option
-          *ngFor="let vehicle of vehicles"
-          [value]="vehicle.vNumber"
-         > 
-          {{vehicle.vNumber}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
   </div>
 </div>
 
-<div class="container text-center">
-  <div class="row">
-    <mat-form-field appearance="outline" class="col">
-      <mat-label>Insurance Start date</mat-label>
-      <input matInput [matDatepicker]="picker1" formControlName="startDate" />
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="col">
-      <mat-label>Insurance End date</mat-label>
-      <input matInput [matDatepicker]="picker2" formControlName="endDate" />
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field class="col" appearance="outline">
-      <mat-label>Insurance Amount</mat-label>
-      <input matInput formControlName="iAmount" />
-    </mat-form-field>
-  </div>
-</div>
-</div>
-</div>
-<div >
+<!-- <div [formGroup]="iForm" class="row g-0 text-start"> -->
+  
+    <!-- <div class="col-sm-6 col-md-8">
+      <h1>Insurance Form</h1>
+    </div>
+    <div class="col-6 col-md-2">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="../"
+        style="font-family: poppins"
+      >
+        Back
+      </button>
+    </div>
+    <div class="col-6 col-md-2 ">
       <button
         mat-raised-button
         color="primary"
@@ -65,4 +45,69 @@
       >
         Save
       </button>
+    
+  </div> -->
+
+  <div >
+    <div class="container text-start">
+      <div class="row">
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>Insurance Name</mat-label>
+          <input matInput formControlName="iName" />
+        </mat-form-field>
+
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Insurance Number</mat-label>
+          <input matInput formControlName="iNumber" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>Vehical Number</mat-label>
+          <mat-select formControlName="vNumber">
+            <mat-option
+              *ngFor="let vehicle of vehicles"
+              [value]="vehicle.vNumber"
+            >
+              {{ vehicle.vNumber }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
+
+    <div class="container text-center">
+      <div class="row">
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>Insurance Start date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker1"
+            formControlName="startDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col">
+          <mat-label>Insurance End date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="endDate" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="col" appearance="outline">
+          <mat-label>Insurance Amount</mat-label>
+          <input matInput formControlName="iAmount" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>
+
+

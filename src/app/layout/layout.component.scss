@@ -1,9 +1,9 @@
 .example-container {
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 
   //   border: 3px solid #555;
- }
+}
 
 .main-container {
   display: flex;
@@ -19,21 +19,31 @@ height: 100%;
 // .example-spacer {
 //   flex: 1 1 auto;
 // }
-mat-drawer{
-  width:200px;
+mat-drawer {
+  width: 200px;
 }
-.mat-btn{
+.mat-btn {
   display: flex;
   flex-direction: column;
   padding: 12px;
 }
 
-
 .sideNavButton {
   text-align: start;
+  color: #b54941;
   font-family: poppins;
+  background-color: #f8bfbb;
+  margin-bottom: 10px;
 }
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.mtIcon {
+  color: #b54941;
+  font-weight: bold;
+}
+mat-toolbar {
+  height: 50px;
 }

@@ -1,123 +1,104 @@
 <div class="main-container">
   <div>
-  <mat-toolbar style="background-color: #673AB7">
-    <button
-      
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
-      (click)="drawer.toggle()"
-    >
-      <mat-icon matTooltip="Menu">menu</mat-icon>
-    </button>
+    <mat-toolbar style="background-color: #f8bfbb">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon matTooltip="Menu">menu</mat-icon>
+      </button>
 
-    <span style="padding-left: 30%; "></span>
+      <span style="padding-left: 30%"></span>
 
-    <span class="example-spacer"></span>
-<div>
-  <button mat-icon-button >
-    <mat-icon matTooltip="Logout" (click)="logout()">logout</mat-icon>
-  </button>
-</div>
-  
+      <span class="example-spacer"></span>
+      <div>
+        <button mat-icon-button>
+          <mat-icon matTooltip="Logout" class="mtIcon" (click)="logout()"
+            >logout</mat-icon
+          >
+        </button>
+      </div>
+    </mat-toolbar>
+  </div>
 
-    
-  </mat-toolbar>
-</div>
-
-  <mat-drawer-container class="example-container"
-  style="background-color: rgb(240, 240, 240)"
+  <mat-drawer-container
+    class="example-container"
+    style="background-color: rgb(240, 240, 240)"
   >
-    <mat-drawer opened #drawer mode="side" style=" background-color: rgb(240, 240, 240);">
+    <mat-drawer
+      opened
+      #drawer
+      mode="side"
+      style="background-color: rgb(240, 240, 240)"
+    >
       <div class="mat-btn">
-        <button
-          mat-button
-          color="accent"
-          routerLink="dashboard"
-          class="sideNavButton"
-          style="margin-top: 8px; "
-        >
-        <mat-icon style="color: grey; padding-right: 25%">dashboard</mat-icon>
+        <button mat-raised-button routerLink="dashboard" class="sideNavButton ">
+          <mat-icon class="mtIcon ">dashboard</mat-icon>
           Dashborad
         </button>
         <button
-        mat-button
+          mat-raised-button
           routerLink="vehicle"
           color="accent"
           class="sideNavButton"
-          style="margin-top: 8px; "
         >
-          <mat-icon style="color: gray; padding-right: 25%"
-            >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Vehicle
         </button>
         <button
-        mat-button
+          mat-button
           color="accent"
           routerLink="maintenance"
           class="sideNavButton"
-          style="margin-top: 8px; "
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-            >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Maintenance
         </button>
         <button
-        mat-button
+          mat-button
           color="accent"
           routerLink="driver"
           class="sideNavButton"
-          style="margin-top: 8px; "
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Driver
         </button>
         <button
-        mat-button
+          mat-button
           color="accent"
           routerLink="fuel"
           class="sideNavButton"
-          style="margin-top: 8px; "
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Fuel
         </button>
         <button
-        mat-button
-        color="accent"
+          mat-button
+          color="accent"
           routerLink="user"
           class="sideNavButton"
-          style="margin-top: 8px; "
-          
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           User
         </button>
         <button
-        mat-button
+          mat-button
           color="accent"
           routerLink="insurance"
           class="sideNavButton"
-          style="margin-top: 8px; "
-          
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Insurance
         </button>
         <button
-        mat-button
+          mat-button
           color="accent"
           routerLink="reports"
           class="sideNavButton"
-          style="margin-top: 8px; "
-          
         >
-        <mat-icon style="color: gray; padding-right: 25%"
-        >local_shipping</mat-icon>
+          <mat-icon class="mtIcon">local_shipping</mat-icon>
           Reports
         </button>
       </div>
