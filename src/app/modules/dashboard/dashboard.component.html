@@ -1,12 +1,12 @@
-<div
+<!-- <div
   class="container mt-4 mb-2"
   style="display: flex; justify-content: space-between"
 >
-  <h1 style="align-self: center;font-family: poppins;">Dashboard</h1>
+  <h1 style="align-self: center; font-family: poppins">Dashboard</h1>
 </div>
 <div
   class="row"
-  style="margin: 13px;"
+  style="margin: 13px"
   ngClass="{
   color red = 
 }
@@ -36,8 +36,7 @@
     icon="settings_input_antenna"
     color="#44CA87"
   >
-  </app-dashboard-card
-  >
+  </app-dashboard-card>
   <app-dashboard-card
     class="col"
     title="Maintenance"
@@ -47,82 +46,83 @@
   >
   </app-dashboard-card
   ><app-dashboard-card
-  class="col"
-  title="Insurance"
-  [count]="data?.insurances"
-  icon="settings_input_antenna"
-  color="#44CA87"
->
-</app-dashboard-card
->
+    class="col"
+    title="Insurance"
+    [count]="data?.insurances"
+    icon="settings_input_antenna"
+    color="#44CA87"
+  >
+  </app-dashboard-card>
 </div>
 
 <div class="tablebor" style="margin-left: 25px; margin-right: 25px">
   <table mat-table [dataSource]="data?.expiringThisMonth" matSort>
-    <!-- ID Column -->
+   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
       <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
     </ng-container>
 
-    <!-- Progress Column -->
+   
     <ng-container matColumnDef="iName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header >Insurance Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Insurance Name</th>
       <td mat-cell *matCellDef="let row">{{ row.iName }}</td>
     </ng-container>
 
-    <!-- Name Column -->
+   
     <ng-container matColumnDef="vNumber">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>
-        Vehical Number
-      </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehical Number</th>
       <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
     </ng-container>
     <ng-container matColumnDef="iStartDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>
         Insurance Start Date
       </th>
-      <td mat-cell *matCellDef="let row">{{ row.iStartDate | date :"dd/MMM/YYYY" }}</td>
+      <td mat-cell *matCellDef="let row">
+        {{ row.iStartDate | date : "dd/MMM/YYYY" }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="iEndDate">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Insurance End Date</th>
-      <td mat-cell *matCellDef="let row">{{ row.iEndDate | date :"dd/MMM/YYYY"  }}  </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Insurance End Date
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.iEndDate | date : "dd/MMM/YYYY" }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="iAmount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Insurance Amount</th>
-      <td mat-cell *matCellDef="let row">{{ row.iAmount  }}  </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Insurance Amount
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.iAmount }}</td>
     </ng-container>
-  
-     
-   
-    
-    
 
-
-    <!-- Fruit Column -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row 
-
-    *matRowDef="let row; columns: displayedColumns"
-    
-    ></tr>
-
-
-    
-    
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
   <mat-paginator
     [pageSizeOptions]="[5, 10, 25, 100]"
     aria-label="Select page of users"
   ></mat-paginator>
+</div> -->
+
+
+<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [plotOptions]="chartOptions.plotOptions"
+    [dataLabels]="chartOptions.dataLabels"
+    [stroke]="chartOptions.stroke"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [fill]="chartOptions.fill"
+    [tooltip]="chartOptions.tooltip"
+  ></apx-chart>
 </div>
 
-<div>
-  
-  
 
-</div>
