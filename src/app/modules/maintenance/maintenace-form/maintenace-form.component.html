@@ -1,61 +1,41 @@
-<div style="margin: 30px ; font-family: poppins;"  [formGroup]="mForm">
-  <h1 style="font-weight: 500; margin-bottom: 30px;font-family: poppins;" >
-    Maintenance Form
-  </h1>
+<div  class="m-4"  [formGroup]="mForm">
+  <div style="display: flex; justify-content: space-between; margin: 10px">
+  <h1 style="align-self: center; font-family: poppins">Maintenance Form</h1>
+  <div style="display: flex; justify-content: end">
+<div>
+  <button mat-raised-button class="btn m-2" routerLink="../">
+    <mat-icon class="mtIcon">add_circle</mat-icon>
+    Back
+  </button>
+
+  <button mat-raised-button class="btn" (click)="save()">
+    <mat-icon class="mtIcon">add_circle</mat-icon>
+    Save
+  </button>
+</div>
+
+  </div>
+</div>
 
   <div class="example-full-width" cellspacing="0">
-    <!-- <mat-form-field appearance="outline" formControlName="maintenanceType">
-      <mat-label>Maintenance Type</mat-label>
-      <mat-select (ngModel)]="selectedValue" name="man">
-        <mat-option *ngFor="let man of maintenancesData" [value]="man.value">
-          {{man.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field  appearance="outline" class="fontP" style="width: 28%; margin-right: 8%;">
-      <mat-label>Maintenance Type</mat-label>
-      <input matInput formControlName="maintenanceType" />
-    </mat-form-field> -->
-
     <mat-form-field appearance="outline"  class="fontP" style="width: 28%; margin-right: 8%">
-      <mat-label  class="fontP">Maintenance Type</mat-label >
+      <mat-label  >Maintenance Type</mat-label >
       <mat-select matNativeControl   formControlName="maintenanceType" class="fontP">
         <mat-option value="services"  class="fontP">Services</mat-option>
         <mat-option value="repair"  class="fontP">Repair</mat-option>
       </mat-select>
     </mat-form-field>
 
-
-
-    <!-- <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
-      <mat-label>Vehical Number</mat-label>
-      <input matInput formControlName="vNumber" matInput /> -->
-      <!-- [matAutocomplete]="auto" -->
-      <!-- <mat-autocomplete
-autoActiveFirstOption
-        #auto="matAutocomplete"
-        [displayWith]="displayFn">
-        <mat-option
-        *ngFor="let vehicle of filteredOptions | async"
-        [value]="vehicle"
-        >{{vehicle.vNumber}}
-        </mat-option>
-</mat-autocomplete> -->
-    <!-- </mat-form-field> -->
-
     <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
-      <mat-label class="fontP">Vehical Number</mat-label>
-      <mat-select class="fontP" formControlName="vNumber">
+      <mat-label >Vehical Number</mat-label>
+      <mat-select formControlName="vNumber">
         <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber" class="fontP" >
           {{vehicle.vNumber}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-   
  
-     <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;">
+     <mat-form-field appearance="outline" style="width: 28%;">
       <mat-label>Maintenance date</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="mDate"/>
 
@@ -77,10 +57,8 @@ autoActiveFirstOption
 
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>amount</mat-label>
-      <input matInput formControlName="amount" />
+      <input matInput formControlName="amount"/>
     </mat-form-field>
   </div>
-  <div style="display: flex; justify-content: end;font-family: poppins;">
-    <button mat-raised-button color="primary" (click)="save()" style="font-family: poppins;">Save</button>
-  </div>
+ 
 </div>

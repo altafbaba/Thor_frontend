@@ -1,19 +1,26 @@
-<div style="display: flex; justify-content: space-between; margin: 20px">
-  <h1 style="align-self: center ; font-family: poppins;" >Maintenace Details</h1>
-  <div style="display: flex; justify-content: end; margin-bottom: 20px">
-    <button mat-raised-button   style="color:aquamarine; font-family: poppins; background-color: #673AB7; " routerLink="mForm" >
-      <mat-icon style="color:aquamarine;">add_circle</mat-icon>
+<div class="m-4">
+<div class="container text-start" >
+  <div class="row">
+  <h1  class="col" style="font-family: poppins;">Maintenace Details</h1>
+  <div class="col">
+    <mat-form-field appearance="outline">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <button mat-raised-button routerLink="mForm" class="btn" >
+      <mat-icon class="mtIcon" svgIcon="heroicons_solid:user-add"></mat-icon>
       Add Maintenace
     </button>
   </div>
-</div>
 
-<div style="margin: 20px" >
-  <mat-form-field appearance="outline">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
-  </mat-form-field>
 
+
+ 
+
+</div></div>
+  <!-- table -->
   <div class="tablebor">
     <table mat-table [dataSource]="dataSource" matSort>
       <!-- ID Column -->
@@ -111,4 +118,5 @@
       aria-label="Select page of users"
     ></mat-paginator>
   </div>
+
 </div>
