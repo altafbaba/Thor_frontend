@@ -1,112 +1,100 @@
-<div [formGroup]="fForm">
-  <h1 style="margin-left: 18px; margin-bottom: 20px" class="fontP">
-    Fuel Form
-  </h1>
-  <div>
-    <mat-form-field
-      appearance="outline"
-      style="margin-right: 18px; margin-left: 18px"
-      class="fontP"
-    >
-      <mat-label class="fontP">Fuel Type</mat-label>
+<div [formGroup]="fForm" class="m-4">
+  <h1 class="fontP">Fuel Form</h1>
 
-      <mat-select matNativeControl formControlName="fType" class="fontP">
-        <mat-option value="CNG" class="fontP"> CNG</mat-option>
-        <mat-option value="Petrol" class="fontP"> Petrol</mat-option>
-        <mat-option value="Diesel" class="fontP">Diesel</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label class="fontP">Fuel Type</mat-label>
+        <mat-select matNativeControl formControlName="fType" class="fontP">
+          <mat-option value="CNG" class="fontP"> CNG</mat-option>
+          <mat-option value="Petrol" class="fontP"> Petrol</mat-option>
+          <mat-option value="Diesel" class="fontP">Diesel</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>vehicle Name</mat-label>
+        <mat-select class="fontP" formControlName="vName">
+          <mat-option
+            *ngFor="let vehicle of vehicles"
+            [value]="vehicle.vNumber"
+          >
+            {{ vehicle.vNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Driver Name</mat-label>
+        <mat-select class="fontP" formControlName="dName">
+          <mat-option
+            *ngFor="let driver of drivers"
+            [value]="driver.dFirstName"
+          >
+            {{ driver.dFirstName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Fuel date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" />
 
-    <!-- <mat-form-field appearance="outline" class="fontP">
-      <mat-label>Vehicle Name</mat-label>
-      <input matInput placeholder="Vehicle Name" formControlName="vName" />
-    </mat-form-field> -->
-
-    <mat-form-field appearance="outline" class="fontP">
-      <mat-label>Driver Name</mat-label>
-     <mat-select class="fontP" formControlName="dName">
-      <mat-option *ngFor="let driver of drivers" [value]="driver.dFirstName">
-        {{driver.dFirstName}}
-      </mat-option>
-
-
-     </mat-select>
-
-
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="fontP">
-      <mat-label>vehicle Name</mat-label>
-     <mat-select class="fontP" formControlName="vName">
-      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber">
-        {{vehicle.vNumber}}
-      </mat-option>
-
-
-     </mat-select>
-
-
-    </mat-form-field>
-
-    <mat-form-field
-      appearance="outline"
-      style="margin-left: 18px"
-      class="fontP"
-    >
-      <mat-label>Pump Name</mat-label>
-      <input
-        matInput
-        placeholder="Pump Name"
-        formControlName="petrolPumpName"
-      />
-    </mat-form-field>
-
-    
-    
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
   </div>
-  <div>
-    <mat-form-field appearance="outline" class="fontP">
-      <mat-label>Fuel date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date" />
+  <div class="row">
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Pump Name</mat-label>
+        <input
+          matInput
+          placeholder="Pump Name"
+          formControlName="petrolPumpName"
+        />
+      </mat-form-field>
+    </div>
 
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field
-      appearance="outline"
-      style="margin-left: 18px"
-      class="fontP"
-    >
-      <mat-label>Area</mat-label>
-      <input matInput placeholder="area" formControlName="area" />
-    </mat-form-field>
-    <mat-form-field
-      appearance="outline"
-      style="margin-left: 18px"
-      class="fontP"
-    >
-      <mat-label>Quantity</mat-label>
-      <input matInput placeholder="Quantity" formControlName="quantity" />
-    </mat-form-field>
-    <mat-form-field
-      appearance="outline"
-      style="margin-left: 18px"
-      class="fontP"
-    >
-      <mat-label>Amount</mat-label>
-      <input matInput placeholder="Amount" formControlName="amount" />
-    </mat-form-field>
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Area</mat-label>
+        <input matInput placeholder="area" formControlName="area" />
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Quantity</mat-label>
+        <input matInput placeholder="Quantity" formControlName="quantity" />
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field appearance="outline" class="fontP">
+        <mat-label>Amount</mat-label>
+        <input matInput placeholder="Amount" formControlName="amount" />
+      </mat-form-field>
+    </div>
   </div>
 
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close class="fontP">Cancel</button>
+    <button mat-button mat-dialog-close class="fontP btn">
+      <mat-icon class="mtIcon">add_circle</mat-icon> Back
+    </button>
     <button
       mat-button
       color="accent"
       [mat-dialog-close]="true"
       cdkFocusInitial
       (click)="save()"
-      class="fontP"
+      class="fontP btn"
     >
+      <mat-icon class="mtIcon">add_circle</mat-icon>
       Save
     </button>
   </mat-dialog-actions>

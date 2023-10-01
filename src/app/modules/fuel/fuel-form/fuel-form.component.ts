@@ -16,18 +16,49 @@ import { IVehicle } from 'src/app/core/vehicle/vehicle.type';
 export class FuelFormComponent implements OnInit {
   fuel: IFuel = null;
   drivers = [];
-  vehicles= [];
+  vehicles = [];
 
   fForm: FormGroup = new FormGroup({
-    fType: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    dName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    petrolPumpName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    area: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    quantity: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    amount: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    date: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    vName: new FormControl('', [Validators.required,Validators.maxLength(255),Validators.minLength(2)]),
-    
+    fType: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    dName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    petrolPumpName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    area: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    quantity: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    amount: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    date: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
+    vName: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(255),
+      Validators.minLength(2),
+    ]),
   });
 
   constructor(
@@ -35,7 +66,7 @@ export class FuelFormComponent implements OnInit {
     private router: Router,
     private fuelServices: FuelService,
     private DriverSerives: DriverService,
-    private VehicleSerives:VehicleService
+    private VehicleSerives: VehicleService
   ) {}
 
   ngOnInit(): void {
@@ -47,23 +78,19 @@ export class FuelFormComponent implements OnInit {
       }
     });
 
-//get Driver
-this.DriverSerives.getDriver().subscribe((dri)=>{
-  this.drivers = dri
-  console.log(this.drivers);
-})
+    //get Driver
+    this.DriverSerives.getDriver().subscribe((dri) => {
+      this.drivers = dri;
+    });
 
-//get Vehicle
-this.VehicleSerives.getVehical().subscribe((veh)=>{
-  this.vehicles = veh
-  console.log(this.vehicles);
-  
-})
-
+    //get Vehicle
+    this.VehicleSerives.getVehical().subscribe((veh) => {
+      this.vehicles = veh;
+    });
   }
 
   save() {
-    this.fForm.markAllAsTouched();
+    this.fForm.value.markAllAsTouched();
     if (this.fForm.invalid) return;
 
     //update fuel
@@ -91,6 +118,5 @@ this.VehicleSerives.getVehical().subscribe((veh)=>{
         },
       });
     }
-    console.log(this.fForm.value)
   }
 }

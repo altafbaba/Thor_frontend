@@ -1,52 +1,70 @@
-<div style="margin: 30px" class="fontpop" [formGroup]="dForm">
-  <h2 style="font-weight: 500; margin-bottom: 30px" class="fontP">
-    Driver Form
-  </h2>
+<div class="m-4" [formGroup]="dForm">
+  
 
-  <div >
-    <mat-form-field  style="width: 45%; margin-right: 10%;" appearance="outline"  class="fontP">
+
+  <div style="display: flex; justify-content: space-between; margin: 10px">
+    <h1 style="align-self: center; font-family: poppins">Driver Form</h1>
+    <div style="display: flex; justify-content: end">
+      <div>
+        <button mat-raised-button class="btn m-2" routerLink="../">
+          <mat-icon class="mtIcon">add_circle</mat-icon>
+          Back
+        </button>
+        <button mat-raised-button class="btn" (click)="save()">
+          <mat-icon class="mtIcon">add_circle</mat-icon>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="col">
       <mat-label>First Name</mat-label>
       <input matInput formControlName="dFirstName" />
     </mat-form-field>
-    <mat-form-field style="width: 45%;" appearance="outline" class="fontP" >
+    <mat-form-field appearance="outline" class="col">
       <mat-label>Last Name</mat-label>
       <input matInput formControlName="dLastName" />
     </mat-form-field>
+
+    <mat-form-field class="col" appearance="outline">
+      <mat-label>Mobile No</mat-label>
+      <input matInput formControlName="dMobile" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="dAddress" />
+    </mat-form-field>
+  </div>
+    <div class="row">
+      <mat-form-field class="col" appearance="outline">
+        <mat-label>AdharCard No</mat-label>
+        <input matInput formControlName="dAdharCard" />
+      </mat-form-field>
     
-  </div>
-<div>
+      <mat-form-field class="col" appearance="outline">
+        <mat-label>License No</mat-label>
+        <input matInput formControlName="dLicense" />
+      </mat-form-field>
+    </div>
 
-
+    <!-- <div style="display: flex; justify-content: end">
+      <button
+        mat-button
+        class="fontP"
+        style="
+          color: aquamarine;
+          font-family: poppins;
+          background-color: #673ab7;
+        "
+        (click)="save()"
+      >
+        <mat-icon style="color: aquamarine">done_all</mat-icon>
+        Save
+      </button>
+    </div> -->
   
-<div>
-  <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Mobile No</mat-label>
-    <input matInput formControlName="dMobile" />
-  </mat-form-field>
-</div>
-  <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Address</mat-label>
-    <input matInput formControlName="dAddress" />
-  </mat-form-field>
-
-  <div>
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>AdharCard No</mat-label>
-      <input matInput formControlName="dAdharCard" />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>License No</mat-label>
-      <input matInput formControlName="dLicense" />
-    </mat-form-field>
-  </div>
-
-  <div style="display: flex; justify-content: end" >
-    <button mat-button  class="fontP" 
-    style="color:aquamarine; font-family: poppins; background-color: #673AB7;"
-    (click)="save()">
-      <mat-icon style="color:aquamarine;">done_all</mat-icon>
-      Save</button>
-  </div>
 </div>

@@ -1,19 +1,24 @@
+table {
+  width: 100%;
+}
 
-  table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    font-family: poppins !important;
-    width: 100%;
-  }
-  
-  td,
-  th {
-    width: 15%;
-    font-family: poppins !important;
-  }
-  .fontP{
-    font-family: Poppins;
-  }
+.mat-form-field {
+  font-size: 12px;
+  font-family: poppins !important;
+  width: 80%;
+}
+
+td,
+th {
+  width: 14%;
+  font-family: poppins !important;
+}
+
+.btn {
+  color: #b54941;
+  font-family: poppins;
+  background-color: #f8bfbb;
+}
+.mtIcon {
+  color: #b54941;
+}

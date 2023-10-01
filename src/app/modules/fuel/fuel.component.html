@@ -1,40 +1,39 @@
-<div style="display: flex; justify-content: space-between; margin: 20px" >
-    <h1 style="align-self: center" class="fontP">Fuel Details</h1>
-    <div style="display: flex; justify-content: end; margin-bottom: 20px">
-      <button
-        mat-flat-button
-        
-        style="color:aquamarine; font-family: poppins; background-color: #673AB7;"
-        (click)="openDialog()"
-      >
-      <mat-icon style="color:aquamarine;">add_circle</mat-icon>
-        Add Fuel
-      </button>
+<div class="m-4">
+  <div class="container text-start">
+    <div class="row">
+      <h1 class="col" style="font-family: poppins">Fuel Details</h1>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Filter"
+            #input
+          />
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <button mat-raised-button (click)="openDialog()" class="btn">
+          <mat-icon
+            class="mtIcon"
+            svgIcon="heroicons_outline:user-add"
+          ></mat-icon>
+          Add Fuel
+        </button>
+      </div>
     </div>
   </div>
-  
-  <div style="margin: 20px"  >
-    <mat-form-field appearance="outline" >
-      <mat-label>Filter</mat-label>
-      <input
-        matInput
-        (keyup)="applyFilter($event)"
-        placeholder="Filter"
-        #input
-      />
-    </mat-form-field>
-  
-    <div class="tablebor" >
-      <table mat-table [dataSource]="dataSource" matSort  >
-       
-  
-       
+
+  <div>
+    <div class="tablebor">
+      <table mat-table [dataSource]="dataSource" matSort>
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
           <td mat-cell *matCellDef="let row; let i = index">{{ i + 1 }}</td>
-        </ng-container>   
-  
+        </ng-container>
+
         <!-- Vehical Name Column -->
         <ng-container matColumnDef="fType">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</th>
@@ -42,44 +41,43 @@
         </ng-container>
         <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</th>
-          <td mat-cell *matCellDef="let row">{{ row.date | date :"dd/MMM/yyyy" }}</td>
+          <td mat-cell *matCellDef="let row">
+            {{ row.date | date : "dd/MMM/yyyy" }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="vName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             Vehicle Name
           </th>
-          <td mat-cell *matCellDef="let row">{{row.vName}}</td>
+          <td mat-cell *matCellDef="let row">{{ row.vName }}</td>
         </ng-container>
-  
+
         <!-- Vehical Number Column -->
         <ng-container matColumnDef="dName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            Driver Name
-          </th>
-          <td mat-cell *matCellDef="let row">{{row.dName}}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Driver Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.dName }}</td>
         </ng-container>
         <ng-container matColumnDef="petrolPumpName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Petrol PumpName</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Petrol PumpName
+          </th>
           <td mat-cell *matCellDef="let row">{{ row.petrolPumpName }}</td>
         </ng-container>
         <ng-container matColumnDef="quantity">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
           <td mat-cell *matCellDef="let row">{{ row.quantity }}</td>
         </ng-container>
-        
-  
+
         <ng-container matColumnDef="edit">
           <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
           <td
             mat-cell
             *matCellDef="let row"
-            style="cursor: pointer ; color: rgb(74, 241, 23);"
-           
-            [routerLink]=" row._id"
+            style="cursor: pointer; color: rgb(74, 241, 23)"
+            [routerLink]="row._id"
           >
-            <mat-icon >edit</mat-icon>
-            
+            <mat-icon>edit</mat-icon>
           </td>
         </ng-container>
         <!-- <ng-container matColumnDef="edit1">
@@ -94,43 +92,39 @@
             </button>
           </mat-menu>
         </ng-container> -->
-  
+
         <ng-container matColumnDef="delete">
           <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
           <td
             mat-cell
             *matCellDef="let row"
-            style="cursor: pointer ; color: red;"
-            
+            style="cursor: pointer; color: red"
           >
             <mat-icon>delete_forever</mat-icon>
           </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  
+
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">
             No data matching the filter "{{ input.value }}"
           </td>
         </tr>
-      
       </table>
-    
+
       <mat-paginator
         [pageSizeOptions]="[5, 10, 25, 100]"
         aria-label="Select page of users"
       ></mat-paginator>
     </div>
-  </div> 
-  
-  <ng-template #noVehicles>
-  <div>
-    <h3>
-      No Vehicals
-    </h3>
   </div>
+
+  <ng-template #noVehicles>
+    <div>
+      <h3>No Vehicals</h3>
+    </div>
   </ng-template>
-  
+</div>
