@@ -21,7 +21,8 @@ export class UserComponent implements OnInit {
   uForm: FormGroup = new FormGroup({
     uName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    uRole: new FormControl('', [Validators.required]),
+    isAdmin: new FormControl('',),
+    isNormal: new FormControl('',),
   });
 
   displayedColumns: string[] = [

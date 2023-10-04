@@ -1,6 +1,7 @@
 export interface IUser {
-  _id?:string
+  _id?: string;
   uName: String;
   password: String;
-uRole: String;
+  isAdmin: boolean;
+  isNormal: boolean;
 }

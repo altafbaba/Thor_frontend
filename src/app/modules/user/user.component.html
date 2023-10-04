@@ -103,16 +103,15 @@
           </div>
 
           <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="isAdmin" style="margin-right: 20px"
-              >Admin</mat-radio-button
-            >
-            <mat-radio-button value="isNormal">Normal</mat-radio-button>
+            <mat-radio-button value="isAdmin" style="margin-right: 20px" formControlName="isAdmin">Admin</mat-radio-button>
+            <mat-radio-button value="isNormal" formControlName="isNormal">Normal</mat-radio-button>
           </mat-radio-group>
 
-          <div class="mt-4" >
-            <button mat-button class="btn " (click)="save()">
+          <div class="mt-4">
+            <button mat-button class="btn" (click)="save()">
               <mat-icon class="mtIcon">add_circle</mat-icon>
-              Save</button>
+              Save
+            </button>
           </div>
         </div>
       </div>

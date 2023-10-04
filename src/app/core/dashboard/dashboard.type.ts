@@ -7,7 +7,7 @@ export interface IDashboard{
     fuels:number,
     maintenaces:number,
     insurances:number,
-    expiringThisMonth:IInsurance[]
+   // expiringThisMonth:IInsurance[]
     
 
 }
