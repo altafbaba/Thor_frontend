@@ -13,9 +13,9 @@ export class MaintenanceService {
 
   private maintenance: BehaviorSubject<IMaintenance> =
     new BehaviorSubject<IMaintenance>(null);
-  private maintenances: BehaviorSubject<IMaintenance[]> = new BehaviorSubject<
-    IMaintenance[]
-  >([]);
+  private maintenances: BehaviorSubject<IMaintenance[]> = new BehaviorSubject<IMaintenance[]>([]);
+  private maintenancesforlastdata: BehaviorSubject<IMaintenance[]> = new BehaviorSubject<IMaintenance[]>([]);
+  
 
   constructor(private http: HttpClient) {}
 
@@ -47,7 +47,7 @@ export class MaintenanceService {
   getDetailsmaintenance(vNumber:string) {
     return this.http.get<IMaintenance[]>(`${this.baseUrl}/maintenance/details/${vNumber}`).pipe(
       tap((man: IMaintenance[]) => {
-        this.maintenances.next(man);
+        this.maintenancesforlastdata.next(man);
       })
     );
   }

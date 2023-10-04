@@ -45,7 +45,9 @@ export class DashboardComponent implements OnInit {
 this.chartOptions = {
   series: [{
     name: 'All',
-    data: [30, 40, 45, 50, 49, 60, 70, 91, 125]
+    data1: [30, 40, 45, 50, 49, 60, 70, 91, 125]
+
+
   }],
   chart: {
     height: 300,
@@ -67,7 +69,10 @@ this.chartOptions = {
     colors: ['transparent']
   },
   xaxis: {
-    categories: ['Driver', 'Vehcles', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+     // Object.key
+    categories: Object.keys(this.data)
+  
+   
   },
   yaxis: {
     title: {
