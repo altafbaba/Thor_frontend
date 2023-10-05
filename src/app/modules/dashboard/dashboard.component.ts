@@ -13,7 +13,10 @@ import { IInsurance } from 'src/app/core/insurance/insurance.type';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  data: IDashboard;
+  Idash: IDashboard;
+  Idash2=[]
+  
+
   //for chart
   chartOptions: any;
 
@@ -36,19 +39,34 @@ export class DashboardComponent implements OnInit {
     private insuranceServices: InsuranceService
   ) {}
 
+
+objtoArry(){
+  let x =Object.keys(this.Idash2).map((key)=>[key,this.Idash2[key]
+])
+  console.log(x)
+  
+}
+
   ngOnInit(): void {
     this.dashboardSerives.getDashboard().subscribe((val: any) => {
-      this.data = val;
-      console.log(val);
-      
+      //this.Idash2.push(val)
+      this.Idash = val;
+      console.log(this.Idash2);
+
+      //key 
+      let x =Object.keys(this.Idash);
+      //value
+      let y = Object.values(this.Idash)
+      console.log(x ,y)
     });
     // for chart
     this.chartOptions = {
       series: [
         {
           name: 'All',
-          // data1: [30, 40, 45, 50, 49, 60, 70, 91, 125],
-          data2 : Object.values(this.data)
+          data: [30, 40,],
+          //data2 : Object.values(this.data)
+          
         },
       ],
       chart: {
@@ -72,7 +90,8 @@ export class DashboardComponent implements OnInit {
       },
       xaxis: {
         // Object.key
-        categories: Object.keys(this.data),
+       //categories: ["abc","cbd"]
+       categories: [] ,
       },
       yaxis: {
         title: {
