@@ -5,6 +5,8 @@ import { DashboardCardComponent } from './dashboard-card/dashboard-card.componen
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 const dRoute :Route[]=[
   {path:"",
   component:DashboardComponent
@@ -23,7 +25,7 @@ const dRoute :Route[]=[
     DashboardCardComponent
   ],
   imports: [
-    CommonModule,SharedModule,NgApexchartsModule,RouterModule.forChild(dRoute),SharedModule
+    CommonModule,SharedModule,NgApexchartsModule,RouterModule.forChild(dRoute),SharedModule,NgxChartsModule
   ]
 })
 export class DashboardModule { }

@@ -111,7 +111,7 @@
 </div> -->
 
 
-<div id="chart">
+<!-- <div id="chart">
   <apx-chart
     [series]="chartOptions.series"
     [chart]="chartOptions.chart"
@@ -123,6 +123,22 @@
     [fill]="chartOptions.fill"
     [tooltip]="chartOptions.tooltip"
   ></apx-chart>
-</div>
+</div> -->
 
+
+
+<ngx-charts-bar-vertical
+
+
+[results]="single"
+[gradient]="gradient"
+[xAxis]="showXAxis"
+[yAxis]="showYAxis"
+[legend]="showLegend"
+[showXAxisLabel]="showXAxisLabel"
+[showYAxisLabel]="showYAxisLabel"
+[xAxisLabel]="xAxisLabel"
+[yAxisLabel]="yAxisLabel"
+>
+</ngx-charts-bar-vertical>
 
