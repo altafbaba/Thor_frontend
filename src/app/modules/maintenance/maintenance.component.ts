@@ -39,6 +39,7 @@ export class MaintenanceComponent implements OnInit {
     this.maintenanceServices.getmaintenance().subscribe();
     this.maintenanceServices.maintenances$.subscribe((man) => {
       this.dataSource.data = man;
+      console.log(man)
 
       // paginator
       this.dataSource.paginator = this.paginator;
