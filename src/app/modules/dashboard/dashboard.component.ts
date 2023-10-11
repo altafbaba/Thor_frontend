@@ -42,36 +42,35 @@ export class DashboardComponent implements OnInit {
   //pie
   showLabels = true;
   // data goes here
-public single = JSON.stringify(this.Idash2)
+  public single = [];
 
-// [
-  
+  // [
 
-//   {
-//     "name": "india",
-//     "value": 224
-//   },
-//   {
-//     "name": "USA",
-//     "value": 112
-//   },
-//   {
-//     "name": "Norway",
-//     "value": 29
-//   },
-//   {
-//     "name": "Japan",
-//     "value": 25
-//   },
-//   {
-//     "name": "Germany",
-//     "value": 19
-//   },
-//   {
-//     "name": "France",
-//     "value": 20
-//   }
-// ];
+  //   {
+  //     "name": "india",
+  //     "value": 224
+  //   },
+  //   {
+  //     "name": "USA",
+  //     "value": 112
+  //   },
+  //   {
+  //     "name": "Norway",
+  //     "value": 29
+  //   },
+  //   {
+  //     "name": "Japan",
+  //     "value": 25
+  //   },
+  //   {
+  //     "name": "Germany",
+  //     "value": 19
+  //   },
+  //   {
+  //     "name": "France",
+  //     "value": 20
+  //   }
+  // ];
 
   //for chart
   chartOptions: any;
@@ -97,19 +96,28 @@ public single = JSON.stringify(this.Idash2)
 
   ngOnInit(): void {
     this.dashboardSerives.getDashboard().subscribe((val: any) => {
-      this.Idash2.push(val)
+      this.Idash2 = val;
       //this.Idash = val;
-       const abc = JSON.stringify(this.Idash2)
 
-      //key 
+      //key
       // let x =Object.keys(this.Idash);
       // //value
       // let y = Object.values(this.Idash)
       // console.log(x ,y)
-      console.log(this.Idash2)
-      console.log(abc)
 
+     let abc =  this.Idash2.map((x) => {
+        let z = Object.keys(x);
+        let name = z[0];
+        const xyz = {
+          name,
+          value: x[name],
+        };
+        return xyz;
 
+      });
+      this.single = abc
+     console.log(abc)
+      // console.log(abc)
     });
     // for chart
     // this.chartOptions = {
@@ -162,7 +170,6 @@ public single = JSON.stringify(this.Idash2)
     //   },
     // };
   }
- 
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
