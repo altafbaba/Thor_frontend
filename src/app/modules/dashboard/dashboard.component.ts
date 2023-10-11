@@ -15,10 +15,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 })
 export class DashboardComponent implements OnInit {
   Idash: IDashboard;
-  Idash2=[]
-  
+  Idash2 = [];
+
   // Chart data
- 
+
   name = 'Angular';
   //view: any[];
   width: number = 700;
@@ -37,41 +37,38 @@ export class DashboardComponent implements OnInit {
   timeline = true;
   doughnut = true;
   colorScheme = {
-    domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
+    domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB'],
   };
   //pie
   showLabels = true;
   // data goes here
-public single = JSON.stringify(this.Idash2)
-
-// [
-  
-
-//   {
-//     "name": "india",
-//     "value": 224
-//   },
-//   {
-//     "name": "USA",
-//     "value": 112
-//   },
-//   {
-//     "name": "Norway",
-//     "value": 29
-//   },
-//   {
-//     "name": "Japan",
-//     "value": 25
-//   },
-//   {
-//     "name": "Germany",
-//     "value": 19
-//   },
-//   {
-//     "name": "France",
-//     "value": 20
-//   }
-// ];
+  public single = []
+  // [
+  //   {
+  //     name: 'india',
+  //     value: 224,
+  //   },
+  //   {
+  //     name: 'USA',
+  //     value: 112,
+  //   },
+  //   {
+  //     name: 'Norway',
+  //     value: 29,
+  //   },
+  //   {
+  //     name: 'Japan',
+  //     value: 25,
+  //   },
+  //   {
+  //     name: 'Germany',
+  //     value: 19,
+  //   },
+  //   {
+  //     name: 'France',
+  //     value: 20,
+  //   },
+  // ];
 
   //for chart
   chartOptions: any;
@@ -95,25 +92,31 @@ public single = JSON.stringify(this.Idash2)
     private insuranceServices: InsuranceService
   ) {}
 
-
-
-
   ngOnInit(): void {
     this.dashboardSerives.getDashboard().subscribe((val: any) => {
-      this.Idash2.push(val)
-      //this.Idash = val;
-       const abc = JSON.stringify(this.Idash2)
+      this.Idash2= val;
 
-      //key 
-      // let x =Object.keys(this.Idash);
-      // //value
-      // let y = Object.values(this.Idash)
-      // console.log(x ,y)
-      console.log(this.Idash2)
+      let abc = this.Idash2.map((x) => {
+        let z = Object.keys(x) ;
+       
+        let name = z[0];
+        const xyz = {
+         name,
+         "value": x[name],
+        };
+         return xyz         
+      });
+
+      this.single = abc
       console.log(abc)
-
-
+      // {"name":"",value : ""}
     });
+
+    
+
+
+
+
     // for chart
     // this.chartOptions = {
     //   series: [
@@ -121,7 +124,7 @@ public single = JSON.stringify(this.Idash2)
     //       name: 'All',
     //       data: [30, 40,],
     //       //data2 : Object.values(this.data)
-          
+
     //     },
     //   ],
     //   chart: {
@@ -164,8 +167,6 @@ public single = JSON.stringify(this.Idash2)
     //     },
     //   },
     // };
-
-    
   }
 
   ngAfterViewInit() {
