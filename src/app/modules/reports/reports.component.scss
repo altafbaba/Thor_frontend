@@ -1,18 +1,26 @@
-#my-table {
-    margin-top: 15px;
-    border-collapse: collapse;
-    border: solid 1px #565656;
-    font-family: helvetica;
-    font-size: 10pt;
-    width: 180mm;
-  }
+table
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 12px;
+  font-family: poppins !important;
+  width: 80%;
+}
+
+td,
+th {
+  width: 15%;
+  font-family: poppins !important;
+}
+.btn{
+  color:#B54941;
+  font-family: poppins;
+  background-color: #F8BFBB
+}
+.mtIcon{
+  color:#B54941;
   
-  #my-table th {
-    background-color: #9a7f5b;
-    color: #eee;
-  }
   
-  #my-table th, #my-table td {
-    border: solid 1px #565656;
-    padding: 2px 5px;
-  }
+}

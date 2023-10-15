@@ -24,6 +24,19 @@ export class ReportsComponent {
     private insuranceServices: InsuranceService
   ) {}
 
+
+
+  displayedColumns: string[] = [
+    'id',
+    'maintenanceType',
+    'vNumber',
+    'mPart',
+    'garageName',
+    'vDate',
+    'details',
+    'edit',
+    'delete',
+  ];
   ngOnInit() {
     //get Maintenance
     this.maintenanceServices.getmaintenance().subscribe();
@@ -102,11 +115,11 @@ export class ReportsComponent {
     html2canvas(document.getElementById("my-table")).then((canvas) => {
       const data = canvas.toDataURL('image/png');
       let pdf = new jsPDF()
-    pdf.text( "My PDF", 0, 0);
+    // pdf.text( "My PDF", 0, 0);
 
-      var width = pdf.internal.pageSize.getWidth();
-      var height = (canvas.height * width) / canvas.width;
-      pdf.addImage(data, 'PNG', 0, 0, width, height);
+      const width = pdf.internal.pageSize.getWidth();
+      const height = (canvas.height * width) / canvas.width;
+      pdf.addImage(data, 'png', 0,0, width, height);
       pdf.save('output.pdf');
     });
   }
