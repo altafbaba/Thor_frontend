@@ -6,7 +6,7 @@ import { FuelService } from 'src/app/core/fuel/fuel.service';
 import { InsuranceService } from 'src/app/core/insurance/insurance.service';
 import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service';
 import * as XLSX from 'xlsx';
-import jsPDF from "jspdf"
+import {jsPDF} from 'jspdf';
 
 @Component({
   selector: 'app-reports',
@@ -98,36 +98,20 @@ export class ReportsComponent {
     this.saveAsExcelFile(excelBuffer, 'data');
   }
 
+  createPDF() {
+    html2canvas(document.getElementById("my-table")).then((canvas) => {
+      const data = canvas.toDataURL('image/png');
+      let pdf = new jsPDF()
+    pdf.text( "My PDF", 0, 0);
 
-   generatePDF = () => {
-    // console.log("PDF");
-    // if (invoiceContentRef.current) {
-    //   const pdf = new jsPDF();
-    //   const pdfWidth = pdf.internal.pageSize.getWidth();
+      var width = pdf.internal.pageSize.getWidth();
+      var height = (canvas.height * width) / canvas.width;
+      pdf.addImage(data, 'PNG', 0, 0, width, height);
+      pdf.save('output.pdf');
+    });
+  }
+
+
+
   
-      // Convert the entire component's HTML to a canvas
-    const generatePDF = () => {
-    const invoicePageElement = document.getElementById("invoice-page");
-    if (invoicePageElement) {
-      html2canvas(invoicePageElement).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF();
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-  
-        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-  
-        pdf.setFontSize(12);
-        // pdf.text(`Invoice Number: ${invoiceNumber}`, 10, 10);
-        // pdf.text(`Invoice Date: ${invoiceDate}`, 10, 20);
-        // pdf.text(`PO Number: ${poNumber}`, 10, 30);
-        // pdf.text(`Reverse Charge: ${reverseCharge}`, 10, 40);
-  
-        pdf.save("invoice.pdf");
-      });
-    }
-  };
-  
-    // }
-  };
 }

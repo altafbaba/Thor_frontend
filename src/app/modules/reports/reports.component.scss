@@ -1,0 +1,18 @@
+#my-table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    border: solid 1px #565656;
+    font-family: helvetica;
+    font-size: 10pt;
+    width: 180mm;
+  }
+  
+  #my-table th {
+    background-color: #9a7f5b;
+    color: #eee;
+  }
+  
+  #my-table th, #my-table td {
+    border: solid 1px #565656;
+    padding: 2px 5px;
+  }

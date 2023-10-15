@@ -17,6 +17,7 @@ export class FuelFormComponent implements OnInit {
   fuel: IFuel = null;
   drivers = [];
   vehicles = [];
+  amount :any = 0
 
   fForm: FormGroup = new FormGroup({
     fType: new FormControl('', [
@@ -75,8 +76,12 @@ export class FuelFormComponent implements OnInit {
       if (ful) {
         this.fuel = ful;
         this.fForm.patchValue(ful);
+        
+
       }
     });
+
+    let abc =  this.fuel
 
     //get Driver
     this.DriverSerives.getDriver().subscribe((dri) => {
