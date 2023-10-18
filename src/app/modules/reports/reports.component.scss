@@ -1,12 +1,6 @@
-table
+
 table {
   width: 100%;
-}
-
-.mat-form-field {
-  font-size: 12px;
-  font-family: poppins !important;
-  width: 80%;
 }
 
 td,
@@ -14,13 +8,22 @@ th {
   width: 15%;
   font-family: poppins !important;
 }
-.btn{
-  color:#B54941;
-  font-family: poppins;
-  background-color: #F8BFBB
-}
+
 .mtIcon{
   color:#B54941;
-  
-  
+}
+
+.fontP {
+  font-family: Poppins;
+}
+
+.btn {
+  color: #b54941;
+  font-family: poppins;
+  background-color: #f8bfbb;
+}
+
+mat-form-field {
+  font-size: 12px;
+  font-family: poppins !important;
 }

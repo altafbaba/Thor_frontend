@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReportsComponent } from './reports.component';
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const rRrports :Route[]=[
@@ -17,7 +17,7 @@ const rRrports :Route[]=[
     ReportsComponent
   ],
   imports: [
-    CommonModule,SharedModule,FormsModule,RouterModule.forChild(rRrports)
+    CommonModule,SharedModule,FormsModule,ReactiveFormsModule,RouterModule.forChild(rRrports)
   ]
 })
 export class ReportsModule { }

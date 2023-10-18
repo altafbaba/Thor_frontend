@@ -6,7 +6,8 @@ import { FuelService } from 'src/app/core/fuel/fuel.service';
 import { InsuranceService } from 'src/app/core/insurance/insurance.service';
 import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service';
 import * as XLSX from 'xlsx';
-import {jsPDF} from 'jspdf';
+import { jsPDF } from 'jspdf';
+import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
 
 @Component({
   selector: 'app-reports',
@@ -24,7 +25,13 @@ export class ReportsComponent {
     private insuranceServices: InsuranceService
   ) {}
 
+  rData: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    sDate: new FormControl(''),
+    eDate: new FormControl(''),
+  });
 
+  dataSource: MatTableDataSource<IMaintenance> = new MatTableDataSource([]);
 
   displayedColumns: string[] = [
     'id',
@@ -33,15 +40,12 @@ export class ReportsComponent {
     'mPart',
     'garageName',
     'vDate',
-    'details',
-    'edit',
-    'delete',
   ];
   ngOnInit() {
     //get Maintenance
     this.maintenanceServices.getmaintenance().subscribe();
     this.maintenanceServices.maintenances$.subscribe((man) => {
-      this.Maintenance = man;
+      this.dataSource.data = man;
     });
 
     //get fuel
@@ -112,19 +116,15 @@ export class ReportsComponent {
   }
 
   createPDF() {
-    html2canvas(document.getElementById("my-table")).then((canvas) => {
+    html2canvas(document.getElementById('my-table')).then((canvas) => {
       const data = canvas.toDataURL('image/png');
-      let pdf = new jsPDF()
-    // pdf.text( "My PDF", 0, 0);
+      let pdf = new jsPDF();
+      // pdf.text( "My PDF", 0, 0);
 
       const width = pdf.internal.pageSize.getWidth();
       const height = (canvas.height * width) / canvas.width;
-      pdf.addImage(data, 'png', 0,0, width, height);
+      pdf.addImage(data, 'png', 0, 0, width, height);
       pdf.save('output.pdf');
     });
   }
-
-
-
-  
 }
