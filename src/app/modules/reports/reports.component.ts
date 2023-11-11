@@ -8,6 +8,7 @@ import { MaintenanceService } from 'src/app/core/maintenance/maintenance.service
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import { IMaintenance } from 'src/app/core/maintenance/maintenance.type';
+import { VehicleService } from 'src/app/core/vehicle/vehicle.service';
 
 @Component({
   selector: 'app-reports',
@@ -18,15 +19,18 @@ export class ReportsComponent {
   Maintenance = [];
   Fuel = [];
   Insurance = [];
+  filterReports = [];
+  vehicles = [];
 
   constructor(
     private maintenanceServices: MaintenanceService,
     private fuelServices: FuelService,
-    private insuranceServices: InsuranceService
+    private insuranceServices: InsuranceService,
+    private VehiclesServices: VehicleService
   ) {}
 
   rData: FormGroup = new FormGroup({
-    name: new FormControl(''),
+    vNumber: new FormControl(''),
     sDate: new FormControl(''),
     eDate: new FormControl(''),
   });
@@ -42,10 +46,17 @@ export class ReportsComponent {
     'vDate',
   ];
   ngOnInit() {
+    //get vehicles
+    this.VehiclesServices.getVehical().subscribe();
+    this.VehiclesServices.vehicals$.subscribe((veh) => {
+      this.vehicles = veh;
+    });
+
     //get Maintenance
     this.maintenanceServices.getmaintenance().subscribe();
     this.maintenanceServices.maintenances$.subscribe((man) => {
-      this.dataSource.data = man;
+      this.Maintenance = man;
+      // console.log(man);
     });
 
     //get fuel
@@ -75,6 +86,7 @@ export class ReportsComponent {
     });
     this.saveAsExcelFile(excelBuffer, 'data');
   }
+
   saveAsExcelFile(buffer: any, fileName: string): void {
     const data: Blob = new Blob([buffer], {
       type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -126,5 +138,21 @@ export class ReportsComponent {
       pdf.addImage(data, 'png', 0, 0, width, height);
       pdf.save('output.pdf');
     });
+  }
+  search() {
+    let input = this.rData.value;
+
+    const startDate = new Date(input.sDate);
+    const endDate = new Date(input.eDate);
+
+    const result = this.Maintenance.filter((item) => {
+      const itemDate = new Date(item.mDate);
+      return (
+        item.vNumber === input.vNumber &&
+        itemDate >= startDate &&
+        itemDate <= endDate
+      );
+    });
+    this.filterReports = result;
   }
 }
