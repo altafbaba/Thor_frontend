@@ -30,11 +30,11 @@
                 <td mat-cell *matCellDef="let row">{{ row.uName }}</td>
               </ng-container>
 
-              <ng-container matColumnDef="uRole">
+              <ng-container matColumnDef="role">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                   User Role
                 </th>
-                <td mat-cell *matCellDef="let row">{{ row.uRole }}</td>
+                <td mat-cell *matCellDef="let row">{{ row.role }}</td>
               </ng-container>
 
               <ng-container matColumnDef="edit">
@@ -102,9 +102,9 @@
             </mat-form-field>
           </div>
 
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="isAdmin" style="margin-right: 20px" formControlName="isAdmin">Admin</mat-radio-button>
-            <mat-radio-button value="isNormal" formControlName="isNormal">Normal</mat-radio-button>
+          <mat-radio-group aria-label="Select an option" formControlName="role">
+            <mat-radio-button value="Admin" style="margin-right: 20px" >Admin</mat-radio-button>
+            <mat-radio-button value="Standard" >Standard</mat-radio-button>
           </mat-radio-group>
 
           <div class="mt-4">

@@ -21,14 +21,14 @@ export class UserComponent implements OnInit {
   uForm: FormGroup = new FormGroup({
     uName: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    isAdmin: new FormControl('',),
-    isNormal: new FormControl('',),
+    role: new FormControl('',[Validators.required]),
+  
   });
 
   displayedColumns: string[] = [
     'id',
     'uName',
-    'uRole',
+    'role',
     'edit',
     'delete',
   ];
@@ -44,6 +44,8 @@ export class UserComponent implements OnInit {
     this.userServices.getUser().subscribe();
     this.userServices.users$.subscribe((usr)=>{
       this.dataSource.data = usr
+
+      console.log(usr)
 
 
        //auto fill for update
@@ -76,6 +78,11 @@ export class UserComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
+save1(){
+  console.log(this.uForm.value)
+}
 
   save() {
     this.uForm.markAllAsTouched();

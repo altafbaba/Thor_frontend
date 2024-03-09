@@ -21,8 +21,10 @@ export class InsuranceComponent implements OnInit {
     'iStartDate',
     'iEndDate',
     'iAmount',
+    'renew',
     'edit',
-    'delete'
+    'delete',
+    
     
   ];
 

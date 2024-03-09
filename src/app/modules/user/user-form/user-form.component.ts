@@ -34,39 +34,43 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  save() {
-    this.uForm.markAllAsTouched();
-    if (this.uForm.invalid) return;
-
-    //update user
-    if (this.user) {
-      this.userServices.userUpdate(this.user._id, this.uForm.value).subscribe({
-        error: (err) => {
-          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-        },
-        next: (res) => {
-          this.snackBar.open('User Update', 'close')._dismissAfter(3000);
-          this.router.navigateByUrl('/user');
-        },
-      });
-    }
-
-//user create
-
-    else{
-      this.userServices.createUser(this.uForm.value).subscribe({
-        error: (err) => {
-          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-        },
-        next: (res) => {
-          this.snackBar
-            .open('user Created', 'close')
-            ._dismissAfter(3000);
-            this.router.navigateByUrl('/user');
-        },
-      })
-      console.log(this.uForm.value);
-      
-    }
+  save1(){
+    console.log(this.uForm.value)
   }
+
+//   save() {
+//     this.uForm.markAllAsTouched();
+//     if (this.uForm.invalid) return;
+
+//     //update user
+//     if (this.user) {
+//       this.userServices.userUpdate(this.user._id, this.uForm.value).subscribe({
+//         error: (err) => {
+//           this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+//         },
+//         next: (res) => {
+//           this.snackBar.open('User Update', 'close')._dismissAfter(3000);
+//           this.router.navigateByUrl('/user');
+//         },
+//       });
+//     }
+
+// //user create
+
+//     else{
+//       this.userServices.createUser(this.uForm.value).subscribe({
+//         error: (err) => {
+//           this.snackBar.open(err.message, 'close')._dismissAfter(3000);
+//         },
+//         next: (res) => {
+//           this.snackBar
+//             .open('user Created', 'close')
+//             ._dismissAfter(3000);
+//             this.router.navigateByUrl('/user');
+//         },
+//       })
+//       console.log(this.uForm.value);
+      
+//     }
+//   }
 }

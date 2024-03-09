@@ -6,4 +6,5 @@ export interface IInsurance {
   startDate: string;
   endDate: string;
   iAmount: string;
+  renew:[]
 }

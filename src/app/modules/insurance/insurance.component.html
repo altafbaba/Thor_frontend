@@ -78,6 +78,18 @@
           <td mat-cell *matCellDef="let row">{{ row.iAmount }}</td>
         </ng-container>
 
+        <ng-container matColumnDef="renew">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+          <td
+            mat-cell
+            *matCellDef="let row"
+            style="cursor: pointer; color: yellow"
+            
+          >
+            <mat-icon>edit</mat-icon>
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="edit">
           <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
           <td
