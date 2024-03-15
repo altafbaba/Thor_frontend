@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -17,7 +18,8 @@ export class AuthComponent implements OnInit {
 }
   )
 
-  constructor(private authServices:AuthService, private router:Router) { }
+
+  constructor(private authServices:AuthService,private router:Router) { }
 
   ngOnInit(): void {
 

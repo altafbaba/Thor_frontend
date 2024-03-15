@@ -10,26 +10,41 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authServices: AuthService) {}
+  constructor(private auth: AuthService) {}
 
   intercept(
-    request: HttpRequest<unknown>,
+    req: HttpRequest<unknown>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  ){
 
 
-   if(this.authServices.getAccessToken()){
+  //  if(this.authServices.getAccessToken()){
 
-    let tokenizedReq = request.clone({
-      setHeaders: {
-        Authorization: this.authServices.getAccessToken(),
+  //   let tokenizedReq = request.clone({
+  //     setHeaders: {
+  //       Authorization: this.authServices.getAccessToken(),
         
-      },
-    });
-    return next.handle(tokenizedReq);}
-    else{
-      return next.handle(request)
+  //     },
+  //   });
+  //   return next.handle(tokenizedReq);}
+  //   else{
+  //     return next.handle(request)
       
-    }
-  }
+  //   }
+
+ // Get the auth token from the service.
+ const authToken = this.auth.getAuthorizationToken();
+ // Clone the request and replace the original headers with
+ // cloned headers, updated with the authorization.
+
+ const authReq = req.clone({
+   headers: req.headers.set('babatoken', authToken),
+ });
+
+ // send cloned request with header to the next handler.
+ return next.handle(authReq);
 }
+
+
+  }
+

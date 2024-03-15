@@ -12,6 +12,13 @@ export class AuthService {
 
   constructor( private http:HttpClient,private router:Router) { }
 
+  // signin(credential){
+  //   return this.http.post(this.baseUrl + '/login',credential).pipe(tap((res)=>{
+  //     return (res.);
+  //   }))
+  // }
+
+
   signin(credential:any){
     let url = `${this.baseUrl}/login`;
 
@@ -19,15 +26,24 @@ export class AuthService {
  this.storeAccessToken(res.token)
     }))
   }
-//access token store in localStorage
-  storeAccessToken(accessToken:string){
-    localStorage.setItem('babatoken',accessToken)
+// access token store in localStorage
+  // storeAccessToken(accessToken:string){
+  //   localStorage.setItem('babatoken',accessToken)
 
-  }
+  // }
 
   // get accessToken
   getAccessToken(){
-  return  localStorage.getItem('babatoken')
+  return  localStorage.getItem('babatoken') 
+  }
+
+//access token store in localStorage
+  storeAccessToken(babatoken:string){
+    localStorage.setItem('babatoken',babatoken)}
+
+  getAuthorizationToken() {
+    let val = localStorage.getItem('babatoken');
+    return val ? val : '';
   }
 
    //remove AccessToken
