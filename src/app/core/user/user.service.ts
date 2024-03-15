@@ -15,15 +15,25 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+
   /**
-   * getter for fuels
+    *   @param value
+    **/
+  set _user(value: IUser)
+  {
+     this.user.next(value);
+  }
+
+
+  /**
+   * getter for users
    */
   get users$(): Observable<IUser[]> {
     return this.users.asObservable();
   }
 
   /**
-   * getter for fuel
+   * getter for user
    */
   get user$(): Observable<IUser> {
     return this.user.asObservable();

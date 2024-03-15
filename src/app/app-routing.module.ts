@@ -3,6 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { x } from 'ng-heroicon';
 import { AuthGuard } from './core/auth/auth.guard';
 import { LayoutComponent } from './layout/layout.component';
+import { AdminGuard } from './core/auth/guards/admin.guard';
 
 const routes: Route[] = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -39,6 +40,7 @@ const routes: Route[] = [
       
       {
         path: 'dashboard',
+        
         loadChildren: () =>
           import('./modules/dashboard/dashboard.module').then(
             (x) => x.DashboardModule
