@@ -73,8 +73,8 @@ export class AuthComponent implements OnInit {
 // Re-enable the form
 this.aForm.enable();
 
-        // // // Reset the form
-        // this.aForm.reset()
+        // // Reset the form
+        this.aForm.reset()
 
         this.openSnackBar('Error', "Wrong user or password");
       })

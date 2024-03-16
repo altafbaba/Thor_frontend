@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth/auth.service';
+import { IUser } from '../core/user/user.type';
+import { Observable, filter } from 'rxjs';
+import { UserService } from '../core/user/user.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -7,11 +11,20 @@ import { AuthService } from '../core/auth/auth.service';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  constructor(private authSerices:AuthService) {}
 
-  ngOnInit(): void {}
+  users:[]=[]
+  constructor(private authSerices:AuthService,private router: Router, private userServices:UserService) {}
+
+  ngOnInit(): void {
+    
+
+  
+   
+  }
 
   logout(){
     this.authSerices.logout();
   }
+
+  
 }

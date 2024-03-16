@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { IUser } from './user.type';
-import { map, Observable, switchMap, take, tap, BehaviorSubject } from 'rxjs';
+import { map, Observable, switchMap, take, tap, BehaviorSubject, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +10,10 @@ import { map, Observable, switchMap, take, tap, BehaviorSubject } from 'rxjs';
 export class UserService {
   private baseUrl = environment.baseUrl;
 
-  private user: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null);
+  private user: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
+  // private user: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null);
   private users: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
-
+  private selectedUser: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
   constructor(private http: HttpClient) {}
 
 
@@ -23,7 +24,14 @@ export class UserService {
   {
      this.user.next(value);
   }
+  set _selectedUser(value: IUser)
+  {
+     this.selectedUser.next(value);
+  }
 
+  get _selectedUser$(): Observable<IUser>{
+    return this.selectedUser.asObservable()
+  }
 
   /**
    * getter for users
@@ -38,6 +46,13 @@ export class UserService {
   get user$(): Observable<IUser> {
     return this.user.asObservable();
   }
+
+  
+
+
+
+
+
 
   // get user
   getUser() {
