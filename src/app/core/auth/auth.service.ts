@@ -11,6 +11,7 @@ import { IPermissions, IUser } from '../user/user.type';
   providedIn: 'root',
 })
 export class AuthService {
+ 
   private baseUrl = environment.baseUrl;
   private authenticated: boolean = false;
 
