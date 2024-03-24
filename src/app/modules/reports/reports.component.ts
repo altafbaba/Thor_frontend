@@ -146,6 +146,8 @@ export class ReportsComponent {
     const endDate = new Date(input.eDate);
 
     const result = this.Maintenance.filter((item) => {
+      console.log(item);
+      
       const itemDate = new Date(item.mDate);
       return (
         item.vNumber === input.vNumber &&
@@ -154,5 +156,14 @@ export class ReportsComponent {
       );
     });
     this.filterReports = result;
+
+    
   }
+
+save(){
+
+ 
+
+}
+
 }

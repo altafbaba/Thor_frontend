@@ -22,7 +22,7 @@ const routes: Route[] = [
     children: [
       {
         path: 'vehicle',
-        canActivate:[StandarsGuard],
+        // canActivate:[AdminGuard],
         loadChildren: () =>
           import('./modules/vehicle/vehicle.module').then(
             (x) => x.VehicleModule
@@ -59,7 +59,6 @@ const routes: Route[] = [
 
       },
       {path:'user',
-      // canActivate:[AdminGuard],
       loadChildren:()=> import ('./modules/user/user.module').then((x)=> x.UserModule)
 
       },

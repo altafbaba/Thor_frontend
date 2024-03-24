@@ -13,9 +13,7 @@ export class AdminGuard implements CanActivate, CanLoad {
 
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
 
-    
       return this.userservices.user$.pipe(
         switchMap((x)=>{
           if(x.role == "Admin"){

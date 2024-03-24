@@ -3,17 +3,18 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanActivateChild,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authServices: AuthService) {}
+  constructor(private authServices: AuthService,private _router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -22,15 +23,16 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    // if (this.authServices.getAccessToken()) {
-    //   return true;
-    // }
-    // else{
-    //   return false;
-    // }
+    if (this.authServices.getaccessToken()) {
+      return true;
+    }
+    else{
+      return false;
+    }
 
 
-    return this.authServices.getAccessToken() ? true : false
+    // const redirectUrl = state.url === "/logout" ? "/" : state.url;
+    // return this.check(redirectUrl);
 
   }
   canActivateChild(
@@ -43,4 +45,26 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     | UrlTree {
     return true;
   }
+
+
+  // private check(redirectURL: string): Observable<boolean> {
+  //   // Check the authentication status
+  //   return this.authServices.statusCheck().pipe(
+  //     switchMap((authenticated) => {
+  //       // If the user is not authenticated...
+  //       if (!authenticated) {
+  //         // Redirect to the sign-in page
+  //         this._router.navigate(["login"], {
+  //           queryParams: { redirectURL },
+  //         });
+
+  //         // Prevent the access
+  //         return of(false);
+  //       }
+
+  //       // Allow the access
+  //       return of(true);
+  //     })
+  //   );
+  // }
 }

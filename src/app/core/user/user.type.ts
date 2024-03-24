@@ -1,8 +1,14 @@
 export interface IUser {
-  asObservable(): import("rxjs").Observable<IUser>;
   _id?: string;
   uName: String;
-  password: String;
+  password?: string;
   role:"Admin" | "Standard";
-  isActive?: string;
+  permissions?:IPermissions[];
+}
+
+
+export enum IPermissions{
+
+  Admin = "Admin",
+  Standard = "Standard"
 }

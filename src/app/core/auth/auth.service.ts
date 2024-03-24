@@ -2,53 +2,105 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { tap } from 'rxjs';
+import { Observable, catchError, of, switchMap, tap, throwError } from 'rxjs';
+import { UserService } from '../user/user.service';
+import { IPermissions, IUser } from '../user/user.type';
 // import { tokenNotExpired } from 'angular2-jwt';
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private baseUrl = environment.baseUrl;
+  private authenticated: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  private currentUser: IUser | undefined = {
+    "_id": "65fd53ca16c2012bd77cf896",
+    "uName": "altaf",
+    "role":"Admin",
+    "permissions": [
+      IPermissions.Admin
+    ]
+  };
 
-  // signin(credential){
-  //   return this.http.post(this.baseUrl + '/login',credential).pipe(tap((res)=>{
-  //     return (res.);
-  //   }))
-  // }
 
-  signin(credential: any) {
-    let url = `${this.baseUrl}/login`;
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userServices: UserService
+  ) {}
 
-    return this.http.post(url, credential).pipe(
-      tap((res: any) => {
-        this.storeAccessToken(res.babatoken);
-      })
-    );
+
+  get user()
+  {
+    return this.currentUser;
   }
-  // access token store in localStorage
-  // storeAccessToken(accessToken:string){
-  //   localStorage.setItem('babatoken',accessToken)
-
-  // }
-
-  // get accessToken
-  getAccessToken() {
-    return localStorage.getItem('babatoken');
-  }
-
-  //access token store in localStorage
+  
   storeAccessToken(babatoken: string) {
     localStorage.setItem('babatoken', babatoken);
   }
 
-  getAuthorizationToken() {
-    let val = localStorage.getItem('babatoken');
-    return val ? val : '';
+  getaccessToken(): string {
+    return localStorage.getItem('babatoken') ?? '';
   }
+
+  // signin(credential: any): Observable<any> {
+  //   if (this.accessToken) {
+  //     return throwError('user is already logged');
+  //   }
+  //   return this.http.post(this.baseUrl + '/login', credential).pipe(
+  //     switchMap((res: any) => {
+  //       this.accessToken = res.babatoken;
+
+  //       this.userServices.user = res.user;
+
+  //       return of(res);
+  //     })
+  //   );
+  // }
+
+  signin(credential: any){
+    let url = `${this.baseUrl}/login`;
+
+    return this.http.post(url, credential).pipe(
+      tap((x:any)=>{
+        this.storeAccessToken(x.Authorization)
+        this.currentUser = x.user;
+      })
+    )
+
+  }
+
+  
+
+  signinUsingToken(){
+    let url = `${this.baseUrl}/login/signToken`;
+
+    return this.http.post(url,{}).pipe(
+      tap((x:any)=>{
+        this.storeAccessToken(x.Authorization)
+        this.currentUser = x.user;
+      })
+    )
+  }
+
+
+  // statusCheck(): Observable<boolean> {
+  //   if (this.authenticated) {
+  //     return of(true);
+  //   }
+  //   if (this.accessToken) {
+  //     return this.signInusingToken();
+  //   } else !this.accessToken;
+  //   {
+  //     return of(false);
+  //   }
+  // }
+
+  // getAuthorizationToken() {
+  //   let val = localStorage.getItem('babatoken');
+  //   return val ? val : '';
+  // }
 
   //remove AccessToken
   deleteAccessToken() {
@@ -61,15 +113,19 @@ export class AuthService {
     this.router.navigateByUrl('login');
   }
 
-  // isLoggedIn() {
-  //   return tokenNotExpired();
-  // }
+  checkRole(role: 'Admin' | 'Standard'): Observable<boolean> {
+    return this.userServices.user$.pipe(
+      switchMap((val) => {
+        console.log(val);
+        if (val.role != role) return of(false);
+        return of(true);
+      })
+    );
+  }
 
-//   get currentUser(){
-// let token = localStorage.getItem('babatoken');
-// if(!token) return null
+  getUserRoles()
+  {
+    return this.currentUser ? this.currentUser.permissions : [];
+  }
 
-
-//     return
-//   }
 }

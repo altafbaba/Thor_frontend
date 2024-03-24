@@ -10,28 +10,34 @@ import { map, Observable, switchMap, take, tap, BehaviorSubject, ReplaySubject }
 export class UserService {
   private baseUrl = environment.baseUrl;
 
-  private user: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
+  private _user: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
   // private user: BehaviorSubject<IUser> = new BehaviorSubject<IUser>(null);
   private users: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
-  private selectedUser: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
+  private _selectedUser: ReplaySubject<IUser> = new ReplaySubject<IUser>(1);
   constructor(private http: HttpClient) {}
 
-
-  /**
+/**
     *   @param value
     **/
-  set _user(value: IUser)
-  {
-     this.user.next(value);
-  }
-  set _selectedUser(value: IUser)
-  {
-     this.selectedUser.next(value);
-  }
+set user(value: IUser)
+{
+   this._user.next(value);
+}
 
-  get _selectedUser$(): Observable<IUser>{
-    return this.selectedUser.asObservable()
-  }
+get user$(): Observable<IUser> {
+  return this._user.asObservable();
+}
+
+set selectedUser(value: IUser)
+{
+   this._selectedUser.next(value);
+}
+
+get selectedUser$(): Observable<IUser>
+{
+   return this._selectedUser.asObservable();
+}
+  
 
   /**
    * getter for users
@@ -43,16 +49,6 @@ export class UserService {
   /**
    * getter for user
    */
-  get user$(): Observable<IUser> {
-    return this.user.asObservable();
-  }
-
-  
-
-
-
-
-
 
   // get user
   getUser() {
@@ -67,7 +63,7 @@ export class UserService {
   getUserById(id: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.baseUrl}/user/${id}`).pipe(
       tap((usr) => {
-        this.user.next(usr);
+        this._user.next(usr);
       })
     );
   }
@@ -97,7 +93,7 @@ export class UserService {
             const index = usr.findIndex((usrs) => usrs._id === id);
             usr[index] = updateUser;
             this.users.next(usr);
-            this.user.next(updateUser);
+            this._user.next(updateUser);
             return updateUser;
           })
         )
@@ -106,7 +102,7 @@ export class UserService {
   }
 
   clrPrevData(){
-    this.user.next(null)
+    this._user.next(null)
   }
 
 

@@ -6,20 +6,24 @@ import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createUserResolver, editUserResolver } from 'src/app/core/user/user.resolver';
+import { AdminGuard } from 'src/app/core/auth/guards/admin.guard';
 
 const uRoutes:Route[]=[
   
   {path:'',
+ 
   component:UserComponent
   
 },
 {
   path:'uForm',
+ 
   resolve:[createUserResolver],
   component:UserFormComponent
 },
 {
   path:':id',
+ 
   resolve:[editUserResolver],
   component:UserFormComponent
 }

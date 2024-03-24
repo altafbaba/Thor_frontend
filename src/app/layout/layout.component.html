@@ -1,11 +1,10 @@
 <div class="main-container">
-  <div >
+  <div>
     <mat-toolbar style="background-color: #f8bfbb">
       <button
         mat-icon-button
         class="example-icon"
         aria-label="Example icon-button with menu icon"
-     
       >
         <mat-icon matTooltip="Menu">menu</mat-icon>
       </button>
@@ -20,28 +19,25 @@
           >
         </button>
       </div>
-      <div *ngIf="let user of users">
+      <div>
         <!-- <li>{{user.uName}}</li> -->
       </div>
-      
     </mat-toolbar>
   </div>
 
   <mat-drawer-container
     class="example-container"
     style="background-color: rgb(240, 240, 240)"
-   
   >
     <mat-drawer
       opened
       #drawer
       mode="side"
       style="background-color: rgb(240, 240, 240)"
-      
     >
-      <div class="mat-btn">
-        <button mat-raised-button routerLink="dashboard" class="sideNavButton ">
-          <mat-icon class="mtIcon ">dashboard</mat-icon>
+      <div class="mat-btn" >
+        <button mat-raised-button routerLink="dashboard" class="sideNavButton">
+          <mat-icon class="mtIcon">dashboard</mat-icon>
           Dashborad
         </button>
         <button
@@ -85,6 +81,8 @@
           color="accent"
           routerLink="user"
           class="sideNavButton"
+          *ngIf="checkRole('Admin')"
+         
         >
           <mat-icon class="mtIcon">person_add</mat-icon>
           User
