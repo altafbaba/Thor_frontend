@@ -1,29 +1,11 @@
-
-table {
-  width: 100%;
+.example-radio-group {
+  display: flex;
+  // flex-direction: column;
+  margin: 15px ;
+  // align-items: flex-start;
+  justify-content: space-between;
 }
 
-td,
-th {
-  width: 15%;
-  font-family: poppins !important;
-}
-
-.mtIcon{
-  color:#B54941;
-}
-
-.fontP {
-  font-family: Poppins;
-}
-
-.btn {
-  color: #b54941;
-  font-family: poppins;
-  background-color: #f8bfbb;
-}
-
-mat-form-field {
-  font-size: 12px;
-  font-family: poppins !important;
+.example-radio-button {
+  margin: 5px;
 }

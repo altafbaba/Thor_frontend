@@ -1,0 +1,93 @@
+<div [formGroup]="rData" class="m-4" >
+  
+  
+    <mat-form-field appearance="outline" style="font-family: poppins; width: 28%;margin-right: 8%">
+      <mat-label >Vehical Number</mat-label>
+      <mat-select formControlName="vNumber">
+        <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vNumber" class="fontP" >
+          {{vehicle.vNumber}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Start a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="sDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>end a date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="eDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  
+    <button mat-raised-button class="btn" (click)="search()">
+      <!-- <mat-icon class="mtIcon">add_circle</mat-icon> -->
+      Search
+    </button>
+  <button (click)="createPDF()">createPDF</button>
+
+  <button (click)="exportToExcelMaintenance()">excel</button>
+     <div class="tablebor">
+      <table mat-table [dataSource]="filterReports" matSort id="my-table">
+        
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+        </ng-container>
+  
+        
+        <ng-container matColumnDef="vNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Vehical Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.vNumber }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="mPart">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Maintenance Part
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.mPart }}</td>
+        </ng-container>
+  
+       
+        <ng-container matColumnDef="maintenanceType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Maintenance Type
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.maintenanceType }}</td>
+        </ng-container>
+        <ng-container matColumnDef="garageName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Garage Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.garageName }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="vDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Service Date</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.mDate | date : "dd/MMM/YYYY" }}
+          </td>
+        </ng-container>
+  
+      
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  
+  <!--      
+        <tr class="mat-row" *matNoDataRow>
+           <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr> -->
+      </table> 
+  
+       <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div> 
+  </div>
+  
