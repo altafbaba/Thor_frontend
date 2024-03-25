@@ -6,6 +6,7 @@ import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateInsuranceResolver, editInsuranceResolver } from 'src/app/core/insurance/insurance.resolver';
+import { RenewComponent } from './renew/renew.component';
 
 const iRoute : Route[]=[
   {path:"",
@@ -27,7 +28,8 @@ const iRoute : Route[]=[
 @NgModule({
   declarations: [
     InsuranceComponent,
-    InsuranceFormComponent
+    InsuranceFormComponent,
+    RenewComponent
   ],
   imports: [
     CommonModule,RouterModule.forChild(iRoute),SharedModule,FormsModule,ReactiveFormsModule

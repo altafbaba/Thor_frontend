@@ -18,7 +18,7 @@ export class MaintenanceCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.MaintenanceServices.getDetailsmaintenance(this.data.vNumber).subscribe((res) => {
+    this.MaintenanceServices.getMaintenanceDetails(this.data.vNumber).subscribe((res) => {
       this.MaintenanceData = res;
       console.log(this.MaintenanceData);
     });

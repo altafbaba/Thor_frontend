@@ -95,7 +95,7 @@ export class FuelFormComponent implements OnInit {
   }
 
   save() {
-    this.fForm.value.markAllAsTouched();
+    // this.fForm.value.markAllAsTouched();
     if (this.fForm.invalid) return;
 
     //update fuel

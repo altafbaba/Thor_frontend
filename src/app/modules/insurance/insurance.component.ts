@@ -5,14 +5,15 @@ import { MatSort } from '@angular/material/sort';
 import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { InsuranceService } from 'src/app/core/insurance/insurance.service';
 import { IInsurance } from 'src/app/core/insurance/insurance.type';
+import { InsuranceFormComponent } from './insurance-form/insurance-form.component';
+import { RenewComponent } from './renew/renew.component';
 
 @Component({
   selector: 'app-insurance',
   templateUrl: './insurance.component.html',
-  styleUrls: ['./insurance.component.scss']
+  styleUrls: ['./insurance.component.scss'],
 })
 export class InsuranceComponent implements OnInit {
-
   displayedColumns: string[] = [
     'id',
     'iName',
@@ -24,8 +25,6 @@ export class InsuranceComponent implements OnInit {
     'renew',
     'edit',
     'delete',
-    
-    
   ];
 
   dataSource: MatTableDataSource<IInsurance> = new MatTableDataSource([]);
@@ -33,10 +32,12 @@ export class InsuranceComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private insuranceServices:InsuranceService) { }
+  constructor(
+    public dialog: MatDialog,
+    private insuranceServices: InsuranceService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -44,13 +45,9 @@ export class InsuranceComponent implements OnInit {
 
     //get Insurance
     this.insuranceServices.getInsurance().subscribe();
-    this.insuranceServices.insurances$.subscribe((ince)=>{
-      this.dataSource.data= ince
-
-      
-      
-    })
-
+    this.insuranceServices.insurances$.subscribe((ince) => {
+      this.dataSource.data = ince;
+    });
   }
 
   displayFn(value: any) {
@@ -66,4 +63,7 @@ export class InsuranceComponent implements OnInit {
     }
   }
 
+  openDetails(row: any) {
+    this.dialog.open(RenewComponent, { data: row });
+  }
 }

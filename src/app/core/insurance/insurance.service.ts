@@ -51,15 +51,16 @@ export class InsuranceService {
     );
   }
 
+  
   //create insurance
   createInsurance(insurance: string): Observable<IInsurance> {
     return this.insurances$.pipe(
       take(1),
-      switchMap((ince) =>
+      switchMap((insu) =>
         this.http.post(this.baseUrl + '/insurance', insurance).pipe(
-          map((newInce: any) => {
-            this.insurances.next([...ince, newInce]);
-            return newInce;
+          map((newInsu: any) => {
+            this.insurances.next([...insu, newInsu]);
+            return newInsu;
           })
         )
       )
@@ -85,6 +86,10 @@ export class InsuranceService {
       )
     );
   }
+
+
+ 
+ 
 
 
   clrPrevData(){

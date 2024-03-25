@@ -71,13 +71,7 @@ this.insuranceServices.insurance$.subscribe((inc)=>{
     //create
     else {
       this.insuranceServices.createInsurance(this.iForm.value).subscribe({
-        error: (err) => {
-          this.snackBar.open(err.message, 'close')._dismissAfter(3000);
-        },
-        next: (res) => {
-          this.snackBar.open('Insurance Created', 'close')._dismissAfter(3000);
-          this.router.navigateByUrl('/insurance');
-        },
+       
       });
     }
   }

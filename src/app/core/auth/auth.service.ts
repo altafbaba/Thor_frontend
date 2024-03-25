@@ -11,19 +11,15 @@ import { IPermissions, IUser } from '../user/user.type';
   providedIn: 'root',
 })
 export class AuthService {
- 
   private baseUrl = environment.baseUrl;
   private authenticated: boolean = false;
 
   private currentUser: IUser | undefined = {
-    "_id": "65fd53ca16c2012bd77cf896",
-    "uName": "altaf",
-    "role":"Admin",
-    "permissions": [
-      IPermissions.Admin
-    ]
+    _id: '65fd53ca16c2012bd77cf896',
+    uName: 'altaf',
+    role: 'Admin',
+    permissions: [IPermissions.Admin],
   };
-
 
   constructor(
     private http: HttpClient,
@@ -31,12 +27,10 @@ export class AuthService {
     private userServices: UserService
   ) {}
 
-
-  get user()
-  {
+  get user() {
     return this.currentUser;
   }
-  
+
   storeAccessToken(babatoken: string) {
     localStorage.setItem('babatoken', babatoken);
   }
@@ -60,31 +54,27 @@ export class AuthService {
   //   );
   // }
 
-  signin(credential: any){
+  signin(credential: any) {
     let url = `${this.baseUrl}/login`;
 
     return this.http.post(url, credential).pipe(
-      tap((x:any)=>{
-        this.storeAccessToken(x.Authorization)
+      tap((x: any) => {
+        this.storeAccessToken(x.babatoken);
         this.currentUser = x.user;
       })
-    )
-
+    );
   }
 
-  
-
-  signinUsingToken(){
+  signinUsingToken() {
     let url = `${this.baseUrl}/login/signToken`;
 
-    return this.http.post(url,{}).pipe(
-      tap((x:any)=>{
-        this.storeAccessToken(x.Authorization)
+    return this.http.post(url, {}).pipe(
+      tap((x: any) => {
+        this.storeAccessToken(x.babatoken);
         this.currentUser = x.user;
       })
-    )
+    );
   }
-
 
   // statusCheck(): Observable<boolean> {
   //   if (this.authenticated) {
@@ -124,9 +114,7 @@ export class AuthService {
     );
   }
 
-  getUserRoles()
-  {
+  getUserRoles() {
     return this.currentUser ? this.currentUser.permissions : [];
   }
-
 }
