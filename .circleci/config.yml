@@ -6,8 +6,7 @@ orbs:
 executors:
   docker-publisher:
     environment:
-      FLASK_IMAGE: docker.io/altafma/flask-app
-      EXPRESS_IMAGE: docker.io/altafma/express-app
+      Thor_frontend: docker.io/altafmansuri/thor_frontend
     docker:
       - image: circleci/node:latest
         auth:
@@ -25,24 +24,6 @@ jobs:
           command: |
             echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
-      - run:
-          name: Build and Push Flask Image
-          command: |
-            docker build -t $FLASK_IMAGE flask-app/
-            docker tag $FLASK_IMAGE $FLASK_IMAGE:latest
-            docker push $FLASK_IMAGE:latest
-
-      - run:
-          name: Build and Push Express Image
-          command: |
-            docker build -t $EXPRESS_IMAGE express-app/
-            docker tag $EXPRESS_IMAGE $EXPRESS_IMAGE:latest
-            docker push $EXPRESS_IMAGE:latest
-
-      - run:
-          name: Trigger Jenkins Job
-          command: |
-            curl -X POST "http://13.235.91.130:8080/job/My_app/build?token=jenkins-trigger-token"
 
 workflows:
   version: 2
